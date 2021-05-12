@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf8' />
+		<title>
+			XLIDE - your friendly slider 
+		</title>
+		<script src='xlidejs.js'>
+		</script>
+		<link rel='stylesheet' href='xlidejs.css'/>
+	</head>
+	<body>
+		<style>
+			#toSlide{
+				width:100%;
+				height:350px;
+			}
+		</style>
+		<span id='toSlide'> 
+            <span  style='background:red'>
+            </span>
+            <span  style='background:blue'>
+            </span>
+            <span  style='background:gray'>
+            </span>
+            <span  style='background:green'>
+            </span>
+		</span>
+		<script>
+			const slide  = xlider.xSlide(document.querySelector("#toSlide"),{width:"800px"})
+			slide.simpleSlide(1000)
+		</script>
+	</body>
+</html>
