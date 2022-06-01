@@ -1,0 +1,79 @@
+@keyframes toRight{
+    from{
+        transform: translateX(var(--slided-right));
+    }
+    to{
+        transform: translateX(var(--toslide-right));
+    }
+}
+@keyframes toLeft{
+    from{
+        transform: translateX(var(--slided-left));
+    }
+    to{
+        transform: translateX(-var(--toslide-left));
+    }
+}
+:root{
+    --slided-right:0%;
+    --toslide-right:100%;
+    --slided-left:0%;
+    --toslide-left:-100%;
+    --slided-top:0%;
+    --toslide-top:-100%;
+    --slided-bottom:0%;
+    --toslide-bottom:100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+#someSlide{
+    display: flex;
+    flex-direction: row;
+    width: 96%;
+    margin: 0;
+    padding: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 50vh;
+}
+.red{
+    background: red;
+}
+.green{
+    background: green;
+}
+.magenta{
+    background: magenta;
+}
+.yellow{
+    background: yellow;
+}
+.silver{
+    background: silver;
+}
+.slide{
+    background: red;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.slide .slide-elem{
+    width: 100%;
+    height: 100%;
+}
+.slide.toRight{
+    animation: toRight 1.5s 1;
+    transform: translateX(var(--toslide-right));
+}
+.slide.toLeft{
+    animation: toLeft 1.5s 1;
+    transform: translateX(var(--toslide-left));
+}
