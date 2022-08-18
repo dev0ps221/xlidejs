@@ -150,6 +150,10 @@
                     (elem,idx)=>{
                         const elemctrl = document.createElement('span')
                         elemctrl.classList.add('ctrl')
+                        elemctrl.addEventListener('click',e=>{
+                            showElem(elems,idx)
+                        })
+                        ctrls.appendChild(elemctrl)
                     }
                 )
                 slide.appendChild(ctrls)
