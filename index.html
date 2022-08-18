@@ -36,12 +36,36 @@
                 transform: none;
             }
         }
+        @keyframes rotate {
+            from{
+                opacity: 0;
+                width: 5%;
+                transform: rotateZ(-95deg);
+            }
+            80%{
+                width: 70%;
+            }
+            to{
+                opacity: 1;
+                width: 100%;
+                transform: none;
+            }
+        }
+        @keyframes fromLeft {
+            from{
+                transform: translateX(-100%);
+            }
+            to{
+                transform: none;
+            }
+        }
         .x-lide{
             display: flex;
             flex-direction: column;
-            margin: 0;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
             padding: 0;
-            height: 75vh;
+            height: 90vh;
         }
         .x-lide-list{
             display: flex;
@@ -58,7 +82,21 @@
             animation: fadeoff 1.5s 1;
         }
         .x-lide-list > *.visible{
-            animation: fromTop 1.5s 1;
+            animation: fromLeft 2.5s 1;
+            display: flex;
+            transition: 1.5s;
+            min-width: 100%;
+            max-height: 100%;
+        }
+        .x-lide-list > *.visible:nth-child(odd){
+            animation: rotate 1.5s 1;
+            display: flex;
+            transition: 1.5s;
+            min-width: 100%;
+            max-height: 100%;
+        }
+        .x-lide-list > *.visible:nth-child(3){
+            animation: fade 2.5s 1;
             display: flex;
             transition: 1.5s;
             min-width: 100%;
@@ -94,6 +132,8 @@
         
         slides.forEach(
             slide=>{
+                const ctrls = document.createElement('div')
+                slides.appendChild(ctrls)
                 function showElem(elems,idx){
                     const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
                     if(lastelem.querySelector('img')){
