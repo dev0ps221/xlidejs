@@ -123,6 +123,11 @@
             justify-content: center;
             text-align: center;
         }
+        @media screen and (max-width:997px) {
+            .x-lide{
+                height: 45vh;
+            }
+        }
     </style>
     <section class="x-lide">
         <div class='x-lide-list'>
@@ -145,7 +150,8 @@
     </section>
     <script>
         const slides = document.querySelectorAll('.x-lide')
-        showSlides(slides){
+
+        function showSlides(slides){
 
             slides.forEach(
                 slide=>{
