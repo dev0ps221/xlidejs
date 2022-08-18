@@ -113,7 +113,12 @@
             background: black;
             justify-content: center;
         }
-        
+        .x-lide .ctrls .ctrl{
+            display: flex;
+            width: 2.5%;
+            border-radius: 6em;
+            background: wheat;
+        }
     </style>
     <section class="x-lide">
         <div class='x-lide-list'>
@@ -145,12 +150,14 @@
                 let interv = 3000
                 
                 const ctrls = document.createElement('div')
+                let actualTimeOut = null 
                 ctrls.classList.add('ctrls')
                 elems.forEach(
                     (elem,idx)=>{
                         const elemctrl = document.createElement('span')
                         elemctrl.classList.add('ctrl')
                         elemctrl.addEventListener('click',e=>{
+                            clearTimeout(actualTimeOut)
                             showElem(elems,idx)
                         })
                         ctrls.appendChild(elemctrl)
@@ -174,7 +181,7 @@
                     lastelem.classList.remove('visible')
                     idx++
                     if(idx >= elems.length) idx = 0
-                    setTimeout(xslide,interv,elems,idx) 
+                    actualTimeOut = setTimeout(xslide,interv,elems,idx) 
                 }
                 function xslide(elems,idx){
                     showElem(elems,idx)
