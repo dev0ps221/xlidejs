@@ -59,21 +59,29 @@
             slide=>{
                 function showElem(elems,idx){
                     const elem = elems[idx]
-                    (elem,idx)=>{
-                        if(idx==pos)elem.classList.remove('visible')
-                    }
+                    elems.forEach(
+                        (lm,i)=>{
+                            console.log(i)
+                            console.log(idx)
+                            console.log(elems.length)
+                            console.log(elems)
+                            if(i!=idx && i!=idx-1)lm.classList.remove('visible')
+                        }
+                    )
                     elem.classList.add('visible')    
-
-                    if(idx!=elem)elem.classList.remove('visible')
+                    const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
+                    lastelem.classList.remove('visible')
+                    
+                    idx++
+                    if(idx >= elems.length) idx = 0
+                    setTimeout(xslide,interv,elems,idx) 
                 }
                 const list = slide.querySelector('.x-lide-list')
-                const elems = list.querySelectorAll('*')
+                const elems = Array.from(list.children)
                 let idx = 0
                 let interv = 3000
                 function xslide(elems,idx){
                     showElem(elems,idx)
-                    if(idx >= elems.length) idx = 0
-                    setTimeout(xslide,interv,elems,idx)
                 }
                 setTimeout(xslide,interv,elems,idx)
                 
