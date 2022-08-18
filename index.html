@@ -127,6 +127,20 @@
             .x-lide{
                 height: 45vh;
             }
+
+            .x-lide-list{
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+                width:100%;
+                height: 85%;
+            }
+            .x-lide .ctrls{
+                display: flex;
+                height: 15%;
+                background: black;
+                justify-content: center;
+            }
         }
     </style>
     <section class="x-lide">
@@ -151,58 +165,74 @@
     <script>
         const slides = document.querySelectorAll('.x-lide')
 
-        function showSlides(slides){
 
-            slides.forEach(
-                slide=>{
-                    const list = slide.querySelector('.x-lide-list')
-                    const elems = Array.from(list.children)
-                    let idx = 0
-                    let interv = 3000
-                    
-                    const ctrls = document.createElement('div')
-                    let actualTimeOut = null 
-                    ctrls.classList.add('ctrls')
-                    elems.forEach(
-                        (elem,idx)=>{
-                            const elemctrl = document.createElement('span')
-                            elemctrl.classList.add('ctrl')
-                            elemctrl.innerHTML = idx+1
-                            elemctrl.addEventListener('click',e=>{
-                                clearTimeout(actualTimeOut)
-                                showElem(elems,idx)
-                            })
-                            ctrls.appendChild(elemctrl)
-                        }
-                    )
-                    slide.appendChild(ctrls)
-                    function showElem(elems,idx){
-                        const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
-                        if(lastelem.querySelector('img')){
-                            list.style.background = `url(${lastelem.querySelector('img').src})`
-                            list.style.backgroundSize = '100% 100%'
-                        }
-                        elems.forEach(
-                            (lm,i)=>{
-                                if(i!=idx && i!=idx-1)lm.classList.remove('visible')
-                                else{
-                                    lm.classList.add('visible')
-                                }
-                            }
-                        )
-                        lastelem.classList.remove('visible')
-                        idx++
-                        if(idx >= elems.length) idx = 0
-                        actualTimeOut = setTimeout(xslide,interv,elems,idx) 
-                    }
-                    function xslide(elems,idx){
+        function createSlide(pics=[]){
+            const xlidelist = document.createElement()
+            pics.forEach(
+                pic=>{
+                    const picture_container = document.createElement('div')
+                    const picture = document.createElement('img')
+                    picture.src = pic
+
+                }
+            )
+
+        }
+
+        function showSlide(slide){
+            const list = slide.querySelector('.x-lide-list')
+            const elems = Array.from(list.children)
+            let idx = 0
+            let interv = 3000
+            
+            const ctrls = document.createElement('div')
+            let actualTimeOut = null 
+            ctrls.classList.add('ctrls')
+            elems.forEach(
+                (elem,idx)=>{
+                    const elemctrl = document.createElement('span')
+                    elemctrl.classList.add('ctrl')
+                    elemctrl.innerHTML = idx+1
+                    elemctrl.addEventListener('click',e=>{
+                        clearTimeout(actualTimeOut)
                         showElem(elems,idx)
+                    })
+                    ctrls.appendChild(elemctrl)
+                }
+            )
+            slide.appendChild(ctrls)
+            function showElem(elems,idx){
+                const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
+                if(lastelem.querySelector('img')){
+                    list.style.background = `url(${lastelem.querySelector('img').src})`
+                    list.style.backgroundSize = '100% 100%'
+                }
+                elems.forEach(
+                    (lm,i)=>{
+                        if(i!=idx && i!=idx-1)lm.classList.remove('visible')
+                        else{
+                            lm.classList.add('visible')
+                        }
                     }
-                    showElem(elems,idx)
-                    
-                }    
+                )
+                lastelem.classList.remove('visible')
+                idx++
+                if(idx >= elems.length) idx = 0
+                actualTimeOut = setTimeout(xslide,interv,elems,idx) 
+            }
+            function xslide(elems,idx){
+                showElem(elems,idx)
+            }
+            showElem(elems,idx)
+            
+        }    
+
+        function showSlides(slides){
+            slides.forEach(
+                showSlide
             )
         }
+        showSlides(slides)
     </script>
 </body>
 </html>
