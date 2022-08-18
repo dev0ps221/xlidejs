@@ -27,6 +27,14 @@
         transform: none;
     }
 }
+@keyframes fromBottom {
+    from{
+        transform: translateY(100%);
+    }
+    to{
+        transform: none;
+    }
+}
 @keyframes rotate {
     from{
         opacity: 0;
@@ -114,8 +122,11 @@
     justify-content: center;
     text-align: center;
 }
-.x-lide .x-lide-list > *.visible.vertical{
+.x-lide.vertical .x-lide-list > *.visible{
     animation: fromTop 2.5s 1;
+}
+.x-lide.vertical-reversed .x-lide-list > *.visible{
+    animation: fromBottom 2.5s 1;
 }
 @media screen and (max-width:997px) {
     .x-lide{
