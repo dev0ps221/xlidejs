@@ -166,8 +166,11 @@
         const slides = document.querySelectorAll('.x-lide')
 
 
-        function createSlide(pics=[]){
-            const xlidelist = document.createElement()
+        function createSlide(xlide,pics=[]){
+            xlide.classList.add('x-lide')
+            const xlidelist = document.createElement('div')
+            xlidelist.classList.add('x-lide-list')
+            xlide.appendChild(xlidelist)
             pics.forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
