@@ -41,7 +41,7 @@
             flex-direction: column;
             margin: 0;
             padding: 0;
-            height: 35vh;
+            height: 75vh;
         }
         .x-lide-list{
             display: flex;
@@ -49,7 +49,6 @@
             overflow: hidden;
             width:100%;
             height: 100%;
-            height: 35vh;
         }
         .x-lide-list > *{
             display: none;
@@ -98,10 +97,9 @@
                     const elem = elems[idx]
                     elems.forEach(
                         (lm,i)=>{
-                            console.log(i)
-                            console.log(idx)
+                            console.log(i,'==',idx)
                             console.log(elems.length)
-                            console.log(elems)
+                            console.log('xxx')
                             if(i!=idx && i!=idx-1)lm.classList.remove('visible')
                         }
                     )
