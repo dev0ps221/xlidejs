@@ -194,11 +194,10 @@
             )
         }
 
-        function showSlide(slide){
+        function showSlide(slide,interv=3000){
             const list = slide.querySelector('.x-lide-list')
             const elems = Array.from(list.children)
             let idx = 0
-            let interv = 3000
             
             const ctrls = document.createElement('div')
             let actualTimeOut = null 
@@ -242,13 +241,13 @@
             
         }    
 
-        function showSlides(){
+        function showSlides(interv=3000){
             getSlides().forEach(
-                showSlide
+                slide=>showSlide(slide,interv)
             )
         }
         createSlide('.x-lide','xlide',['1.png','2.png','3.png','4.png','5.png'])
-        showSlides()
+        showSlides(5000)
     </script>
 </body>
 </html>
