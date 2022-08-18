@@ -151,23 +151,23 @@
 
         function createSlide(xlide,name='',pics=[]){
             xlide = document.querySelector(xlide)
-            if(xlide){
-            }
-            xlide.classList.add('x-lide')
-            const xlidelist = document.createElement('div')
-            xlidelist.classList.add('x-lide-list')
-            xlide.appendChild(xlidelist)
-            pics.forEach(
-                pic=>{
-                    const picture_container = document.createElement('div')
-                    const picture = document.createElement('img')
-                    picture.src = pic
-                    picture_container.appendChild(picture)
-                    xlidelist.appendChild(picture)
-                }
-            )
             name = name?name:'slide'+slides.length
-            slides.push([xlide,name])
+            if(xlide){
+                xlide.classList.add('x-lide')
+                const xlidelist = document.createElement('div')
+                xlidelist.classList.add('x-lide-list')
+                xlide.appendChild(xlidelist)
+                pics.forEach(
+                    pic=>{
+                        const picture_container = document.createElement('div')
+                        const picture = document.createElement('img')
+                        picture.src = pic
+                        picture_container.appendChild(picture)
+                        xlidelist.appendChild(picture_container)
+                    }
+                )
+                slides.push([xlide,name])
+            }
             return name
 
         }
@@ -247,7 +247,7 @@
                 showSlide
             )
         }
-        createSlide('.x-lide','xlide',['1.png','2.png'])
+        createSlide('.x-lide','xlide',['1.png','2.png','3.png','4.png','5.png'])
         showSlides()
     </script>
 </body>
