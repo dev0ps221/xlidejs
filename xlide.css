@@ -114,6 +114,9 @@
     justify-content: center;
     text-align: center;
 }
+.x-lide .x-lide-list > *.visible.vertical{
+    animation: fromTop 2.5s 1;
+}
 @media screen and (max-width:997px) {
     .x-lide{
         height: 45vh;
