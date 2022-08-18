@@ -25,31 +25,30 @@
         }
         .x-lide-list > *{
             display: none;
-            width: 0;
-            height: 100%;
             background: red;
-            transition: 0.5s;
         }
         .x-lide-list > *.visible{
             display: flex;
             width: 100%;
             height: 100%;
-            transition: 1.5s;
         }
     </style>
     <section class="x-lide">
         <div class='x-lide-list'>
             <div>
-                ok
-            </div>
-            <div class='visible'>
-                ok
+                <img src="1.png" alt="1">
             </div>
             <div>
-                ok
+                <img src="2.png" alt="1">
             </div>
             <div>
-                ok
+                <img src="3.png" alt="1">
+            </div>
+            <div>
+                <img src="4.png" alt="1">
+            </div>
+            <div>
+                <img src="5.png" alt="1">
             </div>
         </div>
     </section>
@@ -58,28 +57,34 @@
         
         slides.forEach(
             slide=>{
-                function hideElems(elems){
+                function hideElems(elems,except){
                     elems.forEach(
-                        elem=>{
-                            elem.classList.remove('visible')
+                        (elem,idx)=>{
+                            if(idx!=elem)elem.classList.remove('visible')
                         }
                     )
                 }
-                function showElem(elem){
+                function hideElem(pos){
+                    elems.forEach(
+                        (elem,idx)=>{
+                            if(idx==pos)elem.classList.remove('visible')
+                        }
+                    )
+                }
+                function showElem(elems){
                     elem.classList.add('visible')    
                 }
                 const list = slide.querySelector('.x-lide-list')
                 const elems = list.querySelectorAll('*')
                 let idx = 0
-                let interv = 2000
-                function slide(elems,idx){
-                    const elem = elems[idx]
-                    hideElems(elems)
-                    showElem(elem)
+                let interv = 3000
+                function xslide(elems,idx){
+                    showElem(elems,idx)
+                    if(idx >= elems.length) idx = 0
+                    setTimeout(xslide,interv,elems,idx)
                 }
-                while(idx<elems.length){
-                    setTimeout(slide,interv,elems,idx)
-                }
+                setTimeout(xslide,interv,elems,idx)
+                
 
             }    
         )
