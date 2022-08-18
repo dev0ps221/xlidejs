@@ -17,7 +17,10 @@
     </section>
     <script src="xlide.js"></script>
     <script>
-        createSlide('#slide-one','xlide',['1.png','2.png','3.png','4.png','5.png'])
+        let slidelist = []
+        slidelist.push(['#slide-one','xlide',['1.png','2.png','3.png','4.png','5.png']])
+        slidelist.push(['#slide-two','xlide',['2.png','1.png','5.png','3.png','4.png']])
+        createSlides(slidelist)
         showSlides(5000)
     </script>
 </body>
