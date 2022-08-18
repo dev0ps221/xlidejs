@@ -58,7 +58,7 @@
             animation: fadeoff 1.5s 1;
         }
         .x-lide-list > *.visible{
-            animation: fade 1.5s 1;
+            animation: fromTop 1.5s 1;
             display: flex;
             transition: 1.5s;
             min-width: 100%;
@@ -96,8 +96,9 @@
             slide=>{
                 function showElem(elems,idx){
                     const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
-                    if(){
-                        list.style.background = lastelem.querySelector('img')
+                    if(lastelem.querySelector('img')){
+                        list.style.background = `url(${lastelem.querySelector('img').src})`
+                        list.style.backgroundSize = '100% 100%'
                     }
                     elems.forEach(
                         (lm,i)=>{
