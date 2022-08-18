@@ -28,6 +28,14 @@
                 opacity: 0;
             }
         }
+        @keyframes fromTop {
+            from{
+                transform: translateY(-100%);
+            }
+            to{
+                transform: none;
+            }
+        }
         .x-lide{
             display: flex;
             flex-direction: column;
@@ -46,10 +54,11 @@
         .x-lide-list > *{
             display: none;
             transition: 1.5s;
+            width: 100%;
             animation: fadeoff 1.5s 1;
         }
         .x-lide-list > *.visible{
-            animation: fade 1.5s 1;
+            animation: fromTop 1.5s 1;
             display: flex;
             transition: 1.5s;
             min-width: 100%;
