@@ -136,12 +136,27 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-around;
     margin: 0;
     padding: 0;
 }
+
 .x-lide-full-row > *{
     width: 100%;
+}
+.x-lide-full-column > *{
+    height:  100%;
+}
+.x-lide-column{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.x-lide-full-column{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 @media screen and (max-width:997px) {
     .x-lide{
