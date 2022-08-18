@@ -24,6 +24,11 @@ function createSlide(xlide,name='',pics=[]){
     return name
 
 }
+function createSlides(slides){
+    slides.forEach(
+        slide=>createSlide(...slide)
+    )
+}
 
 function registerSlide(selector,name){
     if(document.querySelector(selector))_x_lides.push([document.querySelector(selector),name])

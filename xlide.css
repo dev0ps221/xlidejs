@@ -1,0 +1,135 @@
+
+@keyframes fade {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeoff {
+    from{
+        display: flex;
+        width: 0;
+        opacity: 1;
+    }
+    to{
+        display: none;
+        width: 0;
+        opacity: 0;
+    }
+}
+@keyframes fromTop {
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: none;
+    }
+}
+@keyframes rotate {
+    from{
+        opacity: 0;
+        width: 5%;
+        transform: rotateZ(-95deg);
+    }
+    80%{
+        width: 70%;
+    }
+    to{
+        opacity: 1;
+        width: 100%;
+        transform: none;
+    }
+}
+@keyframes fromLeft {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: none;
+    }
+}
+.x-lide{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding: 0;
+    height: 90vh;
+}
+.x-lide-list{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width:100%;
+    height: 95%;
+}
+.x-lide-list > *{
+    display: none;
+    transition: 1.5s;
+    width: 100%;
+    height: 100%;
+    animation: fadeoff 1.5s 1;
+}
+.x-lide-list > *.visible{
+    animation: fromLeft 2.5s 1;
+    display: flex;
+    transition: 1.5s;
+    min-width: 100%;
+    max-height: 100%;
+}
+.x-lide-list > *.visible:nth-child(odd){
+    animation: rotate 1.5s 1;
+    display: flex;
+    transition: 1.5s;
+    min-width: 100%;
+    max-height: 100%;
+}
+.x-lide-list > *.visible:nth-child(3){
+    animation: fade 2.5s 1;
+    display: flex;
+    transition: 1.5s;
+    min-width: 100%;
+    max-height: 100%;
+}
+.x-lide-list img{
+    display: flex;
+    min-width: 100%;
+    max-height: 100%;
+}
+.x-lide .ctrls{
+    display: flex;
+    height: 5%;
+    background: black;
+    justify-content: center;
+}
+.x-lide .ctrls .ctrl{
+    display: flex;
+    flex-direction: column;
+    width: 2.5%;
+    border-radius: 6em;
+    background: wheat;
+    color: black;
+    justify-content: center;
+    text-align: center;
+}
+@media screen and (max-width:997px) {
+    .x-lide{
+        height: 45vh;
+    }
+
+    .x-lide-list{
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        width:100%;
+        height: 85%;
+    }
+    .x-lide .ctrls{
+        display: flex;
+        height: 15%;
+        background: black;
+        justify-content: center;
+    }
+}
