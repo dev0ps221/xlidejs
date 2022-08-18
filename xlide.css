@@ -128,6 +128,21 @@
 .x-lide.vertical-reversed .x-lide-list > *.visible{
     animation: fromBottom 2.5s 1;
 }
+.x-lide-row{
+    display: flex;
+    flex-direction: row;
+}
+.x-lide-full-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+.x-lide-full-row > *{
+    width: 100%;
+}
 @media screen and (max-width:997px) {
     .x-lide{
         height: 45vh;
