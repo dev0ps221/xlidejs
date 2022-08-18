@@ -144,29 +144,15 @@
         }
     </style>
     <section class="x-lide">
-        <div class='x-lide-list'>
-            <div class="visible">
-                <img src="1.png" alt="1">
-            </div>
-            <div>
-                <img src="2.png" alt="1">
-            </div>
-            <div>
-                <img src="3.png" alt="1">
-            </div>
-            <div>
-                <img src="4.png" alt="1">
-            </div>
-            <div>
-                <img src="5.png" alt="1">
-            </div>
-        </div>
     </section>
     <script>
         const slides = []
 
 
         function createSlide(xlide,name='',pics=[]){
+            xlide = document.querySelector(xlide)
+            if(xlide){
+            }
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
             xlidelist.classList.add('x-lide-list')
@@ -256,12 +242,13 @@
             
         }    
 
-        function showSlides(slides){
+        function showSlides(){
             getSlides().forEach(
-                slide=>showSlide(slide[0])
+                showSlide
             )
         }
-        showSlides(slides)
+        createSlide('.x-lide','xlide',['1.png','2.png'])
+        showSlides()
     </script>
 </body>
 </html>
