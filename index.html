@@ -71,7 +71,7 @@
     </style>
     <section class="x-lide">
         <div class='x-lide-list'>
-            <div class="actual">
+            <div class="visible">
                 <img src="1.png" alt="1">
             </div>
             <div>
@@ -94,16 +94,14 @@
         slides.forEach(
             slide=>{
                 function showElem(elems,idx){
-                    const elem = elems[idx]
                     elems.forEach(
                         (lm,i)=>{
-                            console.log(i,'==',idx)
-                            console.log(elems.length)
-                            console.log('xxx')
                             if(i!=idx && i!=idx-1)lm.classList.remove('visible')
+                            else{
+                                lm.classList.add('visible')
+                            }
                         }
                     )
-                    elem.classList.add('visible')    
                     const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
                     lastelem.classList.remove('visible')
                     
