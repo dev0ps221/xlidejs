@@ -163,10 +163,10 @@
         </div>
     </section>
     <script>
-        const slides = document.querySelectorAll('.x-lide')
+        const slides = []
 
 
-        function createSlide(xlide,pics=[]){
+        function createSlide(xlide,name='',pics=[]){
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
             xlidelist.classList.add('x-lide-list')
@@ -176,10 +176,36 @@
                     const picture_container = document.createElement('div')
                     const picture = document.createElement('img')
                     picture.src = pic
-
+                    picture_container.appendChild(picture)
+                    xlidelist.appendChild(picture)
                 }
             )
+            name = name?name:'slide'+slides.length
+            slides.push([xlide,name])
+            return name
 
+        }
+
+        function registerSlide(selector,name){
+            if(document.querySelector(selector))slides.push([document.querySelector(selector),name])
+        }
+
+        function getSlide(name){
+            const ret = null
+            slides.forEach(
+                slide=>{
+                    if(slide[1]==name){
+                        ret = slide[0]
+                    }
+                }
+            )
+            return ret
+        }
+
+        function getSlides(){
+            return Array.from(
+                slides.map(slide=>slide[0])
+            )
         }
 
         function showSlide(slide){
@@ -231,8 +257,8 @@
         }    
 
         function showSlides(slides){
-            slides.forEach(
-                showSlide
+            getSlides().forEach(
+                slide=>showSlide(slide[0])
             )
         }
         showSlides(slides)
