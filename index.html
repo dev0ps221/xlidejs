@@ -57,22 +57,14 @@
         
         slides.forEach(
             slide=>{
-                function hideElems(elems,except){
-                    elems.forEach(
-                        (elem,idx)=>{
-                            if(idx!=elem)elem.classList.remove('visible')
-                        }
-                    )
-                }
-                function hideElem(pos){
-                    elems.forEach(
-                        (elem,idx)=>{
-                            if(idx==pos)elem.classList.remove('visible')
-                        }
-                    )
-                }
-                function showElem(elems){
+                function showElem(elems,idx){
+                    const elem = elems[idx]
+                    (elem,idx)=>{
+                        if(idx==pos)elem.classList.remove('visible')
+                    }
                     elem.classList.add('visible')    
+
+                    if(idx!=elem)elem.classList.remove('visible')
                 }
                 const list = slide.querySelector('.x-lide-list')
                 const elems = list.querySelectorAll('*')
