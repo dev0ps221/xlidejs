@@ -54,10 +54,11 @@
             display: none;
             transition: 1.5s;
             width: 100%;
+            height: 100%;
             animation: fadeoff 1.5s 1;
         }
         .x-lide-list > *.visible{
-            animation: fromTop 1.5s 1;
+            animation: fade 1.5s 1;
             display: flex;
             transition: 1.5s;
             min-width: 100%;
@@ -94,6 +95,10 @@
         slides.forEach(
             slide=>{
                 function showElem(elems,idx){
+                    const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
+                    if(){
+                        list.style.background = lastelem.querySelector('img')
+                    }
                     elems.forEach(
                         (lm,i)=>{
                             if(i!=idx && i!=idx-1)lm.classList.remove('visible')
@@ -102,9 +107,7 @@
                             }
                         }
                     )
-                    const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
                     lastelem.classList.remove('visible')
-                    
                     idx++
                     if(idx >= elems.length) idx = 0
                     setTimeout(xslide,interv,elems,idx) 
