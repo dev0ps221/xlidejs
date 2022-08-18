@@ -72,7 +72,7 @@
             flex-direction: row;
             overflow: hidden;
             width:100%;
-            height: 100%;
+            height: 95%;
         }
         .x-lide-list > *{
             display: none;
@@ -107,6 +107,13 @@
             min-width: 100%;
             max-height: 100%;
         }
+        .x-lide .ctrls{
+            display: flex;
+            height: 5%;
+            background: black;
+            justify-content: center;
+        }
+        
     </style>
     <section class="x-lide">
         <div class='x-lide-list'>
@@ -132,8 +139,20 @@
         
         slides.forEach(
             slide=>{
+                const list = slide.querySelector('.x-lide-list')
+                const elems = Array.from(list.children)
+                let idx = 0
+                let interv = 3000
+                
                 const ctrls = document.createElement('div')
-                slides.appendChild(ctrls)
+                ctrls.classList.add('ctrls')
+                elems.forEach(
+                    (elem,idx)=>{
+                        const elemctrl = document.createElement('span')
+                        elemctrl.classList.add('ctrl')
+                    }
+                )
+                slide.appendChild(ctrls)
                 function showElem(elems,idx){
                     const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
                     if(lastelem.querySelector('img')){
@@ -153,10 +172,6 @@
                     if(idx >= elems.length) idx = 0
                     setTimeout(xslide,interv,elems,idx) 
                 }
-                const list = slide.querySelector('.x-lide-list')
-                const elems = Array.from(list.children)
-                let idx = 0
-                let interv = 3000
                 function xslide(elems,idx){
                     showElem(elems,idx)
                 }
