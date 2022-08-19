@@ -82,6 +82,7 @@ class xLide{
             let elems = []
             let captions = []
             let caption = null
+
             let images = Array.from(this.getVal('images').map(
                 (img)=>{
                     return img.match(":") ? img.split(':')[0] : img
@@ -235,8 +236,18 @@ class xLide{
     constructor(selector,name,images,options){
         this.setVal('selector',selector)
         this.setName(name)
-        this.setImages(images)
+
         this.setOptions(options)
+        if(this.hasOption('captions')){
+           images = images.map(
+               img=>(Array.isArray(img))?
+                       img.length ? 
+                                img.length > 1 ? `${img[0]}:${img[1]}` : img[0] 
+                        : ''
+                   :    img 
+           )
+        }
+        this.setImages(images)
         this.selectTarget()
         this.setVal('idx',0)
         this.createSlide()
@@ -264,10 +275,15 @@ class xLideManager{
             this.slides.push(slide)
         }
     }
-    new(...data){
+    slide(...data){
         const slide = new xLide(...data)
         this.appendSlide(slide)
         return slide
+    }
+    slideList(...data){
+        return Array.from(data.map(
+            this.slide            
+        ))
     }
 }
 const xLides = new xLideManager()
