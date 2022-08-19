@@ -78,10 +78,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
     padding: 0;
-    height: 90vh;
+    height: 100%;
 }
 .x-lide-list{
     display: flex;

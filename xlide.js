@@ -113,6 +113,19 @@ class xLide{
                 this.setVal('caption',caption)
                 this.setVal('captions',captions)
             }
+
+            if(this.getOption('vertical')){
+                xlide.classList.add('vertical')
+            }
+            if(this.getOption('horizontal')){
+                xlide.classList.add('horizontal')
+            }
+            if(this.getOption('rotate')){
+                xlide.classList.add('rotate')
+            }
+            if(this.getOption('fade')){
+                xlide.classList.add('fade')
+            }
             if(this.getOption('previews')){
                 xlide.classList.add('hasPreviews')
 
