@@ -79,6 +79,7 @@ class xLide{
             this.setVal('list',xlidelist)
             xlide.appendChild(xlidelist)
             let elems = []
+            let caption = null0
             this.getVal('images').forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
@@ -90,24 +91,13 @@ class xLide{
                 }
             )
             this.setVal('elems',elems)
+            
+            if(this.hasOption('captions')){
+                caption = document.createElement('div')
+                xlide.classList.add('hasCaptions')
+                caption.classList.add('caption')
+                
 
-            if(this.hasOption('ctrls')){
-                xlide.classList.add('hasCtrl')
-                const ctrls = document.createElement('div')
-                ctrls.classList.add('ctrls')
-                this.getVal('elems').forEach(
-                    (elem,idx)=>{
-                        const elemctrl = document.createElement('span')
-                        elemctrl.classList.add('ctrl')
-                        elemctrl.innerHTML = idx+1
-                        elemctrl.addEventListener('click',e=>{
-                            clearTimeout(actualTimeOut)
-                            showElem(elems,idx)
-                        })
-                        ctrls.appendChild(elemctrl)
-                    }
-                )
-                xlide.appendChild(ctrls)
             }
             if(this.hasOption('previews')){
                 xlide.classList.add('hasPreviews')
@@ -131,6 +121,25 @@ class xLide{
                     }
                 )
                 xlide.appendChild(previews)
+                if(this.hasOption('ctrls')){
+                    xlide.classList.add('hasCtrl')
+                    const ctrls = document.createElement('div')
+                    ctrls.classList.add('ctrls')
+                    this.getVal('elems').forEach(
+                        (elem,idx)=>{
+                            const elemctrl = document.createElement('span')
+                            elemctrl.classList.add('ctrl')
+                            elemctrl.innerHTML = idx+1
+                            elemctrl.addEventListener('click',e=>{
+                                clearTimeout(this.actualTimeOut)
+                                this.setVal('idx',idx)
+                                this.showCurrentElem()
+                            })
+                            ctrls.appendChild(elemctrl)
+                        }
+                    )
+                    xlide.appendChild(ctrls)
+                }
             }
         }
         xlide.classList.add('cf')
