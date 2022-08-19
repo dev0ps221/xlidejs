@@ -13,8 +13,8 @@ function createSlide(xlide,name='',pics=[],options={}){
                 className => xlide.classList.add(className)
             )
         }
-        if(options.ctrls){
-            xlide.classList.add('hasCtrls')
+        if(options.hasOwnProperty('ctrls')){
+            xlide.classList.add('hasCtrl')
         }
         xlidelist.classList.add('x-lide-list')
         xlide.appendChild(xlidelist)
@@ -65,22 +65,24 @@ function showSlide(slide,interv=3000){
     const elems = Array.from(list.children)
     let idx = 0
     
-    const ctrls = document.createElement('div')
-    ctrls.classList.add('ctrls')
     let actualTimeOut = null; 
-    elems.forEach(
-        (elem,idx)=>{
-            const elemctrl = document.createElement('span')
-            elemctrl.classList.add('ctrl')
-            elemctrl.innerHTML = idx+1
-            elemctrl.addEventListener('click',e=>{
-                clearTimeout(actualTimeOut)
-                showElem(elems,idx)
-            })
-            ctrls.appendChild(elemctrl)
-        }
-    )
-    slide.appendChild(ctrls)
+    if(slide.classList.contains('hasCtrl')){
+        const ctrls = document.createElement('div')
+        ctrls.classList.add('ctrls')
+        elems.forEach(
+            (elem,idx)=>{
+                const elemctrl = document.createElement('span')
+                elemctrl.classList.add('ctrl')
+                elemctrl.innerHTML = idx+1
+                elemctrl.addEventListener('click',e=>{
+                    clearTimeout(actualTimeOut)
+                    showElem(elems,idx)
+                })
+                ctrls.appendChild(elemctrl)
+            }
+        )
+        slide.appendChild(ctrls)
+    }
     function showElem(elems,idx){
         const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
         if(lastelem.querySelector('img')){
