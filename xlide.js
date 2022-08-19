@@ -9,6 +9,7 @@ class xLide{
     list = null
     interval = null
     elems = null
+    actualTimeOut = null
 
     setVal(key,val){
         this[key] = val
@@ -99,7 +100,7 @@ class xLide{
                         elempreview.classList.add('preview-img')
                         elempreviewimg.src = Array.from(Array.from(slide.querySelector('.x-lide-list').children).map(e=>{return e.querySelector('img')?e.querySelector('img').src:''}))[idx]
                         elempreview.addEventListener('click',e=>{
-                            clearTimeout(actualTimeOut)
+                            clearTimeout(this.actualTimeOut)
                             showElem(elems,idx)
                         })
                         elempreview.appendChild(elempreviewimg)
@@ -128,16 +129,12 @@ class xLide{
         return name
     
     }
-    show(){
-        
-
-        let actualTimeOut = null; 
+    run(){
 
         this.showCurrentElemElem()
 
     }
     showCurrentElem(){
-
         let idx = this.getVal('idx')
         let elems = this.getVal('elems')
         let list = this.getVal('list')
@@ -157,7 +154,7 @@ class xLide{
         lastelem.classList.remove('visible')
         this.nextIndex()
 
-        actualTimeOut = setTimeout(this.showCurrentElem,this.getVal('interval')) 
+        this.setVal('actualTimeOut',setTimeout(this.showCurrentElem,this.getVal('interval'))) 
 
     }
     nextIndex(){

@@ -26,13 +26,14 @@
         let slidelist = []
         let imgs = ['1.png','2.png','3.png','4.png','5.png']
         let imgs2 = ['2.png','1.png','5.png','3.png','4.png']
-        slidelist.push(['#slide-one','xlide',imgs,{previews:1}])
-        slidelist.push(['#slide-two','xlide',imgs2,{classList:['rotate'],ctrls:1}])
-        slidelist.push(['#slide-three','xlide',imgs2,{previews:1}])
-        slidelist.push(['#slide-for','xlide',imgs,{ctrls:1}])
-        createSlides(slidelist)
-        console.log(new xLide('#slide-one','xlide',imgs,{previews:1}))
-        showSlides(5000)
+        // slidelist.push(['#slide-one','xlide',imgs,{previews:1}])
+        // slidelist.push(['#slide-two','xlide',imgs2,{classList:['rotate'],ctrls:1}])
+        // slidelist.push(['#slide-three','xlide',imgs2,{previews:1}])
+        // slidelist.push(['#slide-for','xlide',imgs,{ctrls:1}])
+        // createSlides(slidelist)
+        const slidey = new xLide('#slide-one','xlide',imgs,{previews:1})
+        slidey.run()
+        // showSlides(5000)
     </script>
 </body>
 </html>
