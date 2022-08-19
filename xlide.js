@@ -79,7 +79,9 @@ class xLide{
             this.setVal('list',xlidelist)
             xlide.appendChild(xlidelist)
             let elems = []
-            let caption = null0
+            let captions = []
+            let caption = null
+            let images = null
             this.getVal('images').forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
@@ -96,9 +98,22 @@ class xLide{
                 caption = document.createElement('div')
                 xlide.classList.add('hasCaptions')
                 caption.classList.add('caption')
-                
-
+                captions = []
+                this.getVal('elems').forEach(
+                    (elem,idx)=>{
+                        const imgarr = this.getVal('images')[idx].split(':')
+                        
+                        captions.push(imgarr.length>1?imgarr[1]: `preview ${idx}`)
+                        
+                    }
+                )
+                images = Array.from(this.getVal('images').map(
+                    (img)=>{
+                        return img.split(':')[0]
+                    }
+                ))
             }
+            xlide.appendChild(caption)
             if(this.hasOption('previews')){
                 xlide.classList.add('hasPreviews')
 
@@ -110,10 +125,13 @@ class xLide{
                         elempreview.classList.add('preview')
                         const elempreviewimg = document.createElement('img')
                         elempreview.classList.add('preview-img')
-                        elempreviewimg.src = this.getVal('images')[idx]
+                        elempreviewimg.src = (this.hasOption('captions') ? images : this.getVal('images'))[idx]
                         elempreview.addEventListener('click',e=>{
                             clearTimeout(this.actualTimeOut)
                             this.setVal('idx',idx)
+                            if(this.hasOption('captions')){
+                                caption.innerHTML = captions[idx]
+                            }
                             this.showCurrentElem()
                         })
                         elempreview.appendChild(elempreviewimg)
