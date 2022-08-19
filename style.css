@@ -1,4 +1,12 @@
 
+header{
+    display: flex;
+}
+header > *{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 #slide-one{
     height: 70vh;
     margin: 5%;
