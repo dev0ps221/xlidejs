@@ -11,7 +11,7 @@
     <header>
 
     </header>
-    <section id="slide-one" class="vertical-reversed">
+    <section id="slide-one">
     </section>
     <div class="x-lide-full-row">
         <div id="slide-two" >
@@ -31,7 +31,7 @@
         // slidelist.push(['#slide-three','xlide',imgs2,{previews:1}])
         // slidelist.push(['#slide-for','xlide',imgs,{ctrls:1}])
         // createSlides(slidelist)
-        const slidey = new xLide('#slide-one','xlide',imgs,{previews:1})
+        const slidey = new xLide('#slide-one','xlide',imgs,{previews:1,interval:10000,classList:['vertical']})
         slidey.run()
         // showSlides(5000)
     </script>

@@ -131,7 +131,10 @@ class xLide{
     }
     run(){
 
-        this.showCurrentElemElem()
+        if(!this.getVal('interval')){
+            this.setVal('interval',3000)
+        }
+        this.showCurrentElem()
 
     }
     showCurrentElem(){
@@ -153,18 +156,20 @@ class xLide{
         )
         lastelem.classList.remove('visible')
         this.nextIndex()
-
-        this.setVal('actualTimeOut',setTimeout(this.showCurrentElem,this.getVal('interval'))) 
+        const action = ()=>{
+            this.showCurrentElem()
+        }
+        this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
 
     }
     nextIndex(){
-        idx = this.getVal('idx')
+        let idx = this.getVal('idx')
         idx++
         if(idx >= this.getVal('elems').length) idx = 0
         this.setVal('idx',idx)
     }
     prevIndex(){
-        idx = this.getVal('idx')
+        let idx = this.getVal('idx')
         idx--
         if(idx <= 0) idx = this.getVal('elems').length -1 
         this.setVal('idx',idx)
