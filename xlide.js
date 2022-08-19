@@ -97,7 +97,7 @@ class xLide{
             )
             this.setVal('elems',elems)
             
-            if(this.hasOption('captions')){
+            if(this.getOption('captions')){
                 caption = document.createElement('div')
                 captions = []
                 xlide.classList.add('hasCaptions')
@@ -113,7 +113,7 @@ class xLide{
                 this.setVal('caption',caption)
                 this.setVal('captions',captions)
             }
-            if(this.hasOption('previews')){
+            if(this.getOption('previews')){
                 xlide.classList.add('hasPreviews')
 
                 previews.classList.add('previews')
@@ -133,23 +133,23 @@ class xLide{
                         previews.appendChild(elempreview)
                     }
                 )
-                if(this.hasOption('ctrls')){
-                    xlide.classList.add('hasCtrl')
-                    ctrls.classList.add('ctrls')
-                    this.getVal('elems').forEach(
-                        (elem,idx)=>{
-                            const elemctrl = document.createElement('span')
-                            elemctrl.classList.add('ctrl')
-                            elemctrl.innerHTML = idx+1
-                            elemctrl.addEventListener('click',e=>{
-                                clearTimeout(this.actualTimeOut)
-                                this.setVal('idx',idx)
-                                this.showCurrentElem()
-                            })
-                            ctrls.appendChild(elemctrl)
-                        }
-                    )
-                }
+            }
+            if(this.getOption('ctrls')){
+                xlide.classList.add('hasCtrl')
+                ctrls.classList.add('ctrls')
+                this.getVal('elems').forEach(
+                    (elem,idx)=>{
+                        const elemctrl = document.createElement('span')
+                        elemctrl.classList.add('ctrl')
+                        elemctrl.innerHTML = idx+1
+                        elemctrl.addEventListener('click',e=>{
+                            clearTimeout(this.actualTimeOut)
+                            this.setVal('idx',idx)
+                            this.showCurrentElem()
+                        })
+                        ctrls.appendChild(elemctrl)
+                    }
+                )
             }
             if(this.hasOption('captions')){
                 xlide.appendChild(caption)

@@ -135,13 +135,13 @@
     height: 5%;
     padding: 2.5%;
     color: wheat;
-    background: black;
+    background: #111d;
     justify-content: center;
 }
 .x-lide .ctrls{
     display: flex;
     height: 5%;
-    background: black;
+    background: #111;
     justify-content: center;
 }
 .x-lide .ctrls .ctrl{
@@ -158,22 +158,28 @@
     display: flex;
     height: 20%;
     width: 100%;
+    padding: 0;
+    margin: 0;
     max-width: 100%;
-    background: black;
+    background: #111;
     color: wheat;
     justify-content: center;
+    text-align: center;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 .x-lide .previews .preview{
     display: flex;
+    padding: 0;
+    margin: 0;
     flex-direction: column;
     border-radius: 6em;
     justify-content: center;
-    text-align: center;
 }
 .x-lide .previews .preview img{
     display: flex;
     margin: 5%;
+    padding: 0;
     width: 90%;
     height: 90%;
 }
@@ -232,8 +238,12 @@
     }
     .x-lide .ctrls{
         display: flex;
-        height: 15%;
+        height: 5%;
         background: black;
         justify-content: center;
     }
+    .x-lide .ctrls .ctrl{
+        margin-left: 2.5%;
+    }
+    
 }
