@@ -7,6 +7,7 @@ class xLide{
     target = null
     idx = null
     list = null
+    interval = null
     elems = null
 
     setVal(key,val){
@@ -45,6 +46,7 @@ class xLide{
     setOptions(options){
         Object.keys(options).forEach(
             (option)=>{
+                if(option=='interval') this.setVal('interval',options[option])
                 this.setOption(option,options[option])
             }
         )
@@ -92,7 +94,7 @@ class xLide{
         return name
     
     }
-    show(){
+    show(interv){
         
     }
     getSlide(){
