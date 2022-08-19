@@ -2,29 +2,32 @@ class xLide{
 
 
 
-    set(key,val){
+    setVal(key,val){
         if(val)  this[key] = val
     }
+    getVal(key,ref={}){
+        return (ref ? ref : this).hasOwnProperty(key) ? (ref ? ref : this)[key] : null
+    }
     setTarget(target){
-        this.set('target',target)
+        this.setVal('target',target)
     }
     setName(name){
-        this.set('name',name)
+        this.setVal('name',name)
     }
     setImages(images){
-        this.set('images',images)
+        this.setVal('images',images)
     }
     setOptions(options){
-        this.set('options',options)
+        this.setVal('options',options)
     }
     getOptions(options){
-        this.set('options',options)
+        this.getVal('options')
     }
     getOption(option){
-
+        this.getVal(option,this.getOptions())
     }
     setOption(option,value){
-        
+        let options = this.getOptions()
     }
     selectTarget(selector){
         this.setTarget(document.querySelector(selector))
