@@ -208,8 +208,8 @@ class xLide{
 
 class xLideManager{
     slides = []
-    getSlide(name){
-        const match = null
+    get(name){
+        let match = null
         this.slides.forEach(
             slide=>{
                 if(slide.getVal('name') && slide.getVal('name') == name){
