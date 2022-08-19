@@ -36,6 +36,9 @@ class xLide{
             }
         )
     }
+    hasOption(option){
+        return this.getOption(option)!=null
+    }
     selectTarget(selector){
         this.setTarget(document.querySelector(selector))
     }
