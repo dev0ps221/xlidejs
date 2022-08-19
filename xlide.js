@@ -94,8 +94,84 @@ class xLide{
         return name
     
     }
-    show(interv){
+    show(){
         
+
+        let actualTimeOut = null; 
+        if(this.hasOption('ctrls')){
+            const ctrls = document.createElement('div')
+            ctrls.classList.add('ctrls')
+            this.getVal('elems').forEach(
+                (elem,idx)=>{
+                    const elemctrl = document.createElement('span')
+                    elemctrl.classList.add('ctrl')
+                    elemctrl.innerHTML = idx+1
+                    elemctrl.addEventListener('click',e=>{
+                        clearTimeout(actualTimeOut)
+                        showElem(elems,idx)
+                    })
+                    ctrls.appendChild(elemctrl)
+                }
+            )
+            slide.appendChild(ctrls)
+        }
+        if(slide.classList.contains('hasPreviews')){
+            const previews = document.createElement('div')
+            previews.classList.add('previews')
+            elems.forEach(
+                (elem,idx)=>{
+                    const elempreview = document.createElement('span')
+                    elempreview.classList.add('preview')
+                    const elempreviewimg = document.createElement('img')
+                    elempreview.classList.add('preview-img')
+                    elempreviewimg.src = Array.from(Array.from(slide.querySelector('.x-lide-list').children).map(e=>{return e.querySelector('img')?e.querySelector('img').src:''}))[idx]
+                    elempreview.addEventListener('click',e=>{
+                        clearTimeout(actualTimeOut)
+                        showElem(elems,idx)
+                    })
+                    elempreview.appendChild(elempreviewimg)
+                    previews.appendChild(elempreview)
+                }
+            )
+            slide.appendChild(previews)
+        }
+        this.showCurrentElemElem()
+
+    }
+    showCurrentElem(){
+
+        let idx = this.getVal('idx')
+        let elems = this.getVal('elems')
+        let list = this.getVal('list')
+        const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
+        if(lastelem.querySelector('img')){
+            list.style.background = `url(${lastelem.querySelector('img').src})`
+            list.style.backgroundSize = '100% 100%'
+        }
+        elems.forEach(
+            (lm,i)=>{
+                if(i!=idx && i!=idx-1)lm.classList.remove('visible')
+                else{
+                    lm.classList.add('visible')
+                }
+            }
+        )
+        lastelem.classList.remove('visible')
+        this.nextIndex()
+        
+        actualTimeOut = setTimeout(this.showCurrentElem,interv) 
+    }
+    nextIndex(){
+        idx = this.getVal('idx')
+        idx++
+        if(idx >= this.getVal('elems').length) idx = 0
+        this.setVal('idx',idx)
+    }
+    prevIndex(){
+        idx = this.getVal('idx')
+        idx--
+        if(idx <= 0) idx = this.getVal('elems').length -1 
+        this.setVal('idx',idx)
     }
     getSlide(){
         return this.getTarget()
