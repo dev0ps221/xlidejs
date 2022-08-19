@@ -1,8 +1,20 @@
-
+body{
+    display: flex;
+    margin: auto;
+    margin-top: 2%;
+    width: 80%;
+    flex-direction: column;
+}
 header{
     display: flex;
     margin: 0;
-    padding-bottom: 8%;
+    background: url('head.jpg');
+    background-color: #222b;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-blend-mode: color-dodge;
+    padding: 8%;
+    padding-top: 3%;
     padding-left: 15%;
     padding-right: 15%;
     /* background: #111; */
@@ -24,9 +36,12 @@ header nav{
     margin-top: 10%;
     height: 20%;
     display: flex;
-    background: red;
+    background: #fff3;
     flex-direction: column;
     justify-content: center;
+}
+.elem-nav .link{
+    color: #111;
 }
 #slide-one{
     height: 70vh;
