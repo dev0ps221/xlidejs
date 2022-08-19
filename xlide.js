@@ -3,14 +3,14 @@ class xLide{
 
     options = {}
     images = []
-    titre = null
+    name = null
     target = null
     idx = null
     list = null
     elems = null
 
     setVal(key,val){
-        if(val)  this[key] = val
+        this[key] = val
     }
     getVal(key,ref=null){
         return (ref ? ref : this).hasOwnProperty(key) ? (ref ? ref : this)[key] : null
@@ -53,7 +53,7 @@ class xLide{
         return this.getOption(option)!=null
     }
     selectTarget(){
-        this.setTarget(this.getVal('selector'))
+        this.setTarget(document.querySelector(this.getVal('selector')))
     }
     createSlide(){
         const name = this.getVal('name')
@@ -61,8 +61,8 @@ class xLide{
         if(xlide){
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
-            if(options.hasOwnProperty('classList')){
-                options.classList.forEach(
+            if(this.hasOption('classList')){
+                this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
                 )
             }
@@ -73,16 +73,20 @@ class xLide{
                 xlide.classList.add('hasPreviews')
             }
             xlidelist.classList.add('x-lide-list')
+            this.setVal('list',xlidelist)
             xlide.appendChild(xlidelist)
+            let elems = []
             this.getVal('images').forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
                     const picture = document.createElement('img')
                     picture.src = pic
                     picture_container.appendChild(picture)
+                    elems.push(picture_container)
                     xlidelist.appendChild(picture_container)
                 }
             )
+            this.setVal('elems',elems)
         }
         xlide.classList.add('cf')
         return name
@@ -100,6 +104,7 @@ class xLide{
         this.setImages(images)
         this.setOptions(options)
         this.selectTarget()
+        this.setVal('idx',0)
         this.createSlide()
     }
 
