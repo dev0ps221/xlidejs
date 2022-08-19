@@ -198,7 +198,15 @@ class xLide{
 }
 
 
-
+class xLideManager{
+    slides = []
+    getSlide(name){
+        const match = null
+    }
+    new(...data){
+        return  
+    }
+}
 
 const _x_lides = []
 
