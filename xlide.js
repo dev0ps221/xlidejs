@@ -80,7 +80,11 @@ class xLide{
             let elems = []
             let captions = []
             let caption = null
-            let images = null
+            let images = Array.from(this.getVal('images').map(
+                (img)=>{
+                    return img.match(":") ? img.split(':')[0] : img
+                }
+            ))
             this.getVal('images').forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
@@ -106,11 +110,6 @@ class xLide{
                         
                     }
                 )
-                images = Array.from(this.getVal('images').map(
-                    (img)=>{
-                        return img.split(':')[0]
-                    }
-                ))
                 this.setVal('caption',caption)
                 this.setVal('captions',captions)
             }
@@ -125,7 +124,7 @@ class xLide{
                         elempreview.classList.add('preview')
                         const elempreviewimg = document.createElement('img')
                         elempreview.classList.add('preview-img')
-                        elempreviewimg.src = (this.hasOption('captions') ? images : this.getVal('images'))[idx]
+                        elempreviewimg.src = images[idx]
                         elempreview.addEventListener('click',e=>{
                             clearTimeout(this.actualTimeOut)
                             this.setVal('idx',idx)
@@ -152,10 +151,18 @@ class xLide{
                             ctrls.appendChild(elemctrl)
                         }
                     )
-                    xlide.appendChild(caption)
+                    if(this.hasOption('captions')){
+                        xlide.appendChild(caption)
+                    }
                     xlide.appendChild(xlidelist)
-                    xlide.appendChild(previews)
-                    xlide.appendChild(ctrls)
+
+                    if(this.hasOption('previews')){
+                        xlide.appendChild(previews)
+                    }
+
+                    if(this.hasOption('ctrls')){
+                        xlide.appendChild(ctrls)
+                    }
                 }
             }
         }

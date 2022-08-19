@@ -133,7 +133,9 @@
 .x-lide .caption{
     display: flex;
     height: 5%;
-    /* background: black; */
+    padding: 2.5%;
+    color: wheat;
+    background: black;
     justify-content: center;
 }
 .x-lide .ctrls{
@@ -154,7 +156,9 @@
 }
 .x-lide .previews{
     display: flex;
-    height: 25%;
+    height: 20%;
+    background: black;
+    color: wheat;
     justify-content: center;
 }
 .x-lide .previews .preview{
