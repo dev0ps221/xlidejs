@@ -116,25 +116,25 @@ class xLide{
             if(this.getOption('vertical')){
                 xlide.classList.add('vertical')
             }
-            if(this.getOption('vertical-reverse')){
+            if(this.getOption('rvertical')){
                 xlide.classList.add('vertical-reverse')
             }
             if(this.getOption('horizontal')){
                 xlide.classList.add('horizontal')
             }
-            if(this.getOption('horizontal-reverse')){
+            if(this.getOption('rhorizontal')){
                 xlide.classList.add('horizontal-reverse')
             }
             if(this.getOption('rotate')){
                 xlide.classList.add('rotate')
             }
-            if(this.getOption('rotate-reverse')){
+            if(this.getOption('rrotate')){
                 xlide.classList.add('rotate-reverse')
             }
             if(this.getOption('fade')){
                 xlide.classList.add('fade')
             }
-            if(this.getOption('fade-reverse')){
+            if(this.getOption('rfade')){
                 xlide.classList.add('fade-reverse')
             }
             if(this.getOption('previews')){

@@ -55,3 +55,12 @@ header #heading{
     padding: 5%;
     width: 80%;
 }
+@media screen and (max-width:997px) {
+    #todocs .listslide {
+        flex-wrap: wrap;
+    }
+    #todocs .listslide > *{
+        width: 100%;
+    }
+    
+}
