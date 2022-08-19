@@ -65,13 +65,28 @@ class xLide{
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
             if(this.hasOption('classList')){
-                console.log('classList',classList)
                 this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
                 )
             }else{
                 console.log(this.getOptions())
             }
+            xlidelist.classList.add('x-lide-list')
+            this.setVal('list',xlidelist)
+            xlide.appendChild(xlidelist)
+            let elems = []
+            this.getVal('images').forEach(
+                pic=>{
+                    const picture_container = document.createElement('div')
+                    const picture = document.createElement('img')
+                    picture.src = pic
+                    picture_container.appendChild(picture)
+                    elems.push(picture_container)
+                    xlidelist.appendChild(picture_container)
+                }
+            )
+            this.setVal('elems',elems)
+
             if(this.hasOption('ctrls')){
                 xlide.classList.add('hasCtrl')
                 const ctrls = document.createElement('div')
@@ -95,16 +110,17 @@ class xLide{
 
                 const previews = document.createElement('div')
                 previews.classList.add('previews')
-                elems.forEach(
+                this.getVal('elems').forEach(
                     (elem,idx)=>{
                         const elempreview = document.createElement('span')
                         elempreview.classList.add('preview')
                         const elempreviewimg = document.createElement('img')
                         elempreview.classList.add('preview-img')
-                        elempreviewimg.src = Array.from(Array.from(slide.querySelector('.x-lide-list').children).map(e=>{return e.querySelector('img')?e.querySelector('img').src:''}))[idx]
+                        elempreviewimg.src = this.getVal('images')[idx]
                         elempreview.addEventListener('click',e=>{
                             clearTimeout(this.actualTimeOut)
-                            showElem(elems,idx)
+                            this.setVal('idx',idx)
+                            this.showCurrentElem()
                         })
                         elempreview.appendChild(elempreviewimg)
                         previews.appendChild(elempreview)
@@ -112,21 +128,6 @@ class xLide{
                 )
                 xlide.appendChild(previews)
             }
-            xlidelist.classList.add('x-lide-list')
-            this.setVal('list',xlidelist)
-            xlide.appendChild(xlidelist)
-            let elems = []
-            this.getVal('images').forEach(
-                pic=>{
-                    const picture_container = document.createElement('div')
-                    const picture = document.createElement('img')
-                    picture.src = pic
-                    picture_container.appendChild(picture)
-                    elems.push(picture_container)
-                    xlidelist.appendChild(picture_container)
-                }
-            )
-            this.setVal('elems',elems)
         }
         xlide.classList.add('cf')
         return name
