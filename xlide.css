@@ -99,29 +99,29 @@
 }
 .x-lide-list > *{
     display: none;
-    transition: 1.5s;
+    transition: 0.8s;
     width: 100%;
     height: 100%;
-    animation: fadeoff 1.5s 1;
+    animation: fadeoff 0.8s 1;
 }
 .x-lide-list > *.visible{
-    animation: fromLeft 2.5s 1;
+    animation: fromLeft 0.8s 1;
     display: flex;
-    transition: 1.5s;
+    transition: 0.8s;
     min-width: 100%;
     max-height: 100%;
 }
 .x-lide-list > *.visible:nth-child(odd){
-    animation: rotate 1.5s 1;
+    animation: rotate 0.8s 1;
     display: flex;
-    transition: 1.5s;
+    transition: 0.8s;
     min-width: 100%;
     max-height: 100%;
 }
 .x-lide-list > *.visible:nth-child(3){
-    animation: fade 2.5s 1;
+    animation: fade 0.8s 1;
     display: flex;
-    transition: 1.5s;
+    transition: 0.8s;
     min-width: 100%;
     max-height: 100%;
 }
@@ -165,15 +165,15 @@
     height: 90%;
 }
 .x-lide.vertical .x-lide-list > *.visible{
-    animation: fromTop 2.5s 1;
+    animation: fromTop 0.8s 1;
 }
 .x-lide.rotate .x-lide-list > *.visible{
-    animation: rotate 2.5s 1;
+    animation: rotate 0.8s 1;
 }.x-lide.rotate .x-lide-list > *.visible{
-    animation: rotateReverse 2.5s 1;
+    animation: rotateReverse 0.8s 1;
 }
 .x-lide.vertical-reversed .x-lide-list > *.visible{
-    animation: fromBottom 2.5s 1;
+    animation: fromBottom 0.8s 1;
 }
 .x-lide-row{
     display: flex;
