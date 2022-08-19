@@ -76,7 +76,7 @@ class xLide{
             }
             xlidelist.classList.add('x-lide-list')
             xlide.appendChild(xlidelist)
-            pics.forEach(
+            this.getVal('images').forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
                     const picture = document.createElement('img')
@@ -93,8 +93,8 @@ class xLide{
 
 
 
-    constructor(target,name,images,options){
-        this.setTarget(target)
+    constructor(selector,name,images,options){
+        this.setVal('selector',selector)
         this.setName(name)
         this.setImages(images)
         this.setOptions(options)
