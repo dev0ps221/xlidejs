@@ -73,6 +73,14 @@
         transform: none;
     }
 }
+@keyframes fromRight {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: none;
+    }
+}
 .x-lide{
     box-sizing: content-box;
     width: 100%;
@@ -200,16 +208,29 @@
     margin: 2%;
     border: 1px solid #333;
 }
+.x-lide.horizontal .x-lide-list > *.visible{
+    animation: fromLeft 0.8s 1;
+}
+.x-lide.horizontal-reverse .x-lide-list > *.visible{
+    animation: fromRight 0.8s 1;
+}
+.x-lide.fade .x-lide-list > *.visible{
+    animation: fade 0.8s 1;
+}
+.x-lide.fade-reverse .x-lide-list > *.visible{
+    animation: fadeoff 0.8s 1;
+}
 .x-lide.vertical .x-lide-list > *.visible{
     animation: fromTop 0.8s 1;
 }
+.x-lide.vertical-reverse .x-lide-list > *.visible{
+    animation: fromBottom 0.8s 1;
+}
 .x-lide.rotate .x-lide-list > *.visible{
     animation: rotate 0.8s 1;
-}.x-lide.rotate .x-lide-list > *.visible{
-    animation: rotateReverse 0.8s 1;
 }
-.x-lide.vertical-reversed .x-lide-list > *.visible{
-    animation: fromBottom 0.8s 1;
+.x-lide.rotate-reverse .x-lide-list > *.visible{
+    animation: rotateReverse 0.8s 1;
 }
 .x-lide-row{
     display: flex;
