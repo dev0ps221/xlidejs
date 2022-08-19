@@ -18,6 +18,9 @@ class xLide{
     setTarget(target){
         this.setVal('target',target)
     }
+    getTarget(target){
+        this.getVal('target')
+    }
     setName(name){
         this.setVal('name',name)
     }
@@ -49,17 +52,12 @@ class xLide{
     hasOption(option){
         return this.getOption(option)!=null
     }
-    selectTarget(selector){
-        this.setTarget(document.querySelector(selector))
+    selectTarget(){
+        this.setTarget(this.getVal('selector'))
     }
-    createElem(){
-
-    }
-
-
     createSlide(){
         const name = this.getVal('name')
-        const xlide = document.querySelector(this.getVal('target'))
+        const xlide = this.getTarget()
         if(xlide){
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
@@ -98,7 +96,8 @@ class xLide{
         this.setName(name)
         this.setImages(images)
         this.setOptions(options)
-        this.createElem()
+        this.selectTarget()
+        this.createSlide()
     }
 
 
