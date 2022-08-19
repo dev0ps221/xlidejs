@@ -5,7 +5,10 @@ class xLide{
     images = []
     titre = null
     target = null
-    
+    idx = null
+    list = null
+    elems = null
+
     setVal(key,val){
         if(val)  this[key] = val
     }
@@ -49,11 +52,53 @@ class xLide{
     selectTarget(selector){
         this.setTarget(document.querySelector(selector))
     }
+    createElem(){
+
+    }
+
+
+    createSlide(){
+        const name = this.getVal('name')
+        const xlide = document.querySelector(this.getVal('target'))
+        if(xlide){
+            xlide.classList.add('x-lide')
+            const xlidelist = document.createElement('div')
+            if(options.hasOwnProperty('classList')){
+                options.classList.forEach(
+                    className => xlide.classList.add(className)
+                )
+            }
+            if(this.hasOption('ctrls')){
+                xlide.classList.add('hasCtrl')
+            }
+            if(this.hasOption('previews')){
+                xlide.classList.add('hasPreviews')
+            }
+            xlidelist.classList.add('x-lide-list')
+            xlide.appendChild(xlidelist)
+            pics.forEach(
+                pic=>{
+                    const picture_container = document.createElement('div')
+                    const picture = document.createElement('img')
+                    picture.src = pic
+                    picture_container.appendChild(picture)
+                    xlidelist.appendChild(picture_container)
+                }
+            )
+        }
+        return name
+    
+    }
+
+
+
+
     constructor(target,name,images,options){
         this.setTarget(target)
         this.setName(name)
         this.setImages(images)
         this.setOptions(options)
+        this.createElem()
     }
 
 
