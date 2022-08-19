@@ -1,3 +1,16 @@
+class xLide{
+
+
+
+    constructor(target,name,images,options){
+        this.target = target
+    }
+
+
+}
+
+
+
 
 const _x_lides = []
 
