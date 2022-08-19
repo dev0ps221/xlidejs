@@ -1,7 +1,11 @@
 class xLide{
 
 
-
+    options = {}
+    images = []
+    titre = null
+    target = null
+    
     setVal(key,val){
         if(val)  this[key] = val
     }
@@ -20,14 +24,17 @@ class xLide{
     setOptions(options){
         this.setVal('options',options)
     }
-    getOptions(options){
-        this.getVal('options')
+    getOptions(){
+        return this.getVal('options')
     }
     getOption(option){
         this.getVal(option,this.getOptions())
     }
     setOption(option,value){
-        let options = this.getOptions()
+        if(option){
+            let options = this.getOptions()
+            options[option] = value
+        }
     }
     setOptions(options){
         options.forEach(
@@ -44,9 +51,9 @@ class xLide{
     }
     constructor(target,name,images,options){
         this.setTarget(target)
-        this.name = name
-        this.images = images
-        this.options = options
+        this.setName(name)
+        this.setImages(images)
+        this.setOptions(options)
     }
 
 
