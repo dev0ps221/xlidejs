@@ -136,12 +136,13 @@ class xLide{
             }
             if(this.getOption('ctrls')){
                 xlide.classList.add('hasCtrl')
+                if(this.getOption('ctrls')=='captions') xlide.classList.add('hasCaptionCtrl')
                 ctrls.classList.add('ctrls')
                 this.getVal('elems').forEach(
                     (elem,idx)=>{
                         const elemctrl = document.createElement('span')
                         elemctrl.classList.add('ctrl')
-                        elemctrl.innerHTML = idx+1
+                        elemctrl.innerHTML = (this.getOption('ctrls')=='captions' && this.getOption('captions')) ? this.getVal('captions')[idx] : idx+1
                         elemctrl.addEventListener('click',e=>{
                             clearTimeout(this.actualTimeOut)
                             this.setVal('idx',idx)
