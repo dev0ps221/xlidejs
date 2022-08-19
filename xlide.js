@@ -77,7 +77,6 @@ class xLide{
             }
             xlidelist.classList.add('x-lide-list')
             this.setVal('list',xlidelist)
-            xlide.appendChild(xlidelist)
             let elems = []
             let captions = []
             let caption = null
@@ -96,9 +95,9 @@ class xLide{
             
             if(this.hasOption('captions')){
                 caption = document.createElement('div')
+                captions = []
                 xlide.classList.add('hasCaptions')
                 caption.classList.add('caption')
-                captions = []
                 this.getVal('elems').forEach(
                     (elem,idx)=>{
                         const imgarr = this.getVal('images')[idx].split(':')
@@ -112,8 +111,9 @@ class xLide{
                         return img.split(':')[0]
                     }
                 ))
+                this.setVal('caption',caption)
+                this.setVal('captions',captions)
             }
-            xlide.appendChild(caption)
             if(this.hasOption('previews')){
                 xlide.classList.add('hasPreviews')
 
@@ -129,16 +129,12 @@ class xLide{
                         elempreview.addEventListener('click',e=>{
                             clearTimeout(this.actualTimeOut)
                             this.setVal('idx',idx)
-                            if(this.hasOption('captions')){
-                                caption.innerHTML = captions[idx]
-                            }
                             this.showCurrentElem()
                         })
                         elempreview.appendChild(elempreviewimg)
                         previews.appendChild(elempreview)
                     }
                 )
-                xlide.appendChild(previews)
                 if(this.hasOption('ctrls')){
                     xlide.classList.add('hasCtrl')
                     const ctrls = document.createElement('div')
@@ -156,6 +152,9 @@ class xLide{
                             ctrls.appendChild(elemctrl)
                         }
                     )
+                    xlide.appendChild(caption)
+                    xlide.appendChild(xlidelist)
+                    xlide.appendChild(previews)
                     xlide.appendChild(ctrls)
                 }
             }
@@ -186,6 +185,9 @@ class xLide{
         if(lastelem.querySelector('img')){
             list.style.background = `url(${lastelem.querySelector('img').src})`
             list.style.backgroundSize = '100% 100%'
+        }
+        if(this.hasOption('captions')){
+            this.getVal('caption').innerHTML = this.getVal('captions')[idx]
         }
         elems.forEach(
             (lm,i)=>{
