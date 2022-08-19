@@ -13,6 +13,9 @@ function createSlide(xlide,name='',pics=[],options={}){
                 className => xlide.classList.add(className)
             )
         }
+        if(options.ctrls){
+            xlide.classList.add('hasCtrls')
+        }
         xlidelist.classList.add('x-lide-list')
         xlide.appendChild(xlidelist)
         pics.forEach(
