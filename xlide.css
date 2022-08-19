@@ -1,7 +1,7 @@
 
 @keyframes fade {
     from{
-        opacity: 0;
+        opacity: 0.8;
     }
     to{
         opacity: 1;
@@ -73,15 +73,21 @@
         transform: none;
     }
 }
+@keyframes fromRight {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: none;
+    }
+}
 .x-lide{
     box-sizing: content-box;
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
     padding: 0;
-    height: 90vh;
+    height: 100%;
 }
 .x-lide-list{
     display: flex;
@@ -127,27 +133,27 @@
 }
 .x-lide-list img{
     display: flex;
-    min-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
 }
 .x-lide .caption{
     display: flex;
     height: 5%;
     padding: 2.5%;
     color: wheat;
-    background: #111d;
     justify-content: center;
 }
 .x-lide .ctrls{
     display: flex;
     min-height: 5%;
     padding: 2%;
-    background: #111;
+    overflow: hidden;
     overflow-x: scroll;
     justify-content: center;
 }
 .x-lide.hasCaptionCtrl .ctrls{
     justify-content: flex-start;
+    padding: 2%;
 }
 .x-lide .ctrls .ctrl{
     display: flex;
@@ -158,9 +164,9 @@
     justify-content: center;
     text-align: center;
     flex-wrap: wrap;
+    padding: 0.5em;
     margin-left: 1%;
     margin-right: 1%;
-    padding: 2%;
     cursor: pointer;
 }
 .x-lide .ctrls .ctrl:hover{
@@ -175,12 +181,11 @@
 }
 .x-lide .previews{
     display: flex;
-    height: 20%;
+    height: 25%;
     width: 100%;
     padding: 0;
     margin: 0;
     max-width: 100%;
-    background: #111;
     color: wheat;
     justify-content: center;
     text-align: center;
@@ -191,27 +196,41 @@
     display: flex;
     padding: 0;
     margin: 0;
+    width: 100%;
     flex-direction: column;
     border-radius: 6em;
     justify-content: center;
 }
 .x-lide .previews .preview img{
     display: flex;
-    margin: 5%;
-    padding: 0;
-    width: 90%;
-    height: 90%;
+    width: 96%;
+    height: 96%;
+    margin: 2%;
+    border: 1px solid #333;
+}
+.x-lide.horizontal .x-lide-list > *.visible{
+    animation: fromLeft 0.8s 1;
+}
+.x-lide.horizontal-reverse .x-lide-list > *.visible{
+    animation: fromRight 0.8s 1;
+}
+.x-lide.fade .x-lide-list > *.visible{
+    animation: fade 0.8s 1;
+}
+.x-lide.fade-reverse .x-lide-list > *.visible{
+    animation: fadeoff 0.8s 1;
 }
 .x-lide.vertical .x-lide-list > *.visible{
     animation: fromTop 0.8s 1;
 }
+.x-lide.vertical-reverse .x-lide-list > *.visible{
+    animation: fromBottom 0.8s 1;
+}
 .x-lide.rotate .x-lide-list > *.visible{
     animation: rotate 0.8s 1;
-}.x-lide.rotate .x-lide-list > *.visible{
-    animation: rotateReverse 0.8s 1;
 }
-.x-lide.vertical-reversed .x-lide-list > *.visible{
-    animation: fromBottom 0.8s 1;
+.x-lide.rotate-reverse .x-lide-list > *.visible{
+    animation: rotateReverse 0.8s 1;
 }
 .x-lide-row{
     display: flex;
