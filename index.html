@@ -11,7 +11,7 @@
     <header>
 
     </header>
-    <section id="slide-one" class="vertical-reversed">
+    <section id="slide-one">
     </section>
     <div class="x-lide-full-row">
         <div id="slide-two" >
@@ -26,12 +26,13 @@
         let slidelist = []
         let imgs = ['1.png','2.png','3.png','4.png','5.png']
         let imgs2 = ['2.png','1.png','5.png','3.png','4.png']
-        slidelist.push(['#slide-one','xlide',imgs,{previews:1}])
-        slidelist.push(['#slide-two','xlide',imgs2,{classList:['rotate'],ctrls:1}])
-        slidelist.push(['#slide-three','xlide',imgs2,{previews:1}])
-        slidelist.push(['#slide-for','xlide',imgs,{ctrls:1}])
-        createSlides(slidelist)
-        showSlides(5000)
+        // slidelist.push(['#slide-one','xlide',imgs,{previews:1}])
+        // slidelist.push(['#slide-two','xlide',imgs2,{classList:['rotate'],ctrls:1}])
+        // slidelist.push(['#slide-three','xlide',imgs2,{previews:1}])
+        // slidelist.push(['#slide-for','xlide',imgs,{ctrls:1}])
+        // createSlides(slidelist)
+        xLides.new('#slide-one','slidey',imgs,{previews:1,interval:3500,classList:['vertical']})
+        // showSlides(5000)
     </script>
 </body>
 </html>
