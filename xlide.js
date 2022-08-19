@@ -280,9 +280,9 @@ class xLideManager{
         this.appendSlide(slide)
         return slide
     }
-    slideList(...data){
+    slideList(data){
         return Array.from(data.map(
-            this.slide            
+            (slide)=>{return this.slide(...slide)}            
         ))
     }
 }

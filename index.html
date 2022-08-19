@@ -27,10 +27,10 @@
         let imgs = [['1.png','test'],['2.png','image deux'],'3.png:image trois',['4.png'],'5.png']
         let imgs2 = ['2.png','1.png','5.png','3.png','4.png']
         slidelist.push(['#slide-one','slidey',imgs,{ctrls:1,interval:3500,classList:['vertical'],captions:1}])
-        slidelist.push(['#slide-two','slidey',imgs2,{previews:1,interval:3500,captions:1}])
-        slidelist.push(['#slide-three','slidey',imgs2,{previews:1,controls:1,interval:3500,autoplay:true,captions:1}])
-        slidelist.push(['#slide-two','slidey',imgs2,{previews:1,interval:3500,captions:1}])
-        xLides.slidelist()
+        slidelist.push(['#slide-two','slidey',imgs2,{previews:1,interval:3500}])
+        slidelist.push(['#slide-three','slidey',imgs2,{previews:1,ctrls:1,interval:3500,autoplay:true}])
+        slidelist.push(['#slide-for','slidey',imgs2,{previews:1,interval:3500}])
+        xLides.slideList(slidelist)
     </script>
 </body>
 </html>
