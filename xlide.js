@@ -70,6 +70,8 @@ class xLide{
         if(xlide){
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
+            const previews = document.createElement('div')
+            const ctrls = document.createElement('div')
             if(this.hasOption('classList')){
                 this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
@@ -85,7 +87,7 @@ class xLide{
                     return img.match(":") ? img.split(':')[0] : img
                 }
             ))
-            this.getVal('images').forEach(
+            images.forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
                     const picture = document.createElement('img')
@@ -116,7 +118,6 @@ class xLide{
             if(this.hasOption('previews')){
                 xlide.classList.add('hasPreviews')
 
-                const previews = document.createElement('div')
                 previews.classList.add('previews')
                 this.getVal('elems').forEach(
                     (elem,idx)=>{
@@ -136,7 +137,6 @@ class xLide{
                 )
                 if(this.hasOption('ctrls')){
                     xlide.classList.add('hasCtrl')
-                    const ctrls = document.createElement('div')
                     ctrls.classList.add('ctrls')
                     this.getVal('elems').forEach(
                         (elem,idx)=>{
@@ -151,19 +151,19 @@ class xLide{
                             ctrls.appendChild(elemctrl)
                         }
                     )
-                    if(this.hasOption('captions')){
-                        xlide.appendChild(caption)
-                    }
-                    xlide.appendChild(xlidelist)
-
-                    if(this.hasOption('previews')){
-                        xlide.appendChild(previews)
-                    }
-
-                    if(this.hasOption('ctrls')){
-                        xlide.appendChild(ctrls)
-                    }
                 }
+            }
+            if(this.hasOption('captions')){
+                xlide.appendChild(caption)
+            }
+            xlide.appendChild(xlidelist)
+
+            if(this.hasOption('previews')){
+                previews?xlide.appendChild(previews):null
+            }
+
+            if(this.hasOption('ctrls')){
+                xlide.appendChild(ctrls)
             }
         }
         xlide.classList.add('cf')
