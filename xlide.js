@@ -50,6 +50,7 @@ class xLide{
             (option)=>{
                 if(option=='interval') this.setVal('interval',options[option])
                 if(option=='autoplay') this.setVal('running',options[option])
+                if(option=='controls') this.setOption('ctrls',options[option])
                 this.setOption(option,options[option])
             }
         )
