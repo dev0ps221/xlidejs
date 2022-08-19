@@ -92,6 +92,9 @@ class xLide{
         return name
     
     }
+    show(){
+        
+    }
     getSlide(){
         return this.getTarget()
     }
