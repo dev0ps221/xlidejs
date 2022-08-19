@@ -1,14 +1,19 @@
 body{
     display: flex;
-    margin: auto;
     margin-top: 2%;
-    width: 80%;
+    margin: 0;
+    padding: 10%;
     flex-direction: column;
+    background: url('body.svg');
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 header{
     display: flex;
     margin: 0;
     background: url('head.jpg');
+    color: white;
+    background: url('body.jpg');
     background-color: #222b;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -33,19 +38,25 @@ header nav{
 header #heading{
     color: #fff;
 }
+header a,header h3{
+    color: #fff;
+}
+header h3{
+    background: #2246;
+    padding: 1%;
+}
 .elem-nav{
     margin: 2%;
     padding: 2%;
     margin-top: 10%;
     height: 20%;
     display: flex;
-    background: #fff3;
+    background: #337b;
     flex-direction: column;
     text-align: center;
     justify-content: center;
 }
 .elem-nav .link{
-    color: #222;
     text-decoration: none;
     font-weight: bolder;
 }
