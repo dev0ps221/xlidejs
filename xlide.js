@@ -16,7 +16,7 @@ function createSlide(xlide,name='',pics=[],options={}){
         if(options.hasOwnProperty('ctrls')){
             xlide.classList.add('hasCtrl')
         }
-        if(options.hasOwnProperty('ctrls')){
+        if(options.hasOwnProperty('previews')){
             xlide.classList.add('hasPreviews')
         }
         xlidelist.classList.add('x-lide-list')
@@ -95,7 +95,7 @@ function showSlide(slide,interv=3000){
                 elempreview.classList.add('preview')
                 const elempreviewimg = document.createElement('img')
                 elempreview.classList.add('preview-img')
-                elempreview.innerHTML = idx+1
+                elempreviewimg.src = Array.from(slide.children.map(e=>e.querySelector('img')?e.querySelector('img').src:''))[idx]
                 elempreview.addEventListener('click',e=>{
                     clearTimeout(actualTimeOut)
                     showElem(elems,idx)
