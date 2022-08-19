@@ -10,7 +10,12 @@ class xLide{
     interval = null
     elems = null
     actualTimeOut = null
+    running = false
 
+
+    isRunning(){
+        return this.getVal('running')
+    }
     setVal(key,val){
         this[key] = val
     }
@@ -130,11 +135,12 @@ class xLide{
             }
         }
         xlide.classList.add('cf')
+        this.showCurrentElem()
         return name
     
     }
     run(){
-
+        this.setVal('running',true)
         if(!this.getVal('interval')){
             this.setVal('interval',3000)
         }
@@ -163,7 +169,9 @@ class xLide{
         const action = ()=>{
             this.showCurrentElem()
         }
-        this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
+        if(this.isRunning()){
+            this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
+        }
 
     }
     nextIndex(){
@@ -202,12 +210,27 @@ class xLideManager{
     slides = []
     getSlide(name){
         const match = null
+        this.slides.forEach(
+            slide=>{
+                if(slide.getVal('name') && slide.getVal('name') == name){
+                    match = slide
+                }
+            }
+        )
+        return match
+    }
+    appendSlide(slide){
+        if(!this.getSlide(slide.getVal('name'))){
+            this.slides.push(slide)
+        }
     }
     new(...data){
-        return  
+        const slide = new xLide(...data)
+        this.appendSlide(slide)
+        return slide
     }
 }
-
+const xLides = new xLideManager()
 const _x_lides = []
 
 
