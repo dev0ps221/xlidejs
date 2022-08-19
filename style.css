@@ -78,8 +78,9 @@ header h3,header h1{
 }
 #slide-one{
     height: 70vh;
-    padding: 10%;
-    width: 80%;
+    padding: 5%;
+    padding-top: 15%;
+    width: 90%;
 }
 @media screen and (max-width:997px) {
     body{
