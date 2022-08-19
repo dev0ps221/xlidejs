@@ -4,6 +4,9 @@ class xLide{
 
     constructor(target,name,images,options){
         this.target = target
+        this.name = name
+        this.images = images
+        this.options = options
     }
 
 
