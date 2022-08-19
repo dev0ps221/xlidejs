@@ -63,10 +63,10 @@ function showSlide(slide,interv=3000){
     let idx = 0
     
     const ctrls = document.createElement('div')
-    let actualTimeOut = null 
     ctrls.classList.add('ctrls')
-    [...Array(elems.length).keys()].forEach(
-        (idx)=>{
+    let actualTimeOut = null; 
+    elems.forEach(
+        (elem,idx)=>{
             const elemctrl = document.createElement('span')
             elemctrl.classList.add('ctrl')
             elemctrl.innerHTML = idx+1
