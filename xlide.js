@@ -238,15 +238,14 @@ class xLide{
         this.setName(name)
 
         this.setOptions(options)
-        if(this.hasOption('captions')){
-           images = images.map(
-               img=>(Array.isArray(img))?
-                       img.length ? 
-                                img.length > 1 ? `${img[0]}:${img[1]}` : img[0] 
-                        : ''
-                   :    img 
-           )
-        }
+        images = images.map(
+            img=>(Array.isArray(img))?
+                    img.length ? 
+                            img.length > 1 ? `${img[0]}:${img[1]}` : img[0] 
+                    : ''
+                :    img 
+        )
+    
         this.setImages(images)
         this.selectTarget()
         this.setVal('idx',0)

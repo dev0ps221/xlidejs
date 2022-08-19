@@ -157,9 +157,12 @@
 .x-lide .previews{
     display: flex;
     height: 20%;
+    width: 100%;
+    max-width: 100%;
     background: black;
     color: wheat;
     justify-content: center;
+    overflow-x: scroll;
 }
 .x-lide .previews .preview{
     display: flex;
