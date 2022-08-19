@@ -2,12 +2,17 @@
 const _x_lides = []
 
 
-function createSlide(xlide,name='',pics=[]){
+function createSlide(xlide,name='',pics=[],options={}){
     xlide = document.querySelector(xlide)
     name = name?name:'slide'+_x_lides.length
     if(xlide){
         xlide.classList.add('x-lide')
         const xlidelist = document.createElement('div')
+        if(options.hasOwnProperty('classList')){
+            options.classList.forEach(
+                className => xlide.classList.add(className)
+            )
+        }
         xlidelist.classList.add('x-lide-list')
         xlide.appendChild(xlidelist)
         pics.forEach(
@@ -60,8 +65,8 @@ function showSlide(slide,interv=3000){
     const ctrls = document.createElement('div')
     let actualTimeOut = null 
     ctrls.classList.add('ctrls')
-    elems.forEach(
-        (elem,idx)=>{
+    [...Array(elems.length).keys()].forEach(
+        (idx)=>{
             const elemctrl = document.createElement('span')
             elemctrl.classList.add('ctrl')
             elemctrl.innerHTML = idx+1
