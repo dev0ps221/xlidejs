@@ -4,6 +4,7 @@ body{
     padding: 15%;
     padding-top: 3%;
     flex-direction: column;
+    font-family: "sohne-var","Helvetica Neue","Arial",sans-serif;
     background: url('body.svg');
     background: url('body2.jpg');
     background-size: cover;
@@ -52,7 +53,7 @@ header a,header h3{
     color: #fff;
 }
 header h3,header h1{
-    background: #2265;
+    /* background: #2265; */
     padding: 0.5%;
 }
 .elem-nav{
@@ -61,10 +62,15 @@ header h3,header h1{
     margin-top: 10%;
     height: 20%;
     display: flex;
-    background: #2268;
+    border-bottom: 2px solid #226b;
     flex-direction: column;
     text-align: center;
     justify-content: center;
+}
+.elem-nav:hover{
+    background: #226b;
+    border-bottom: 2px solid #ff6b;
+    
 }
 .elem-nav .link{
     text-decoration: none;
