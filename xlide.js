@@ -5,7 +5,7 @@ class xLide{
     setVal(key,val){
         if(val)  this[key] = val
     }
-    getVal(key,ref={}){
+    getVal(key,ref=null){
         return (ref ? ref : this).hasOwnProperty(key) ? (ref ? ref : this)[key] : null
     }
     setTarget(target){
