@@ -146,6 +146,24 @@
     justify-content: center;
     text-align: center;
 }
+.x-lide .previews{
+    display: flex;
+    height: 25%;
+    justify-content: center;
+}
+.x-lide .previews .preview{
+    display: flex;
+    flex-direction: column;
+    border-radius: 6em;
+    justify-content: center;
+    text-align: center;
+}
+.x-lide .previews .preview img{
+    display: flex;
+    margin: 5%;
+    width: 90%;
+    height: 90%;
+}
 .x-lide.vertical .x-lide-list > *.visible{
     animation: fromTop 2.5s 1;
 }
