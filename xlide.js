@@ -120,6 +120,9 @@ class xLide{
             if(this.getOption('horizontal')){
                 xlide.classList.add('horizontal')
             }
+            if(this.getOption('horizontal-reverse')){
+                xlide.classList.add('horizontal')
+            }
             if(this.getOption('rotate')){
                 xlide.classList.add('rotate')
             }
