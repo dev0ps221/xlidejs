@@ -13,9 +13,11 @@ function createSlide(xlide,name='',pics=[],options={}){
                 className => xlide.classList.add(className)
             )
         }
-        console.log(options)
         if(options.hasOwnProperty('ctrls')){
             xlide.classList.add('hasCtrl')
+        }
+        if(options.hasOwnProperty('ctrls')){
+            xlide.classList.add('hasPreviews')
         }
         xlidelist.classList.add('x-lide-list')
         xlide.appendChild(xlidelist)
@@ -83,6 +85,26 @@ function showSlide(slide,interv=3000){
             }
         )
         slide.appendChild(ctrls)
+    }
+    if(slide.classList.contains('hasPreviews')){
+        const previews = document.createElement('div')
+        previews.classList.add('previews')
+        elems.forEach(
+            (elem,idx)=>{
+                const elempreview = document.createElement('span')
+                elempreview.classList.add('preview')
+                const elempreviewimg = document.createElement('img')
+                elempreview.classList.add('preview-img')
+                elempreview.innerHTML = idx+1
+                elempreview.addEventListener('click',e=>{
+                    clearTimeout(actualTimeOut)
+                    showElem(elems,idx)
+                })
+                elempreview.appendChild(elempreviewimg)
+                previews.appendChild(elempreview)
+            }
+        )
+        slide.appendChild(previews)
     }
     function showElem(elems,idx){
         const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
