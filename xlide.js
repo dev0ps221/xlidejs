@@ -19,7 +19,7 @@ class xLide{
         this.setVal('target',target)
     }
     getTarget(){
-        this.getVal('target')
+        return this.getVal('target')
     }
     setName(name){
         this.setVal('name',name)
@@ -43,9 +43,9 @@ class xLide{
         }
     }
     setOptions(options){
-        options.forEach(
-            ([option,value])=>{
-                this.setOption(option,value)
+        Object.keys(options).forEach(
+            (option)=>{
+                this.setOption(option,options[option])
             }
         )
     }
@@ -91,9 +91,9 @@ class xLide{
     getSlide(){
         return this.getTarget()
     }
-    
-
-
+    isConfigured(){
+        return this.getTarget().classList.contains('cf')
+    }
     constructor(selector,name,images,options){
         this.setVal('selector',selector)
         this.setName(name)
