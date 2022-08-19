@@ -220,7 +220,7 @@ class xLideManager{
         return match
     }
     appendSlide(slide){
-        if(!this.getSlide(slide.getVal('name'))){
+        if(!this.get(slide.getVal('name'))){
             this.slides.push(slide)
         }
     }
