@@ -18,7 +18,7 @@ class xLide{
     setTarget(target){
         this.setVal('target',target)
     }
-    getTarget(target){
+    getTarget(){
         this.getVal('target')
     }
     setName(name){
@@ -84,11 +84,14 @@ class xLide{
                 }
             )
         }
+        xlide.classList.add('cf')
         return name
     
     }
-
-
+    getSlide(){
+        return this.getTarget()
+    }
+    
 
 
     constructor(selector,name,images,options){
