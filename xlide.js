@@ -29,6 +29,13 @@ class xLide{
     setOption(option,value){
         let options = this.getOptions()
     }
+    setOptions(options){
+        options.forEach(
+            ([option,value])=>{
+                this.setOption(option,value)
+            }
+        )
+    }
     selectTarget(selector){
         this.setTarget(document.querySelector(selector))
     }
