@@ -36,7 +36,7 @@ class xLide{
         return this.getVal('options')
     }
     getOption(option){
-        this.getVal(option,this.getOptions())
+        return this.getVal(option,this.getOptions())
     }
     setOption(option,value){
         if(option){
@@ -53,7 +53,6 @@ class xLide{
         )
     }
     hasOption(option){
-        if (option == 'classList') this.getOption(option) !=null
         return this.getOption(option) !=null
     }
     selectTarget(){
