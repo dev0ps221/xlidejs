@@ -13,6 +13,7 @@ function createSlide(xlide,name='',pics=[],options={}){
                 className => xlide.classList.add(className)
             )
         }
+        console.log(options)
         if(options.hasOwnProperty('ctrls')){
             xlide.classList.add('hasCtrl')
         }
