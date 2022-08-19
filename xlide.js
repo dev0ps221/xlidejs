@@ -2,8 +2,35 @@ class xLide{
 
 
 
+    set(key,val){
+        if(val)  this[key] = val
+    }
+    setTarget(target){
+        this.set('target',target)
+    }
+    setName(name){
+        this.set('name',name)
+    }
+    setImages(images){
+        this.set('images',images)
+    }
+    setOptions(options){
+        this.set('options',options)
+    }
+    getOptions(options){
+        this.set('options',options)
+    }
+    getOption(option){
+
+    }
+    setOption(option,value){
+        
+    }
+    selectTarget(selector){
+        this.setTarget(document.querySelector(selector))
+    }
     constructor(target,name,images,options){
-        this.target = target
+        this.setTarget(target)
         this.name = name
         this.images = images
         this.options = options
