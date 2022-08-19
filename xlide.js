@@ -196,7 +196,7 @@ class xLide{
         }
         elems.forEach(
             (lm,i)=>{
-                if(i!=idx && i!=idx-1)lm.classList.remove('visible')
+                if(i!=idx)lm.classList.remove('visible')
                 else{
                     lm.classList.add('visible')
                 }
