@@ -53,7 +53,8 @@ class xLide{
         )
     }
     hasOption(option){
-        return this.getOption(option)!=null
+        if (option == 'classList') this.getOption(option) !=null
+        return this.getOption(option) !=null
     }
     selectTarget(){
         this.setTarget(document.querySelector(this.getVal('selector')))
@@ -65,9 +66,12 @@ class xLide{
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
             if(this.hasOption('classList')){
+                console.log('classList',classList)
                 this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
                 )
+            }else{
+                console.log(this.getOptions())
             }
             if(this.hasOption('ctrls')){
                 xlide.classList.add('hasCtrl')
