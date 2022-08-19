@@ -161,6 +161,7 @@ class xLide{
             }
 
             if(this.hasOption('ctrls')){
+                console.log('hey')
                 xlide.appendChild(ctrls)
             }
         }
