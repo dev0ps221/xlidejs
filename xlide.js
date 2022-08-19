@@ -1,6 +1,4 @@
 class xLide{
-
-
     options = {}
     images = []
     name = null
@@ -11,8 +9,6 @@ class xLide{
     elems = null
     actualTimeOut = null
     running = false
-
-
     isRunning(){
         return this.getVal('running')
     }
@@ -175,7 +171,6 @@ class xLide{
         }
         this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
         return name
-    
     }
     run(){
         this.setVal('running',true)
@@ -183,7 +178,6 @@ class xLide{
             this.setVal('interval',3000)
         }
         this.showCurrentElem()
-
     }
     showCurrentElem(){
         let idx = this.getVal('idx')
@@ -213,7 +207,6 @@ class xLide{
         if(this.isRunning()){
             this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
         }
-
     }
     nextIndex(){
         let idx = this.getVal('idx')
@@ -251,11 +244,7 @@ class xLide{
         this.setVal('idx',0)
         this.createSlide()
     }
-
-
 }
-
-
 class xLideManager{
     slides = []
     get(name){
