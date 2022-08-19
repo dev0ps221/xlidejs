@@ -1,6 +1,4 @@
 class xLide{
-
-
     options = {}
     images = []
     name = null
@@ -11,8 +9,6 @@ class xLide{
     elems = null
     actualTimeOut = null
     running = false
-
-
     isRunning(){
         return this.getVal('running')
     }
@@ -54,6 +50,7 @@ class xLide{
             (option)=>{
                 if(option=='interval') this.setVal('interval',options[option])
                 if(option=='autoplay') this.setVal('running',options[option])
+                if(option=='controls') this.setOption('ctrls',options[option])
                 this.setOption(option,options[option])
             }
         )
@@ -70,6 +67,8 @@ class xLide{
         if(xlide){
             xlide.classList.add('x-lide')
             const xlidelist = document.createElement('div')
+            const previews = document.createElement('div')
+            const ctrls = document.createElement('div')
             if(this.hasOption('classList')){
                 this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
@@ -77,9 +76,16 @@ class xLide{
             }
             xlidelist.classList.add('x-lide-list')
             this.setVal('list',xlidelist)
-            xlide.appendChild(xlidelist)
             let elems = []
-            this.getVal('images').forEach(
+            let captions = []
+            let caption = null
+
+            let images = Array.from(this.getVal('images').map(
+                (img)=>{
+                    return img.match(":") ? img.split(':')[0] : img
+                }
+            ))
+            images.forEach(
                 pic=>{
                     const picture_container = document.createElement('div')
                     const picture = document.createElement('img')
@@ -90,29 +96,26 @@ class xLide{
                 }
             )
             this.setVal('elems',elems)
-
-            if(this.hasOption('ctrls')){
-                xlide.classList.add('hasCtrl')
-                const ctrls = document.createElement('div')
-                ctrls.classList.add('ctrls')
+            
+            if(this.getOption('captions')){
+                caption = document.createElement('div')
+                captions = []
+                xlide.classList.add('hasCaptions')
+                caption.classList.add('caption')
                 this.getVal('elems').forEach(
                     (elem,idx)=>{
-                        const elemctrl = document.createElement('span')
-                        elemctrl.classList.add('ctrl')
-                        elemctrl.innerHTML = idx+1
-                        elemctrl.addEventListener('click',e=>{
-                            clearTimeout(actualTimeOut)
-                            showElem(elems,idx)
-                        })
-                        ctrls.appendChild(elemctrl)
+                        const imgarr = this.getVal('images')[idx].split(':')
+                        
+                        captions.push(imgarr.length>1?imgarr[1]: `preview ${idx}`)
+                        
                     }
                 )
-                xlide.appendChild(ctrls)
+                this.setVal('caption',caption)
+                this.setVal('captions',captions)
             }
-            if(this.hasOption('previews')){
+            if(this.getOption('previews')){
                 xlide.classList.add('hasPreviews')
 
-                const previews = document.createElement('div')
                 previews.classList.add('previews')
                 this.getVal('elems').forEach(
                     (elem,idx)=>{
@@ -120,7 +123,7 @@ class xLide{
                         elempreview.classList.add('preview')
                         const elempreviewimg = document.createElement('img')
                         elempreview.classList.add('preview-img')
-                        elempreviewimg.src = this.getVal('images')[idx]
+                        elempreviewimg.src = images[idx]
                         elempreview.addEventListener('click',e=>{
                             clearTimeout(this.actualTimeOut)
                             this.setVal('idx',idx)
@@ -130,7 +133,37 @@ class xLide{
                         previews.appendChild(elempreview)
                     }
                 )
-                xlide.appendChild(previews)
+            }
+            if(this.getOption('ctrls')){
+                xlide.classList.add('hasCtrl')
+                if(this.getOption('ctrls')=='captions') xlide.classList.add('hasCaptionCtrl')
+                ctrls.classList.add('ctrls')
+                this.getVal('elems').forEach(
+                    (elem,idx)=>{
+                        const elemctrl = document.createElement('span')
+                        elemctrl.classList.add('ctrl')
+                        elemctrl.innerHTML = (this.getOption('ctrls')=='captions' && this.getOption('captions')) ? this.getVal('captions')[idx] : idx+1
+                        elemctrl.addEventListener('click',e=>{
+                            clearTimeout(this.actualTimeOut)
+                            this.setVal('idx',idx)
+                            this.showCurrentElem()
+                        })
+                        ctrls.appendChild(elemctrl)
+                    }
+                )
+            }
+            if(this.hasOption('captions')){
+                xlide.appendChild(caption)
+            }
+            xlide.appendChild(xlidelist)
+
+            if(this.hasOption('previews')){
+                previews?xlide.appendChild(previews):null
+            }
+
+            if(this.hasOption('ctrls')){
+                console.log('hey')
+                xlide.appendChild(ctrls)
             }
         }
         xlide.classList.add('cf')
@@ -141,7 +174,6 @@ class xLide{
         }
         this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
         return name
-    
     }
     run(){
         this.setVal('running',true)
@@ -149,7 +181,6 @@ class xLide{
             this.setVal('interval',3000)
         }
         this.showCurrentElem()
-
     }
     showCurrentElem(){
         let idx = this.getVal('idx')
@@ -159,6 +190,9 @@ class xLide{
         if(lastelem.querySelector('img')){
             list.style.background = `url(${lastelem.querySelector('img').src})`
             list.style.backgroundSize = '100% 100%'
+        }
+        if(this.hasOption('captions')){
+            this.getVal('caption').innerHTML = this.getVal('captions')[idx]
         }
         elems.forEach(
             (lm,i)=>{
@@ -176,7 +210,6 @@ class xLide{
         if(this.isRunning()){
             this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
         }
-
     }
     nextIndex(){
         let idx = this.getVal('idx')
@@ -199,17 +232,22 @@ class xLide{
     constructor(selector,name,images,options){
         this.setVal('selector',selector)
         this.setName(name)
-        this.setImages(images)
+
         this.setOptions(options)
+        images = images.map(
+            img=>(Array.isArray(img))?
+                    img.length ? 
+                            img.length > 1 ? `${img[0]}:${img[1]}` : img[0] 
+                    : ''
+                :    img 
+        )
+    
+        this.setImages(images)
         this.selectTarget()
         this.setVal('idx',0)
         this.createSlide()
     }
-
-
 }
-
-
 class xLideManager{
     slides = []
     get(name){
@@ -228,10 +266,15 @@ class xLideManager{
             this.slides.push(slide)
         }
     }
-    new(...data){
+    slide(...data){
         const slide = new xLide(...data)
         this.appendSlide(slide)
         return slide
+    }
+    slideList(data){
+        return Array.from(data.map(
+            (slide)=>{return this.slide(...slide)}            
+        ))
     }
 }
 const xLides = new xLideManager()

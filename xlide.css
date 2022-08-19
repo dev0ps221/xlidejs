@@ -130,37 +130,75 @@
     min-width: 100%;
     max-height: 100%;
 }
-.x-lide .ctrls{
+.x-lide .caption{
     display: flex;
     height: 5%;
-    background: black;
+    padding: 2.5%;
+    color: wheat;
+    background: #111d;
     justify-content: center;
+}
+.x-lide .ctrls{
+    display: flex;
+    min-height: 5%;
+    padding: 2%;
+    background: #111;
+    overflow-x: scroll;
+    justify-content: center;
+}
+.x-lide.hasCaptionCtrl .ctrls{
+    justify-content: flex-start;
 }
 .x-lide .ctrls .ctrl{
     display: flex;
     flex-direction: column;
-    width: 2.5%;
-    border-radius: 6em;
+    border-radius: 8em;
     background: wheat;
-    color: black;
+    color: #111;
     justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 2%;
+    cursor: pointer;
+}
+.x-lide .ctrls .ctrl:hover{
+    background: #111;
+    color: wheat;
+    border: 1px outset #fff5;
+}
+.x-lide .ctrls .ctrl:active{
+    background: #335;
+    color: wheat;
+    border: 1px outset #fff5;
 }
 .x-lide .previews{
     display: flex;
-    height: 25%;
+    height: 20%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    background: #111;
+    color: wheat;
     justify-content: center;
+    text-align: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 .x-lide .previews .preview{
     display: flex;
+    padding: 0;
+    margin: 0;
     flex-direction: column;
     border-radius: 6em;
     justify-content: center;
-    text-align: center;
 }
 .x-lide .previews .preview img{
     display: flex;
     margin: 5%;
+    padding: 0;
     width: 90%;
     height: 90%;
 }
@@ -217,10 +255,5 @@
         width:100%;
         height: 85%;
     }
-    .x-lide .ctrls{
-        display: flex;
-        height: 15%;
-        background: black;
-        justify-content: center;
-    }
+    
 }
