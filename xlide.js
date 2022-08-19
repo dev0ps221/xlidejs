@@ -158,8 +158,9 @@ class xLide{
         )
         lastelem.classList.remove('visible')
         this.nextIndex()
-        
-        actualTimeOut = setTimeout(this.showCurrentElem,interv) 
+
+        actualTimeOut = setTimeout(this.showCurrentElem,this.getVal('interval')) 
+
     }
     nextIndex(){
         idx = this.getVal('idx')
