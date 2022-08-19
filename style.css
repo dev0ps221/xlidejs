@@ -1,20 +1,28 @@
 body{
     display: flex;
-    margin-top: 2%;
     margin: 0;
-    padding: 10%;
+    padding: 15%;
+    padding-top: 3%;
     flex-direction: column;
     background: url('body.svg');
-    background-size: 100% 100%;
+    background: url('body2.jpg');
+    background-size: cover;
     background-attachment: fixed;
+    color: #fff;
+}
+body > *{
+    padding: 5%;
+    background:#2265;
 }
 header{
     display: flex;
     margin: 0;
     background: url('head.jpg');
     color: white;
-    background: url('body.jpg');
+    background: url('body2.jpg');
     background-color: #222b;
+    border: 5px outset #2265;
+    border-radius: 1.3em ;
     background-size: 100% 100%;
     background-attachment: fixed;
     background-blend-mode: color-dodge;
@@ -22,6 +30,7 @@ header{
     padding-top: 3%;
     padding-left: 15%;
     padding-right: 15%;
+    justify-content: space-between;
     /* background: #111; */
 }
 header > *{
@@ -36,14 +45,15 @@ header nav{
     width: 60%;
 }
 header #heading{
+    width: 40%;
     color: #fff;
 }
 header a,header h3{
     color: #fff;
 }
-header h3{
-    background: #2246;
-    padding: 1%;
+header h3,header h1{
+    background: #2265;
+    padding: 0.5%;
 }
 .elem-nav{
     margin: 2%;
@@ -51,7 +61,7 @@ header h3{
     margin-top: 10%;
     height: 20%;
     display: flex;
-    background: #337b;
+    background: #2268;
     flex-direction: column;
     text-align: center;
     justify-content: center;
@@ -62,15 +72,28 @@ header h3{
 }
 #slide-one{
     height: 70vh;
-    margin: 5%;
-    padding: 5%;
+    padding: 10%;
     width: 80%;
 }
 @media screen and (max-width:997px) {
+    body{
+        padding: 5%;
+    }
     #todocs .listslide {
         flex-wrap: wrap;
     }
     #todocs .listslide > *{
+        width: 100%;
+    }
+    header{
+        flex-direction: column;
+    }
+    header > * {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    header #heading,header nav{
         width: 100%;
     }
     
