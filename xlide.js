@@ -95,7 +95,7 @@ function showSlide(slide,interv=3000){
                 elempreview.classList.add('preview')
                 const elempreviewimg = document.createElement('img')
                 elempreview.classList.add('preview-img')
-                elempreviewimg.src = Array.from(slide.children.map(e=>e.querySelector('img')?e.querySelector('img').src:''))[idx]
+                elempreviewimg.src = Array.from(Array.from(slide.querySelector('.x-lide-list').children).map(e=>{return e.querySelector('img')?e.querySelector('img').src:''}))[idx]
                 elempreview.addEventListener('click',e=>{
                     clearTimeout(actualTimeOut)
                     showElem(elems,idx)
