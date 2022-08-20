@@ -343,7 +343,6 @@ const xLides = new xLideManager()
 function xl(className='xslide',name=xLides.slides.length,images=[],options={},isgalery=null){
     images = (!images) ? [] : images
     const target = document.createElement('section')
-    target.style.display = 'none'
     target.classList.add(className)
     document.body.appendChild(target)
     let slider = null
@@ -370,26 +369,24 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={},is
             }   
         )
     }
-    const appendTo = (target=null,sel=null)=>{
+    const appendTo = (sel=null)=>{
         if(slider!=null){
             slider.destroy()
         }
-        if(!target){
-            if(sel) target = document.querySelector(sel)
-            else return
+        const target = document.querySelector(sel)
+        if(target){
+            start(target)
         }
-        start(target,sel)
     }
-    const start = (tgt=document.body,sel=null)=>{
-        if(!target){
-            if(sel) target = document.querySelector(sel)
-            else return
+    const start = (tgt,sel=null)=>{
+        if(!tgt){
+            if(sel) tgt = document.querySelector(sel)
+            else tgt = document.body
         }
         if(target){
-            slider = xLides[isgalery ? 'galery' : 'slide'](className,name,images,options)
+            slider = xLides[isgalery ? 'galery' : 'slide'](`.${className}`,name,images,options)
         }
-        slider.appendTo(target)
-        tgt.appendChild(target)
+        slider.appendTo(tgt)
         target.style.display = 'flex'
         return slider 
     }
@@ -427,6 +424,9 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={},is
     
 }
 function xg(...args){
+    while(args.length<4){
+        args.push(undefined)
+    }
     args.push(true)
     return xl(...args)
 }
