@@ -194,7 +194,6 @@ class xLide{
                 if(this.getOption('isgalery')){
                     previews?xlide.appendChild(previews):null
                     previews?xlide.appendChild(previews):null
-                    
                 }else{
                     previews?xlide.appendChild(previews):null
                 }
