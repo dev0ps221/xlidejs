@@ -276,6 +276,10 @@ class xLideGalery extends xLide{
     constructor(selector,name,images,options){
         options.previews = 1
         super(selector,name,images,options)
+        const xlide = this.getTarget()
+        if(xlide){
+            xlide.classList.add('x-lide-galery')
+        }
     }
 }
 class xLideManager{
