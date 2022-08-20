@@ -23,12 +23,17 @@ car1.appendTo('.car1')
 
 
 const car2 = xl('carousel-2','carousel2')
-car2.addClass('bgblue')   
+car2.addClass('bgpurp-a')   
 car2.addImages(imgs)
-car2.addOptions(['interval',2000],'autoplay','horizontal')
+car2.addOptions(['interval',4000],'autoplay','vertical')
 car2.appendTo('.car2')
 
 
+const car3 = xl('carousel-3','carousel3')
+car3.addClass('bgblue')   
+car3.addImages(imgs)
+car3.addOptions(['interval',2000],'autoplay','horizontal')
+car3.appendTo('.car3')
 
 
 
