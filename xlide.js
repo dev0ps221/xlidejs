@@ -12,6 +12,9 @@ class xLide{
     isRunning(){
         return this.getVal('running')
     }
+    appendTo(root){
+        root.appendChild(this.target)
+    }
     setVal(key,val){
         this[key] = val
     }
@@ -365,8 +368,9 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
             }   
         )
     }
-    const start = ()=>{
+    const start = (target=document.body)=>{
         slider = xLides.slide(className,name,images,options)
+        
         return slider 
     }
     addOption('interval',4000)
