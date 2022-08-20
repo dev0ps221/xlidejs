@@ -109,6 +109,7 @@
 .x-lide-galery .x-lide-list{
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 .x-lide-galery .x-lide-galerybox{
     width: 100%;
@@ -247,6 +248,7 @@
     width: 96%;
     height: 96%;
     margin: 2%;
+    padding: 0;
     border: 1px solid #333;
 }
 .x-lide.horizontal .x-lide-list > *.visible{
@@ -279,12 +281,16 @@
 }
 .x-lide-full-row > *{
     width: 33%;
-    height: 100%;
+    box-sizing: border-box;
     margin: 1%;
+}
+
+.x-lide-full-row > .x-lide{
+    overflow: hidden;
+    max-height: 100%;
 }
 .x-lide-full-row{
     justify-content: space-around;
-    box-sizing:border-box;
     display: flex;
     flex-direction: row;
     width: 100%;

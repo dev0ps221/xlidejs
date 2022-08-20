@@ -11,7 +11,7 @@ body{
     background-attachment: fixed;
     color: #fff;
 }
-body > *{
+body > section{
     padding: 10%;
     background:#2265;
 }
