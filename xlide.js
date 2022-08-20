@@ -368,9 +368,14 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
             }   
         )
     }
+    appendTo(){
+        if(slider!=null){
+            slider.destroy()
+        }
+    }
     const start = (target=document.body)=>{
         slider = xLides.slide(className,name,images,options)
-        
+        slider.appendTo(target)
         return slider 
     }
     addOption('interval',4000)
