@@ -70,6 +70,7 @@ class xLide{
             const previews = document.createElement('div')
             const ctrls = document.createElement('div')
             const galerybox = document.createElement('div')
+            const galerytitle = document.createElement('h2')
             if(this.hasOption('classList')){
                 this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
@@ -162,6 +163,10 @@ class xLide{
             if(this.getOption('isgalery')){
                 xlide.classList.add('x-lide-galery')
                 galerybox.classList.add('x-lide-galerybox')
+                galerytitle.classList.add('x-lide-galerytitle')
+                galerytitle.innerHTML = this.getVal('name')
+                galerytitle.id = `title-galery-${this.getVal('name')}`
+                xlide.appendChild(galerytitle)
             }
             if(this.getOption('ctrls')){
                 xlide.classList.add('hasCtrl')
