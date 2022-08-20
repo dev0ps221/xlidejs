@@ -301,7 +301,10 @@
     background: red;
 }
 .bgblue{
-    background: blue;
+    background: #55e;
+}
+.bgpurp{
+    background: #59e;
 }
 @media screen and (max-width:997px) {
     .x-lide{
