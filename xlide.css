@@ -134,7 +134,7 @@
     width: 100%;
     height: 100%;
     max-height: 100%;
-    animation: fadeoff 0.8s 1;
+    animation: fadeoff 1s 1;
 }
 .x-lide-list > *.visible{
     animation: fromLeft 0.8s 1;
