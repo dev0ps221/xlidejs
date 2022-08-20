@@ -375,6 +375,11 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
         if(slider!=null){
             slider.destroy()
         }
+        if(!target){
+            if(selector) target = document.querySelector(selector)
+            else return
+        }
+        start(target)
     }
     const start = (target=document.body,selector=null)=>{
         slider = xLides.slide(className,name,images,options)
