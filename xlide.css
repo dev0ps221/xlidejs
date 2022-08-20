@@ -82,7 +82,7 @@
     }
 }
 .x-lide{
-    box-sizing: content-box;
+    box-sizing: border-box;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -98,6 +98,7 @@
     padding: 0;
     background: #111;
     margin-top: 5%;
+    height: 100%;
     margin-bottom: 15%;
 }
 .x-lide-galerytitle{
@@ -110,6 +111,8 @@
 }
 .x-lide-galery .x-lide-galerybox{
     width: 100%;
+    height: 100%;
+    overflow: hidden;
     display: flex;   
 }
 .x-lide-list{
@@ -130,6 +133,7 @@
     transition: 0.8s;
     width: 100%;
     height: 100%;
+    max-height: 100%;
     animation: fadeoff 0.8s 1;
 }
 .x-lide-list > *.visible{
@@ -234,7 +238,7 @@
 }
 .x-lide-galery .previews .preview{
     border-radius: 0;
-    min-height: 30%;
+    min-height: 35%;
     margin: 0;
 }
 .x-lide .previews .preview img{
@@ -292,23 +296,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
 }
 .x-lide-full-column{
     box-sizing: content-box;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
-
-
-
-
 @media screen and (max-width:997px) {
     .x-lide{
-        height: 45vh;
+        height: 55vh;
     }
 
     .x-lide-list{
@@ -319,7 +319,9 @@
         height: 85%;
     }
     
-}
+    .x-lide-full-row{
+        flex-wrap: wrap;
+    }
 
 
 

@@ -4,5 +4,5 @@ slidelist.push(['#slide-one','slidey',imgs,{classList:['bgpurp-a'],interval:4000
 slidelist.push(['.car1','car1',imgs,{horizontal:1,classList:['bgpurp-a'],interval:2000,autoplay:true}])
 slidelist.push(['.car2','car2',imgs,{vertical:1,classList:['bgpurp-a'],interval:4000,autoplay:true}])
 slidelist.push(['.car3','car3',imgs,{rhorizontal:1,classList:['bgpurp-a'],interval:2000,autoplay:true}])
-xLides.galery('#examplegalery','galerie',['1.png','2.png','3.png','4.png'],{autoplay:1,classList:['bgpurp-a'],interval:4000,controls:1})
+xLides.galery('#examplegalery','galerie',['1.png','2.png','3.png','5.png','4.png','2.png','5.png'],{autoplay:1,classList:['bgpurp-a'],interval:4000,controls:1})
 xLides.slideList(slidelist)
