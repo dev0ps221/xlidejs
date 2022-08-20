@@ -346,6 +346,8 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
     const target = document.createElement('section')
     target.classList.add(className)
     document.body.appendChild(target)
+    let lasttgt = undefined
+    let lastsel = undefined
     let slider = null
     const addOption = (opt,val=1)=>{
         options[opt] = val
@@ -379,6 +381,9 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
             start(target)
         }
     }
+    const refresh(){
+
+    }
     const start = (tgt,sel=null)=>{
         if(!tgt){
             if(sel) tgt = document.querySelector(sel)
@@ -389,6 +394,8 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
         }
         slider.appendTo(tgt)
         target.style.display = 'flex'
+        lastsel = sel
+        lasttgt = tgt
         return slider 
     }
     const addClass = className=>{
