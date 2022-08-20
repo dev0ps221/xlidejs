@@ -379,7 +379,7 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
             if(selector) target = document.querySelector(selector)
             else return
         }
-        start(target)
+        start(target,selector)
     }
     const start = (target=document.body,selector=null)=>{
         slider = xLides.slide(className,name,images,options)
