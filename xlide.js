@@ -273,7 +273,8 @@ class xLide{
     }
 }
 class xLideGalery extends xLide{
-    constructor(){
+    constructor(selector,name,images,options){
+        options.previews = 1
         super(selector,name,images,options)
     }
 }
@@ -297,6 +298,11 @@ class xLideManager{
     }
     slide(...data){
         const slide = new xLide(...data)
+        this.appendSlide(slide)
+        return slide
+    }
+    galery(...data){
+        const slide = new xLideGalery(...data)
         this.appendSlide(slide)
         return slide
     }
