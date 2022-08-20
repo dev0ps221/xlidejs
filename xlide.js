@@ -276,7 +276,7 @@ class xLide{
         return this.getTarget().classList.contains('cf')
     }
     destroy(){
-        this.target.parentNode.removeChild(this.target)
+        this.target.innerHTML = ''
     }
     constructor(selector,name,images,options){
         this.setVal('selector',selector)
@@ -373,9 +373,6 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
         )
     }
     const appendTo = (sel=null)=>{
-        if(slider!=null){
-            slider.destroy()
-        }
         const target = document.querySelector(sel)
         if(target){
             start(target)
@@ -385,6 +382,9 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
         start(lasttgt,lastsel)
     }
     const start = (tgt,sel=null)=>{
+        if(slider!=null){
+            slider.destroy()
+        }
         if(!tgt){
             if(sel) tgt = document.querySelector(sel)
             else tgt = document.body
@@ -401,6 +401,8 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
     const addClass = className=>{
         if(options.hasOwnProperty('classList')){
             options.classList.push(className)
+        }else{
+            options.classList = [className]
         }
     }
     const addClassList = classList=>{
