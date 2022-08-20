@@ -338,7 +338,7 @@ const xLides = new xLideManager()
 function xl(className='xslide',name=xLides.slides.length){
     const target = document.createElement('section')
     target.style.display = 'none'
-    target.classList(className)
+    target.classList.add(className)
     document.body.appendChild(target)
     const options = {}
     const addOption = (opt,val)=>{
