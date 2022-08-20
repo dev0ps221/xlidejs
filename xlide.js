@@ -272,6 +272,11 @@ class xLide{
         this.createSlide()
     }
 }
+class xLideGalery extends xLide{
+    constructor(){
+        super(selector,name,images,options)
+    }
+}
 class xLideManager{
     slides = []
     get(name){
