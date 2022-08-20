@@ -392,6 +392,21 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={},is
         slider.appendTo(tgt)
         return slider 
     }
+    const addClass = className=>{
+        if(options.hasOwnProperty('classList')){
+            options.classList.push(className)
+        }
+    }
+    const addClassList = classList=>{
+        classList.forEach(
+            addClass
+        )
+    }
+    const addClasses = classList=>{
+        classList.forEach(
+            addClass
+        )
+    }
     addOption('interval',4000)
     return {
         target ,
@@ -399,6 +414,8 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={},is
         options,
         images,
         addClass,
+        addClasses,
+        addClassList,
         addOption,
         addOptions,
         addImage,
