@@ -332,6 +332,16 @@
         overflow: hidden;
     }
 
+    .x-lide-full-row > .x-lide {
+        min-width: 50%;
+        height: 40vh;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .x-lide > .x-lide-list {
+        height: 100%;
+    }
 
     .x-lide-galery .previews{
         height: 100%;
