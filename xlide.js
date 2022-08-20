@@ -342,19 +342,21 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
     target.classList.add(className)
     document.body.appendChild(target)
     let slider = null
-    const addOption = (opt,val)=>{
+    const addOption = (opt,val=1)=>{
         options[opt] = val
     }
-    const addOptions = (options)=>{
+    const addOptions = (...options)=>{
         options.forEach(
-            addOption
+            opt=>{
+                (Array.isArray(opt)) ?   addOption(...opt) : addOption(opt)  
+            }
         )
     } 
     const addImage = (image,caption)=>{
         if(caption){
             image = 'image:caption'
-            images.push(caption)
         }
+        images.push(image)
     }
     const addImages = (imgs)=>{
         imgs.forEach(
@@ -367,10 +369,12 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
         slider = xLides.slide(className,name,images,options)
         return slider 
     }
+    addOption('interval',4000)
     return {
         target ,
         slider,
         options,
+        images,
         addOption,
         addOptions,
         addImage,
