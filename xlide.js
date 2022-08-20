@@ -341,11 +341,18 @@ function xl(className='xslide',name=xLides.slides.length){
     slideElem.classList(className)
     document.body.appendChild(slideElem)
     const options = {}
+    const addOption = (opt,val)=>{
+        options[opt] = val
+    }
+    const addOptions = (options)=>{
+        options.forEach(
+            addOption
+        )
+    } 
     return {
         target : slideElem,
-        addOption:(opt,val)=>{
-            options[opt] = val
-        }
+        addOption,
+        addOptions
     }
     
 }
