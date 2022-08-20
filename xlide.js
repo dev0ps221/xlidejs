@@ -341,8 +341,8 @@ class xLideManager{
 }
 const xLides = new xLideManager()
 
-function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
-
+function xl(className='xslide',name=xLides.slides.length,images=[],options={},isgalery=null){
+    images = (!images) ? [] : images
     const target = document.createElement('section')
     target.style.display = 'none'
     target.classList.add(className)
@@ -387,7 +387,7 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
             else return
         }
         if(target){
-            slider = xLides.slide(className,name,images,options)
+            slider = xLides[isgalery ? 'galery' : 'slide'](className,name,images,options)
         }
         slider.appendTo(tgt)
         return slider 
@@ -398,6 +398,7 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
         slider,
         options,
         images,
+        addClass,
         addOption,
         addOptions,
         addImage,
@@ -406,4 +407,8 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
         addImages
     }
     
+}
+function xg(...args){
+    args.push(true)
+    return xl(...args)
 }
