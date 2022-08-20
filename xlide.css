@@ -91,7 +91,12 @@
 }
 .x-lide-galery{
     margin: 0;
-    height: 100%;
+    margin-top: 5%;
+    margin-bottom: 15%;
+}
+.x-lide-galery .x-lide-galerytitle{
+    margin: 0;
+    padding: 2%;
 }
 .x-lide-galery .x-lide-list{
     width: 100%;
@@ -163,7 +168,7 @@
     justify-content: center;
 }
 
-.x-lide-galery .ctrls{
+.x-lide-galery .ctrls,.x-lide-galery .x-lide-galerytitle{
     background: #111;
 }
 .x-lide.hasCaptionCtrl .ctrls{
