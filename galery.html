@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="xlide.css">
+    <title>xlide - Créez des galeries d'image sur votre site à la volée &#8211;&#8211; Xlide-Js</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        #galery{
+            height: 50vh;
+        }
+    </style>
+    <header>
+        <section id="heading">
+            <h1>
+                À Propos &#8211; xlide 
+            </h1>
+            <h3>
+                Créez des galeries d'image sur votre site à la volée
+            </h3>
+        </section>
+        <nav>
+            <span class="elem-nav">
+                <a class='link' href="/">accueil</a>
+            </span>
+            <span class="elem-nav">
+                <a class='link' href="/docs.html">documentation</a>
+            </span>
+            <span class="elem-nav">
+                <a class='link' href="/about.html">a propos</a>
+            </span>
+        </nav>
+    </header>
+    <section id="galery">
+
+    </section>
+    <script src="xlide.js"></script>
+    </script>
+    <script>
+        xLides.galery('#galery','galerie',['1.png','2.png','3.png','4.png'],{interval:30000,controls:1})
+    </script>
+</body>
+</html>

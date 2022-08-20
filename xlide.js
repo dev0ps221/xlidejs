@@ -69,6 +69,8 @@ class xLide{
             const xlidelist = document.createElement('div')
             const previews = document.createElement('div')
             const ctrls = document.createElement('div')
+            const galerybox = document.createElement('div')
+            const galerytitle = document.createElement('h2')
             if(this.hasOption('classList')){
                 this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
@@ -158,6 +160,14 @@ class xLide{
                     }
                 )
             }
+            if(this.getOption('isgalery')){
+                xlide.classList.add('x-lide-galery')
+                galerybox.classList.add('x-lide-galerybox')
+                galerytitle.classList.add('x-lide-galerytitle')
+                galerytitle.innerHTML = this.getVal('name')
+                galerytitle.id = `title-galery-${this.getVal('name')}`
+                xlide.appendChild(galerytitle)
+            }
             if(this.getOption('ctrls')){
                 xlide.classList.add('hasCtrl')
                 if(this.getOption('ctrls')=='captions') xlide.classList.add('hasCaptionCtrl')
@@ -179,10 +189,20 @@ class xLide{
             if(this.hasOption('captions')){
                 xlide.appendChild(caption)
             }
-            xlide.appendChild(xlidelist)
+            if(this.hasOption('isgalery')){
+                galerybox.appendChild(xlidelist)
+                xlide.appendChild(galerybox)
+            }else{
+                xlide.appendChild(xlidelist)
+            }
 
             if(this.hasOption('previews')){
-                previews?xlide.appendChild(previews):null
+                if(this.getOption('isgalery')){
+                    previews?galerybox.appendChild(previews):null
+                    previews?xlide.appendChild(galerybox):null
+                }else{
+                    previews?xlide.appendChild(previews):null
+                }
             }
 
             if(this.hasOption('ctrls')){
@@ -272,6 +292,13 @@ class xLide{
         this.createSlide()
     }
 }
+class xLideGalery extends xLide{
+    constructor(selector,name,images,options){
+        options.previews = 1
+        options.isgalery = 1
+        super(selector,name,images,options)
+    }
+}
 class xLideManager{
     slides = []
     get(name){
@@ -292,6 +319,11 @@ class xLideManager{
     }
     slide(...data){
         const slide = new xLide(...data)
+        this.appendSlide(slide)
+        return slide
+    }
+    galery(...data){
+        const slide = new xLideGalery(...data)
         this.appendSlide(slide)
         return slide
     }
