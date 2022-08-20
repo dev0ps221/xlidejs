@@ -7,5 +7,5 @@ slidelist.push(['.car3','car3',imgs,{rhorizontal:1,classList:['bgblue'],interval
 xLides.galery('#examplegalery','une galerie simple avec xlide ',['1.png','2.png','3.png','5.png','4.png','2.png','5.png'],{autoplay:1,captions:1,classList:['bgpurp-a'],interval:4000,controls:1})
 xLides.slideList(slidelist)
 
-const slide = xl()
+const slide = xl('#examplegalery','une galerie simple avec xlide ',['1.png','2.png','3.png','5.png','4.png','2.png','5.png']).start()
 console.log(slide)
