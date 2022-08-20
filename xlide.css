@@ -89,6 +89,12 @@
     padding: 0;
     height: 100%;
 }
+.x-lide-galery{
+    margin: 0;
+}
+.x-lide-galery .x-lide-list{
+    width: 60%;
+}
 .x-lide-list{
     display: flex;
     flex-direction: row;

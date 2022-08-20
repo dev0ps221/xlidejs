@@ -69,6 +69,7 @@ class xLide{
             const xlidelist = document.createElement('div')
             const previews = document.createElement('div')
             const ctrls = document.createElement('div')
+            const galerybox = document.createElement('div')
             if(this.hasOption('classList')){
                 this.getOption('classList').forEach(
                     className => xlide.classList.add(className)
@@ -158,6 +159,9 @@ class xLide{
                     }
                 )
             }
+            if(this.getOption('isgalery')){
+                xlide.classList.add('x-lide-galery')
+            }
             if(this.getOption('ctrls')){
                 xlide.classList.add('hasCtrl')
                 if(this.getOption('ctrls')=='captions') xlide.classList.add('hasCaptionCtrl')
@@ -179,10 +183,21 @@ class xLide{
             if(this.hasOption('captions')){
                 xlide.appendChild(caption)
             }
-            xlide.appendChild(xlidelist)
+            if(this.hasOption('captions')){
+                galerybox.appendChild(xlidelist)
+                xlide.appendChild(galerybox)
+            }else{
+                xlide.appendChild(xlidelist)
+            }
 
             if(this.hasOption('previews')){
-                previews?xlide.appendChild(previews):null
+                if(this.getOption('isgalery')){
+                    previews?xlide.appendChild(previews):null
+                    previews?xlide.appendChild(previews):null
+                    
+                }else{
+                    previews?xlide.appendChild(previews):null
+                }
             }
 
             if(this.hasOption('ctrls')){
@@ -275,11 +290,8 @@ class xLide{
 class xLideGalery extends xLide{
     constructor(selector,name,images,options){
         options.previews = 1
+        options.isgalery = 1
         super(selector,name,images,options)
-        const xlide = this.getTarget()
-        if(xlide){
-            xlide.classList.add('x-lide-galery')
-        }
     }
 }
 class xLideManager{
