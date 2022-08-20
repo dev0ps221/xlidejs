@@ -310,6 +310,10 @@
     .x-lide{
         height: 55vh;
     }
+    
+    .x-lide-galery{
+        height: 45vh;
+    }
 
     .x-lide-list{
         display: flex;
@@ -324,7 +328,21 @@
     }
 
 
-
+    .x-lide-galery .previews{
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 30%;
+        overflow: hidden;
+        overflow-y: scroll;
+        padding: 0;
+    }
+    .x-lide-galery .previews .preview{
+        border-radius: 0;
+        min-height: 25%;
+        margin: 0;
+    }
+}
 
 .bgred{
     background: red;

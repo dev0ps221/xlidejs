@@ -79,7 +79,7 @@ header h3,header h1{
 #slide-one{
     height: 70vh;
     padding: 5%;
-    width: 90%;
+    width: 100%;
 }
 #examplegalery{
     width: 100%;
@@ -111,6 +111,9 @@ header h3,header h1{
         width: 100%;
     }
     header #heading,header nav{
+        width: 100%;
+    }
+    #slide-one{
         width: 100%;
     }
     #bloc-text-accroche2{
