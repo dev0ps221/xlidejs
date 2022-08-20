@@ -276,6 +276,9 @@ class xLide{
     isConfigured(){
         return this.getTarget().classList.contains('cf')
     }
+    destroy(){
+        this.target.parentNode.removeChild(this.target)
+    }
     constructor(selector,name,images,options){
         this.setVal('selector',selector)
         this.setName(name)
@@ -364,17 +367,21 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
     const addImages = (imgs)=>{
         imgs.forEach(
             img=>{
-                (Array.isArray(img)) ?   addImage(...img) : addImage(img)  
+                Array.isArray(img) ?   addImage(...img) : addImage(img)  
             }   
         )
     }
-    appendTo(){
+    const appendTo = (target,selector=null)=>{
         if(slider!=null){
             slider.destroy()
         }
     }
-    const start = (target=document.body)=>{
+    const start = (target=document.body,selector=null)=>{
         slider = xLides.slide(className,name,images,options)
+        if(!target){
+            if(selector) target = document.querySelector(selector)
+            else return
+        }
         slider.appendTo(target)
         return slider 
     }
