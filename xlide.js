@@ -334,3 +334,18 @@ class xLideManager{
     }
 }
 const xLides = new xLideManager()
+
+function xl(className='xslide',name=xLides.slides.length){
+    const slideElem = document.createElement('section')
+    slideElem.style.display = 'none'
+    slideElem.classList(className)
+    document.body.appendChild(slideElem)
+    const options = {}
+    return {
+        target : slideElem,
+        addOption:(opt,val)=>{
+            options[opt] = val
+        }
+    }
+    
+}
