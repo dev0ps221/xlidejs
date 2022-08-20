@@ -335,12 +335,13 @@ class xLideManager{
 }
 const xLides = new xLideManager()
 
-function xl(className='xslide',name=xLides.slides.length){
+function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
+
     const target = document.createElement('section')
     target.style.display = 'none'
     target.classList.add(className)
     document.body.appendChild(target)
-    const options = {}
+    let slider = null
     const addOption = (opt,val)=>{
         options[opt] = val
     }
@@ -349,8 +350,27 @@ function xl(className='xslide',name=xLides.slides.length){
             addOption
         )
     } 
+    const addImage = (image,caption)=>{
+        if(caption){
+            image = 'image:caption'
+            images.push(caption)
+        }
+    }
+    const addImages = (imgs)=>{
+        imgs.forEach(
+            img=>{
+                addImage(...img)
+            }   
+        )
+    }
+    const start = ()=>{
+        slider = xLide.slider(target,name,images,options)
+        return slider 
+    }
     return {
         target ,
+        slider,
+        options,
         addOption,
         addOptions
     }
