@@ -81,6 +81,9 @@ header h3,header h1{
     padding: 5%;
     width: 90%;
 }
+#examplegalery{
+    width: 100%;
+}
 @media screen and (max-width:997px) {
     body{
         padding: 5%;
