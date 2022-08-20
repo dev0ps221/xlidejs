@@ -359,12 +359,12 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
     const addImages = (imgs)=>{
         imgs.forEach(
             img=>{
-                addImage(...img)
+                (Array.isArray(img)) ?   addImage(...img) : addImage(img)  
             }   
         )
     }
     const start = ()=>{
-        slider = xLides.slide(target,name,images,options)
+        slider = xLides.slide(className,name,images,options)
         return slider 
     }
     return {
