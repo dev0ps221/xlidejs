@@ -381,8 +381,8 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
             start(target)
         }
     }
-    const refresh(){
-
+    const refresh=()=>{
+        start(lasttgt,lastsel)
     }
     const start = (tgt,sel=null)=>{
         if(!tgt){
@@ -427,6 +427,7 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
         addImage,
         appendTo,
         start,
+        refresh,
         addImages
     }
     
