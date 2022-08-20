@@ -389,7 +389,9 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={},is
         if(target){
             slider = xLides[isgalery ? 'galery' : 'slide'](className,name,images,options)
         }
-        slider.appendTo(tgt)
+        slider.appendTo(target)
+        tgt.appendChild(target)
+        target.style.display = 'flex'
         return slider 
     }
     const addClass = className=>{
@@ -402,7 +404,7 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={},is
             addClass
         )
     }
-    const addClasses = classList=>{
+    const addClasses = (...classList)=>{
         classList.forEach(
             addClass
         )
