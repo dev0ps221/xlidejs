@@ -327,6 +327,11 @@
         flex-wrap: wrap;
     }
 
+    .x-lide-full-row > * {
+        min-width: 50%;
+        overflow: hidden;
+    }
+
 
     .x-lide-galery .previews{
         height: 100%;
