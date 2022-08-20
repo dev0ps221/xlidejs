@@ -346,9 +346,6 @@ const xLides = new xLideManager()
 function xl(className='xslide',name=null,images=[],options={},isgalery=null){
     images = (!images) ? [] : images
     name = name ? name : `xlide ${xLides.slides.length}`
-    const target = document.createElement('section')
-    target.classList.add(className)
-    document.body.appendChild(target)
     let lasttgt = undefined
     let lastsel = undefined
     let slider = null
@@ -390,15 +387,11 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
         }
         if(!tgt){
             if(sel) tgt = document.querySelector(sel)
-            else tgt = document.body
         }
         if(tgt){
-            target.classList.remove(className)
             tgt.classList.add(className)
             slider = xLides[isgalery ? 'galery' : 'slide'](`.${className}`,name,images,options)
         }
-        slider.appendTo(tgt)
-        target.style.display = 'flex'
         lastsel = sel
         lasttgt = tgt
         return slider 
@@ -422,7 +415,6 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
     }
     addOption('interval',4000)
     return {
-        target ,
         slider,
         options,
         images,
