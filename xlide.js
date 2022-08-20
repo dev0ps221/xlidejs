@@ -340,8 +340,9 @@ class xLideManager{
 }
 const xLides = new xLideManager()
 
-function xl(className='xslide',name=xLides.slides.length,images=[],options={},isgalery=null){
+function xl(className='xslide',name=null,images=[],options={},isgalery=null){
     images = (!images) ? [] : images
+    name = name ? name : `xlide ${xLides.slides.length}`
     const target = document.createElement('section')
     target.classList.add(className)
     document.body.appendChild(target)
@@ -356,9 +357,9 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={},is
             }
         )
     } 
-    const addImage = (image,caption)=>{
+    const addImage = (image,caption='xlide preview')=>{
         if(caption){
-            image = 'image:caption'
+            image = `${image}:${caption}`
         }
         images.push(image)
     }

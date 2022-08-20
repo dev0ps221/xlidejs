@@ -7,8 +7,9 @@ slidelist.push(['.car3','car3',imgs,{rhorizontal:1,classList:['bgblue'],interval
 xLides.galery('#examplegalery','une galerie simple avec xlide ',['1.png','2.png','3.png','5.png','4.png','2.png','5.png'],{autoplay:1,captions:1,classList:['bgpurp-a'],interval:4000,controls:1})
 xLides.slideList(slidelist)
 
-const slide = xg('slide','une galerie simple avec xlide ',null)
-slide.addImages(['1.png','2.png','3.png','5.png','4.png','2.png','5.png'])
-slide.addClasses('bgblue','rotate')
-slide.addOptions('autoplay',['interval','3000'])
+const slide = xl()
+slide.addImages([['1.png','img1'],'2.png','3.png','5.png','4.png','2.png','5.png'])
+// slide.addClasses('bgblue','rotate')
+// slide.addOptions('autoplay',['interval','3000'])
+// slide.addOption('controls')
 slide.start(document.body)
