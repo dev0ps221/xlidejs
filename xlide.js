@@ -372,7 +372,9 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
         slider,
         options,
         addOption,
-        addOptions
+        addOptions,
+        addImage,
+        addImages
     }
     
 }
