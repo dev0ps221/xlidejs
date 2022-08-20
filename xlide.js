@@ -233,7 +233,8 @@ class xLide{
         let elems = this.getVal('elems')
         let list = this.getVal('list')
         const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
-        if(lastelem.querySelector('img')){
+        
+        if(lastelem && lastelem.querySelector('img')){
             list.style.background = `url(${lastelem.querySelector('img').src})`
             list.style.backgroundSize = '100% 100%'
         }
@@ -248,7 +249,9 @@ class xLide{
                 }
             }
         )
-        lastelem.classList.remove('visible')
+        if(lastelem){
+            lastelem.classList.remove('visible')
+        }
         this.nextIndex()
         const action = ()=>{
             this.showCurrentElem()
@@ -389,7 +392,9 @@ function xl(className='xslide',name=null,images=[],options={},isgalery=null){
             if(sel) tgt = document.querySelector(sel)
             else tgt = document.body
         }
-        if(target){
+        if(tgt){
+            target.classList.remove(className)
+            tgt.classList.add(className)
             slider = xLides[isgalery ? 'galery' : 'slide'](`.${className}`,name,images,options)
         }
         slider.appendTo(tgt)

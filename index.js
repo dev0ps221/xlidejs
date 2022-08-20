@@ -11,9 +11,9 @@ xLides.slideList(slidelist)
 
 const slideone = xl('slide-one','slidey')
 slideone.addClass('bgpurp-a')   
-slideone.appendTo('#slide-one')
 slideone.addImages(imgs)
 slideone.addOptions(['interval',4000],'autoplay')
+slideone.appendTo('#slide-one')
 
 
 
