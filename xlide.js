@@ -161,6 +161,7 @@ class xLide{
             }
             if(this.getOption('isgalery')){
                 xlide.classList.add('x-lide-galery')
+                galerybox.classList.add('x-lide-galerybox')
             }
             if(this.getOption('ctrls')){
                 xlide.classList.add('hasCtrl')
@@ -183,7 +184,7 @@ class xLide{
             if(this.hasOption('captions')){
                 xlide.appendChild(caption)
             }
-            if(this.hasOption('captions')){
+            if(this.hasOption('isgalery')){
                 galerybox.appendChild(xlidelist)
                 xlide.appendChild(galerybox)
             }else{
@@ -192,8 +193,8 @@ class xLide{
 
             if(this.hasOption('previews')){
                 if(this.getOption('isgalery')){
-                    previews?xlide.appendChild(previews):null
-                    previews?xlide.appendChild(previews):null
+                    previews?galerybox.appendChild(previews):null
+                    previews?xlide.appendChild(galerybox):null
                 }else{
                     previews?xlide.appendChild(previews):null
                 }
