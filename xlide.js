@@ -371,23 +371,25 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
             }   
         )
     }
-    const appendTo = (target,selector=null)=>{
+    const appendTo = (target=null,sel=null)=>{
         if(slider!=null){
             slider.destroy()
         }
         if(!target){
-            if(selector) target = document.querySelector(selector)
+            if(sel) target = document.querySelector(sel)
             else return
         }
-        start(target,selector)
+        start(target,sel)
     }
-    const start = (target=document.body,selector=null)=>{
-        slider = xLides.slide(className,name,images,options)
+    const start = (tgt=document.body,sel=null)=>{
         if(!target){
-            if(selector) target = document.querySelector(selector)
+            if(sel) target = document.querySelector(sel)
             else return
         }
-        slider.appendTo(target)
+        if(target){
+            slider = xLides.slide(className,name,images,options)
+        }
+        slider.appendTo(tgt)
         return slider 
     }
     addOption('interval',4000)
@@ -399,6 +401,7 @@ function xl(className='xslide',name=xLides.slides.length,images=[],options={}){
         addOption,
         addOptions,
         addImage,
+        appendTo,
         start,
         addImages
     }
