@@ -6,128 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créons notre premier slide &#8211; simpleslide &#8211; xlidejs</title>
     <link rel="stylesheet" href="xlide.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
 </head>
-<body>    <link rel="stylesheet" href="prism.css">
-    <h2>
-        Commençons par le commencement
-    </h2>
-    <section>
-        <h3>
-            Initialiser la librairie
-        </h3>
-        <section>
-            <h4>
-                Inclure les fichiers dans la page :
-            </h4>
-            <section>
-                <p>
-                    Pour accéder aux fonctionnalités de xlide,  incluons la librairie. 
-                    Notre librairie est composée principalement de 2 fichiers : xlide.js et xlide.css. 
-                </p>
-                <ul>
-                    <li>
-                        <h5>
-                            -xlide.css :
-                        </h5>
-                        <h5>
-                            ce fichier définit le style de base de nos futurs sliders et galeries. 
-                        </h6>
-                        <p>
-                            Pour l'inclure rajoutez cette ligne entre les deux balises &lt;body>..&lt;/body>  de notre fichier html:
-                        </p>
-                        
-                        <code class="language-html">
-                            &lt;link href='xlide.css'/>
-                        </code>
-                    </li>
-                    <li>
-                        <h5>
-                            -xlide.js :
-                        </h5>
-                        <h5>
-                            c'est la librairie en tant que telle,  toutes les classes et fonctions sont définies dedans. 
-                        </h5>
-                        <p>
-                            Pour le rajouter au projet rajoutons cette ligne.:
-                        </p>
-                        
-                        <code class="language-html">
-                            &lt;script src='xlide.js'></script>
-                        </code>
-                    </li>
-                </ul>
-            </section>
-        </section>
-        <h4>
-            Ca y est ! Nous sommes prêts à créer notre premier slider. 
-        </h4>
-    </section>
-    <section>
-        <h3>
-            Créons notre premier slider : simpleslide
-        </h3>
-        <section>
-            <h4>
-                Créer un slider, c'est tellement simple !
-            </h4>
-            <p>
-                Pour créer un slider avec xlide, rien de plus simple, pour notre exemple nous avons 5 images (img1.jpg,img2.jpg,img3.jpg,img4.jpg et img5.jpg) que je vous présente ci-dessous :
-                <div class="x-lide-full-row">
-                    <img src="img1.jpg" alt="image1">
-                    <img src="img2.jpg" alt="image2">
-                    <img src="img3.jpg" alt="image3">
-                    <img src="img4.jpg" alt="image4">
-                    <img src="img5.jpg" alt="image5">
-                </div> 
-                Vous pouvez utilisez les images de vos choix, faîtes juste en sorte qu'elles soient accessible à partir du repertoire de votre projet ou que vous ayez les bonnes
-                urls qui pointent vers vos images. Dans notre exemple ces fichiers sont dans le meme repertoire que la page du slider.
-                Vous pouvez aussi les télécharger ici :  
-            </p>
-            <h4>
-               C'est parti ! 
-            </h4>
-            <p>
-                Créons déja le bloc qui va recevoir notre slider, dans le fichier html du projet créons un div appartenant à une quelconque classe de notre choix (cela va nous permettre plus tard de le cibler) :
-            </p>
-            <code class="language-html">
-                &lt;div class='simpleslide'>&lt;/div>
-            </code>
-            <p>C'est tout pour notre html (	😄, c'était simple)</p>
-            <p>
-                Maintenant créons notre slider, nous allons pour cela utiliser la fonction `xl` qui renvoie un object qui nous permet de configurer notre slider avant de l'afficher sur l'element cible voulu. 
-                Elle est accessible dés que la librairie est chargée, nous allons principalement presque l'utliser sur tous nos futurs sliders (oui presque..). 
-            </p>
-            <p>
-                rajoutons ce code javascript à notre page 
-            </p>
-        
-            <code class="language-javascript">
-                const 
-            </code>
-            <em>
-                *vous pouvez l'écrire dans un fichier que vous allez inclure ou sur la page, vous voyez, faites juste en sorte d'avoir bien inclu la librairie
-            </em>
-            <h4>
-                Mais il ne passe passe rien sur mon navigateur,  quelque chose ne vas pas ? 
-            </h4>
-
-        </section>
-        <p>
-            Pas de panique,  nous n'avons fait qu'initialiser notre slider,  nous l'afficherons dans un instant. 
-        </p>
-    </section>
-
-
-
-
+<body>    
     <div class="slide" style="width:640px;height:480px;" >
     </div>
     <script src="xlide.js"></script>
     <script src="simpleslide.js"></script>
-    <script src="prism.js"></script>
     <script>
         Prism.highlightAll()
     </script>
-
 </body>
 </html>
