@@ -1,0 +1,7 @@
+const slide = xl('slide','slide')
+slide.addImage('img1.jpg')
+slide.addImage('img2.jpg')
+slide.addImage('img3.jpg')
+slide.addImage('img4.jpg')
+slide.addImage('img5.jpg')
+slide.appendTo('.slide')
