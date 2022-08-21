@@ -8,6 +8,6 @@ slide.addOptions('autoplay')
 // slide.addOption('controls')
 
 //on affiche le slide sur le div appartenant à la classe .slide
-slide.appendTo('.slide')
+slide.appendTo('.simpleslide')
 
 
