@@ -1,5 +1,12 @@
-
+button{
+    padding: 0.8%;
+}
 pre[class*="language-"],pre[class*="language-"] code[class*="language-"]{    
     padding: 0.111%;
     white-space:pre-line;
+}
+@media screen and (max-width:997px){
+    code[class*="language-"], pre[class*="language-"]{
+        font-size: 0.8em;
+    }
 }
