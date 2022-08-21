@@ -146,9 +146,18 @@
                 //le slider demarre dès qu'il est monté
                 slider.addOption('autoplay')
 
-                //montons le slider sur notre div ()
+                /*montons le slider sur notre div, 
+                utilisons le selecteur de la classe que nous avions définie 
+                (dans notre cas c'était simpleslide) */
+                slider.appendTo('.simpleslide')
             </code>
         </pre>
+        <h2>
+            Et voilà !
+        </h2>
+        <p>
+            Si vous avez suivi à la lettre les instructions, lorsque vous ouvrez votre page dans le navigateur vous devriez avoir un slider comme celui ci-dessous : 
+        </p>
         <div class="simpleslide" style="height:480px;" >
         </div>
     </section>
