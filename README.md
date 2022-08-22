@@ -19,7 +19,7 @@
 >                        
 >***-xlide.js :***
 >c'est la librairie en tant que telle, toutes les classes et fonctions sont définies dedans.
->Pour le rajouter au projet rajoutons cette ligne.:
+>Pour le rajouter au projet rajoutons cette ligne.: | it's the library as such, all the classes and functions are defined in it. To add it to the project let's add this line:
 >
 >> ```html                        
 >> <script src='xlide.js'>
