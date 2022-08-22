@@ -10,7 +10,13 @@
 >
 >Cliquez sur le lien ci-dessous pour télécharger la librairie.
 >Click on the link below to download the library.
-><a href='https://github.com/dev0ps221/xlidejs/raw/main/dist/xlidejs.zip' target='_blank'>xlidejs.zip</a>
+>
+>
+><a href='https://github.com/dev0ps221/xlidejs/raw/main/dist/xlidejs.zip' target='_blank'>
+    <button>
+        xlidejs.zip
+    </button>
+</a>
 >
 >Après téléchargement extrayez les fichiers dans le répértoire de votre choix, et à chaque fois que vous avez besoin de la librairie faîtes en sorte de copier ces fichier dans le même répértoire que votre projet.
 >
