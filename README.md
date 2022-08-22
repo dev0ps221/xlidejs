@@ -99,12 +99,19 @@
 >>```
 >***C'est tout, nous avons un simple slider qui démarre automatiquement et qui s'adapte à la taille de son conteneur (notez que l'attribut height que nous définissons au niveau de notre div est optionnelle)***
 >***C'était facile non ?***
-
+>
 >***That's it, we have a simple slider that starts automatically and adapts to the size of its container (note that the height attribute that we define at our div level is optional)***
 ***It was easy right?***
-
->**Mais, je fais comment si je veux changer, l'animation ?**
 >
-
+>**Mais, je fais comment si je veux changer, l'animation du slider, ou même la durée entre deux transitions ?**
+>
+>Encore une fois la réponse est : simple.
+>Ce sont juste des options, et comme vous l'avez sans doute remarqué dans notre exemple, l'objet que renvoie `xl()` comporte une méthode `addOptions` qui nous permet justement de définir les options de notre slider.
+>
+>
+>**But, how do I do if I want to change the animation of the slider, or even the duration between two transitions?**
+>
+>Once again the answer is: simple.
+>These are just options, and as you may have noticed in our example, the object returned by `xl()` includes an `addOptions` method which allows us to define the options of our slider.
 
 
