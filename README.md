@@ -40,7 +40,7 @@
 >That's all, we only have to create our sliders, everywhere we want on our websites.
 
 
-**Créeons notre premier *xlide !**
+**Créons notre premier *xlide !**
 **Let's create our first *xlide !** 
 
 >**Définir la cible de notre slider || Define the target of our slider**
