@@ -143,9 +143,9 @@
 >>```
 >
 >
->For the duration too, we'll use our `addOption` method like this:
 >Pour la durée aussi, nous allons utilisons notre methode `addOption` de cette manière:
 >
+>For the duration too, we'll use our `addOption` method like this:
 >>```js
 >>// nous définissons la valeur en ms (3000ms équivaut à 3 secondes)
 >>slide.addOption(['interval',3000]) 
