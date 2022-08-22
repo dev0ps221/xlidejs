@@ -12,11 +12,11 @@
 >***-xlide.css :***
 >ce fichier définit le style de base de nos futurs sliders et galeries.  
 >this file defines the basic style of our future sliders and galleries.
-
+>
 >
 >Pour l'inclure rajoutez cette ligne entre les deux balises <body>..</body> de notre fichier html:  
 >To include it, add this line between the two <body>..</body> tags of our html file:
-
+>
 >
 >> ```html                            
 >> <link href='xlide.css'/>
@@ -30,7 +30,8 @@
 >> <script src='xlide.js'>
 >> </script>
 >> ```                         
->                           
+>C'est tout, nous n'avons plus qu'à créér nos sliders partout où on veut sur nos sites web.
+>That's all, we only have to create our sliders, everywhere we want on our websites.
                         
 
 
