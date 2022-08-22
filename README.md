@@ -40,7 +40,7 @@
 >
 >
 >> ```html                            
->> <link href='xlide.css'/>
+>> <link rel='stylesheet'  href='xlide.css'/>
 >> ```                         
 >                        
 >***-xlide.js :***
@@ -78,9 +78,9 @@
 >
 >**Créér et afficher notre slider || Create and show our slider**
 >
->Créér notre slider est très simple, la librairie xlidejsnous fournit une fonction qui se chargera de créér les différents éléments de notre slider, de le configurer, et juste après de le monter sur l'élément cible de notre choix via un selecteur css ( dans notre cas c'est notre élément div et son selecteur est le selecteur de sa classe est `.simpleslide` ), le nom de cette fonction : `xl` 
+>Créér notre slider est très simple, la librairie xlidejs nous fournit une fonction qui se chargera de créér les différents éléments de notre slider, de le configurer, et juste après de le monter sur l'élément cible de notre choix via un selecteur css ( dans notre cas c'est notre élément div et son selecteur est le selecteur de sa classe est `.simpleslide` ), le nom de cette fonction : `xl` 
 >
->Creating our slider is very simple, the xlidejslibrary provides us with a function that will take care of creating the different elements of our slider, configuring it, and just after mounting it on the target element of our choice via a css selector ( in our case it is our div element and its selector is the selector of its class is `.simpleslide` ), the name of this function: `xl`
+>Creating our slider is very simple, the xlidejs library provides us with a function that will take care of creating the different elements of our slider, configuring it, and just after mounting it on the target element of our choice via a css selector ( in our case it is our div element and its selector is the selector of its class is `.simpleslide` ), the name of this function: `xl`
 >
 >***Eh bien ! allons-y***
 >
