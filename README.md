@@ -74,9 +74,18 @@
 >Let's add this script to our web page (you can very well write the code on a separate js file and include it in the page, it's up to you)
 >
 >
+>>```html
+>><script type="application/javascript">
+>>//Initialisons d'abord notre slider
+>>const slide = xl()
 >>
->
->
+>>//Ceci est le tableau contenant les liens vers les images de notres slider cela peut être aussi bien pour addresses relatives si les photos sont accessible depuis le répertoire du projet (ex:'image.png') que des urls complètes ('https://via.placeholder.com/600/BBD3c7') si ce n'est pas le cas
+>>const imgs = ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg']
+>>slide.addImages()
+>>
+>>
+>></script>
+>>```
 
 
 
