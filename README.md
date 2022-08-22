@@ -142,8 +142,13 @@
 >Pour la durée aussi, nous allons juste rajouter un argument à notre methode de cette manière:
 >
 >>```js
->>slide.addOption(['interval',3000]) // nous définissons la valeur en ms (3000ms équivaut à 3 secondes)
+>>// nous définissons la valeur en ms (3000ms équivaut à 3 secondes)
+>>slide.addOption(['interval',3000]) 
 >>```
+>Notez qu'ici l'argument passé à `addOption` est un Array, justement parce que nous devons spécifier une valeur à notre option. Gardez cela en tête pour chaque option qui aura à avoir une valeur spécifique nous passerons un Array ayant respectivement une valeur pour le nom de l'option et une autre pour la valeur de l'option en soi.
+>
+>Note that here the argument passed to `addOption` is an Array, precisely because we need to set a value to our option. Keep this in mind for each option that will have to have a specific value we will pass an Array having respectively a value for the name of the option and another for the value of the option itself.
+>
 >
 >**Note:**
 >La méthode `appendSlide` ne doit être appellée qu'apres configuration du slider, si vous ajoutez des options avant cette fonction, ils risquent de ne pas avoir d'effet.
