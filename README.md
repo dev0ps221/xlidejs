@@ -130,5 +130,10 @@
 >
 >Once again the answer is: simple.
 >These are just options, and as you may have noticed in our example, the object returned by `xl()` includes an `addOptions` method which allows us to define the options of our slider.
+>
+>Voici une liste des options qui sont pour le moment disponible :
+>>*interval *: Définit l'interval entre deux transitions. 
+>>**
+>>
 
 
