@@ -52,14 +52,16 @@
 >
 >Let's start by defining the element that will contain our slider, take in our case this div:
 >>```html
->><div class='simpleslide'>
+>><div class='simpleslide' height='480px'>
 >></div>
 >>```
->C'est tout ce dont nous avons besoin côté html, tout le reste sera géré du côté de notre code javascript
+>C'est tout ce dont nous avons besoin côté html, tout le reste sera géré du côté de notre code javascript.
 >
->That's all we need on the html side, everything else will be handled on our javascript side
+>That's all we need on the html side, everything else will be handled on our javascript side.
 >
 >**Créér et afficher notre slider || Create and show our slider**
+>Créér notre slider est très simple, la librairie xlide nous fournit une fonction qui se chargera de créér les différents éléments de notre slider, de le configurer, et juste après de le monter sur l'élément cible de notre choix via un selecteur css ( dans notre cas c'est notre élément div et son selecteur est le selecteur de sa classe est `.simpleslide` )
+>
 >
 
 
