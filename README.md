@@ -52,4 +52,6 @@
 >><div class='simpleslide'>
 >></div>
 >>```
-
+>C'est tout ce dont nous avons besoin côté html, tout le reste sera géré du côté de notre code javascript
+>
+>That's all we need on the html side, everything else will be handled on our javascript side
