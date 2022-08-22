@@ -4,6 +4,7 @@
 <iframe src='https://dev0ps221.github.io/xlidejs/tutos/simpleslide/simpleslide.html'>
 
 </iframe>
+
 **Commençons par le commencement !**
 
 **Let's start by the beginning !** 
