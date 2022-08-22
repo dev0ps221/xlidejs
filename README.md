@@ -1,10 +1,6 @@
 *XLIDEJS - Créez des sliders et galeries sur votre site web à la volée*
 *XLIDEJS - Create sliders and galleries on your website on the fly*
 
-<script src='xlide.js'>
-
-</script>
-
 **Commençons par le commencement !**
 
 **Let's start by the beginning !** 
