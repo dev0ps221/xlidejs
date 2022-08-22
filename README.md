@@ -2,8 +2,9 @@
 *XLIDEJS - Create sliders and gallery on your website on the fly*
 
 
-
-**Inclure la librairie || Include the library**
+**Commençons par le commencement !**
+**Let's start by the beginning !** 
+>**Inclure la librairie || Include the library**
 >La librairie est principalement composée de deux fichiers : xlide.css et xlide.js 
 >The library is mainly composed of two files: xlide.css and xlide.js:
 >
@@ -31,4 +32,5 @@
 >> ```                         
 >                           
                         
+
 
