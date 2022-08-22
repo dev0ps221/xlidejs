@@ -156,10 +156,10 @@
 >
 >
 >**Note:**
->La méthode `appendSlide` ne doit être appellée qu'apres configuration du slider, si vous ajoutez des options avant cette fonction, ils risquent de ne pas avoir d'effet.
+>La méthode `appendTo` ne doit être appellée qu'apres configuration du slider, si vous ajoutez des options avant cette fonction, ils risquent de ne pas avoir d'effet.
 >
 >**Note:**
->The `appendSlide` method should only be called after configuring the slider, if you add options before this function, they may not have any effect.
+>The `appendTo` method should only be called after configuring the slider, if you add options before this function, they may not have any effect.
 >
 >
 >Voici une liste des options qui sont pour le moment disponible :
