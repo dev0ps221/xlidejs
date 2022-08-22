@@ -59,6 +59,6 @@
 >
 >That's all we need on the html side, everything else will be handled on our javascript side
 >
->**La fonction `xl` **
+>**La fonction `xl`**
 >
 >**The `xl` function**
