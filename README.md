@@ -15,4 +15,14 @@ Pour l'inclure rajoutez cette ligne entre les deux balises <body>..</body> de no
 >    <link href='xlide.css'/>
 > ```                         
                         
+-xlide.js :
+c'est la librairie en tant que telle, toutes les classes et fonctions sont définies dedans.
+
+Pour le rajouter au projet rajoutons cette ligne.:
+
+> ```                            
+>    <script src='xlide.js'>
+> ```                         
+                            
+                        
 
