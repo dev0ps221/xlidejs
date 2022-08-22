@@ -65,9 +65,9 @@
 >
 >Creating our slider is very simple, the xlide library provides us with a function that will take care of creating the different elements of our slider, configuring it, and just after mounting it on the target element of our choice via a css selector ( in our case it is our div element and its selector is the selector of its class is `.simpleslide` ), the name of this function: `xl`
 >
->Eh bien ! allons-y
+>***Eh bien ! allons-y***
 >
->Well! let's go
+>***Well ! let's go***
 >
 >
 >
