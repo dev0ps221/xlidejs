@@ -142,7 +142,9 @@
 >>slide.addOption('horizontal')
 >>```
 >
->Pour la durée aussi, nous allons juste rajouter un argument à notre methode de cette manière:
+>
+>For the duration too, we'll use our `addOption` method like this:
+>Pour la durée aussi, nous allons utilisons notre methode `addOption` de cette manière:
 >
 >>```js
 >>// nous définissons la valeur en ms (3000ms équivaut à 3 secondes)
