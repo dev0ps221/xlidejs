@@ -134,6 +134,16 @@
 >Once again the answer is: simple.
 >These are just options, and as you may have noticed in our example, the object returned by `xl()` includes an `addOptions` method which allows us to define the options of our slider.
 >
+>Pour que notre slider défile horizontalement, remplaçons la ligne suivante dans notre code :  
+>>```js
+>>slide.addOption('autoplay')
+>>```
+>
+>Par celle ci : 
+>>>```js
+>>slide.addOption('autoplay','horizontal')
+>>```
+>
 >
 >**Note:**
 >La méthode `appendSlide` ne doit être appellée qu'apres configuration du slider, si vous ajoutez des options avant cette fonction, ils risquent de ne pas avoir d'effet.
