@@ -69,7 +69,12 @@
 >
 >***Well ! let's go***
 >
+>Rajoutons ce script à notre page web (vous pouvez très bien écrire le code sur un fichier js à part et l'inclure dans la page, cela ne dépend que de vous)
 >
+>Let's add this script to our web page (you can very well write the code on a separate js file and include it in the page, it's up to you)
+>
+>
+>>
 >
 >
 
