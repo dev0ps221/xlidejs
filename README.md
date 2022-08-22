@@ -3,6 +3,7 @@
 
 
 **Commençons par le commencement !**
+
 **Let's start by the beginning !** 
 >**Inclure la librairie || Include the library**
 >
@@ -42,6 +43,7 @@
 >Once the library is loaded we have access to the functions it offers us and can make us happy :)
 
 **Créons notre premier \*xlide !**
+
 **Let's create our first \*xlide !** 
 
 >**Définir la cible de notre slider || Define the target of our slider**
