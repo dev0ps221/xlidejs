@@ -153,17 +153,17 @@
 >>
 >>***controls:*** des controls à notre slide pour changer d'image | controls to our slide to change image
 >>
->>***previews:*** des miniatures de chaque images du slide, similaire au controls mais avec des images
+>>***previews:*** des miniatures de chaque images du slide, similaire au controls mais avec des images | thumbnails of each slide image, similar to controls but with images
 >>
->>***vertical:*** le slider défile verticalement, de la gauche vers la droite
+>>***vertical:*** le slider défile , horizontalement de la gauche vers la droite | the slider scrolls vertically, from left to right
 >>
->>***horizontal:*** le slider défile horizontalement, du haut vers le bas
+>>***horizontal:*** le slider défile verticalement, du haut vers le bas | the slider scrolls vertically, from top to bottom
 >>
 >>***rotate:*** le slider défile en rotation
 >>
->>***rvertical:*** le slider défile verticalement, du bas vers le haut
+>>***rvertical:*** le slider défile horizontalement, du bas vers le haut
 >>
->>***rhorizontal:*** le slider défile horizontalement, de la droite vers la gauche
+>>***rhorizontal:*** le slider défile verticalement, de la droite vers la gauche
 >>
 >>***rrotate:*** le slider défile en rotation
 >>
