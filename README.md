@@ -100,6 +100,10 @@
 >***C'est tout, nous avons un simple slider qui démarre automatiquement et qui s'adapte à la taille de son conteneur (notez que l'attribut height que nous définissons au niveau de notre div est optionnelle)***
 >***C'était facile non ?***
 
+>***That's it, we have a simple slider that starts automatically and adapts to the size of its container (note that the height attribute that we define at our div level is optional)***
+***It was easy right?***
+
+
 
 
 
