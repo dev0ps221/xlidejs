@@ -135,6 +135,9 @@
 >These are just options, and as you may have noticed in our example, the object returned by `xl()` includes an `addOptions` method which allows us to define the options of our slider.
 >
 >Pour que notre slider défile horizontalement, rajoutons la ligne suivante à notre code :  
+>
+>To make our slider scroll horizontally, add the following line to our code:
+>
 >>```js
 >>slide.addOption('horizontal')
 >>```
