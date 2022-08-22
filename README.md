@@ -143,11 +143,15 @@
 >
 >
 >Voici une liste des options qui sont pour le moment disponible :
->>***interval:*** intervalle entre deux transitions
+>
+>Here is a list of the options that are currently available:
+>
+>
+>>***interval:*** intervalle entre deux transitions | interval between two transitions
 >>
->>***autoplay:*** le slider s'anime automatiquement ou non
+>>***autoplay:*** le slider s'anime automatiquement ou non | the slider animates automatically or not
 >>
->>***controls:*** des controls à notre slide pour changer d'image
+>>***controls:*** des controls à notre slide pour changer d'image | controls to our slide to change image
 >>
 >>***previews:*** des miniatures de chaque images du slide, similaire au controls mais avec des images
 >>
