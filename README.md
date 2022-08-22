@@ -155,16 +155,16 @@
 >>
 >>***previews:*** des miniatures de chaque images du slide, similaire au controls mais avec des images | thumbnails of each slide image, similar to controls but with images
 >>
->>***vertical:*** le slider défile , horizontalement de la gauche vers la droite | the slider scrolls vertically, from left to right
+>>***vertical:*** le slider défile , verticalement de la gauche vers la droite | the slider scrolls vertically, from top to bottom
 >>
->>***horizontal:*** le slider défile verticalement, du haut vers le bas | the slider scrolls vertically, from top to bottom
+>>***horizontal:*** le slider défile , horizontalement du haut vers le bas | the slider scrolls horizontally, from left to right
 >>
->>***rotate:*** le slider défile en rotation
+>>***rotate:*** le slider défile en rotation | the slider scrolls in rotation
 >>
->>***rvertical:*** le slider défile horizontalement, du bas vers le haut
+>>***rvertical:*** le slider défile horizontalement, du bas vers le haut | the slider scrolls vertically, from bottom to top
 >>
->>***rhorizontal:*** le slider défile verticalement, de la droite vers la gauche
+>>***rhorizontal:*** le slider défile verticalement, de la droite vers la gauche | the slider scrolls horizontally, from right to left
 >>
->>***rrotate:*** le slider défile en rotation
+>>***rrotate:*** le slider défile en rotation inverse | the slider scrolls in reverse rotation
 >>
 
