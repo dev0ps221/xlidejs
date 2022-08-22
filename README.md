@@ -62,3 +62,5 @@
 >**La fonction `xl`**
 >
 >**The `xl` function**
+>
+>La bibliothèque xlide nous fournit principalement deux fonctions : la fonction `xl` et la fonction `xg`
