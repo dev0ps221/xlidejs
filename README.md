@@ -140,7 +140,7 @@
 >>```
 >
 >Par celle ci : 
->>>```js
+>>```js
 >>slide.addOption('autoplay','horizontal')
 >>```
 >
