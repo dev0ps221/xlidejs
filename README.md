@@ -60,6 +60,7 @@
 >That's all we need on the html side, everything else will be handled on our javascript side.
 >
 >**Créér et afficher notre slider || Create and show our slider**
+>
 >Créér notre slider est très simple, la librairie xlide nous fournit une fonction qui se chargera de créér les différents éléments de notre slider, de le configurer, et juste après de le monter sur l'élément cible de notre choix via un selecteur css ( dans notre cas c'est notre élément div et son selecteur est le selecteur de sa classe est `.simpleslide` )
 >
 >
