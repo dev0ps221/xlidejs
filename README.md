@@ -36,9 +36,10 @@
 >> </script>
 >> ```                         
 >C'est tout, nous n'avons plus qu'à créér nos sliders partout où on veut sur nos sites web.
->
->That's all, we only have to create our sliders, everywhere we want on our websites.
+>Une fois que la librairie est chargée nous avons accès aux fonctions qu'elle nous offre et pouvons nous faire plaisir :)
 
+>That's all, we only have to create our sliders, everywhere we want on our websites.
+>Once the library is loaded we have access to the functions it offers us and can make us happy :)
 
 **Créons notre premier *xlide !**
 **Let's create our first *xlide !** 
