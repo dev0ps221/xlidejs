@@ -1,0 +1,382 @@
+
+@keyframes fade {
+    from{
+        opacity: 0.8;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeoff {
+    from{
+        display: flex;
+        width: 0;
+        opacity: 1;
+    }
+    to{
+        display: none;
+        width: 0;
+        opacity: 0;
+    }
+}
+@keyframes fromTop {
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: none;
+    }
+}
+@keyframes fromBottom {
+    from{
+        transform: translateY(100%);
+    }
+    to{
+        transform: none;
+    }
+}
+@keyframes rotate {
+    from{
+        opacity: 0;
+        width: 5%;
+        transform: rotateZ(-95deg);
+    }
+    80%{
+        width: 70%;
+    }
+    to{
+        opacity: 1;
+        width: 100%;
+        transform: none;
+    }
+}
+@keyframes rotateReverse {
+    from{
+        opacity: 0;
+        width: 5%;
+        transform: rotateZ(95deg);
+    }
+    80%{
+        width: 70%;
+    }
+    to{
+        opacity: 1;
+        width: 100%;
+        transform: none;
+    }
+}
+@keyframes fromLeft {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: none;
+    }
+}
+@keyframes fromRight {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: none;
+    }
+}
+.x-lide{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.8em;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 2%;
+
+}
+.x-lide-galery{
+    padding: 0;
+    background: #111;
+    margin-top: 5%;
+    height: 100%;
+    margin-bottom: 15%;
+}
+.x-lide-galerytitle{
+    margin: 0;
+    text-align: center;
+    padding: 2%;
+}
+.x-lide-galery .x-lide-list{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.x-lide-galery .x-lide-galerybox{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;   
+}
+.x-lide-list{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width:100%;
+    height: 100%;
+}
+.x-lide.hasCtrl .x-lide-list{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width:100%;
+}
+.x-lide-list > *{
+    display: none;
+    transition: 0.8s;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    animation: fadeoff 1s 1;
+}
+.x-lide-list > *.visible{
+    animation: fromLeft 0.8s 1;
+    display: flex;
+    transition: 0.8s;
+    width: 100%;
+    height: 100%;
+}
+.x-lide-list > *.visible:nth-child(odd){
+    animation: rotate 0.8s 1;
+    display: flex;
+    transition: 0.8s;
+    min-width: 100%;
+    max-height: 100%;
+}
+.x-lide-list > *.visible:nth-child(3){
+    animation: fade 0.8s 1;
+    display: flex;
+    transition: 0.8s;
+    min-width: 100%;
+    max-height: 100%;
+}
+.x-lide-list img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.x-lide .caption{
+    display: flex;
+    height: 5%;
+    padding: 2.5%;
+    color: wheat;
+    justify-content: center;
+}
+.x-lide .ctrls{
+    display: flex;
+    min-height: 5%;
+    padding: 2%;
+    overflow: hidden;
+    overflow-x: scroll;
+    justify-content: center;
+}
+.x-lide.hasCaptionCtrl .ctrls{
+    justify-content: flex-start;
+    padding: 2%;
+}
+.x-lide .ctrls .ctrl{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8em;
+    background: wheat;
+    color: #111;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0.5em;
+    margin-left: 1%;
+    margin-right: 1%;
+    cursor: pointer;
+}
+.x-lide .ctrls .ctrl:hover{
+    background: #111;
+    color: wheat;
+    border: 1px outset #fff5;
+}
+.x-lide .ctrls .ctrl:active{
+    background: #335;
+    color: wheat;
+    border: 1px outset #fff5;
+}
+.x-lide .previews{
+    display: flex;
+    height: 25%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    color: wheat;
+    justify-content: center;
+    text-align: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.x-lide-galery .previews{
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 20%;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 0;
+}
+.x-lide .previews .preview{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 6em;
+    justify-content: center;
+}
+.x-lide-galery .previews .preview{
+    border-radius: 0;
+    min-height: 35%;
+    margin: 0;
+}
+.x-lide .previews .preview img{
+    display: flex;
+    width: 96%;
+    height: 96%;
+    margin: 2%;
+    padding: 0;
+    border: 1px solid #333;
+}
+.x-lide.horizontal .x-lide-list > *.visible{
+    animation: fromLeft 0.8s 1;
+}
+.x-lide.horizontal-reverse .x-lide-list > *.visible{
+    animation: fromRight 0.8s 1;
+}
+.x-lide.fade .x-lide-list > *.visible{
+    animation: fade 0.8s 1;
+}
+.x-lide.fade-reverse .x-lide-list > *.visible{
+    animation: fadeoff 0.8s 1;
+}
+.x-lide.vertical .x-lide-list > *.visible{
+    animation: fromTop 0.8s 1;
+}
+.x-lide.vertical-reverse .x-lide-list > *.visible{
+    animation: fromBottom 0.8s 1;
+}
+.x-lide.rotate .x-lide-list > *.visible{
+    animation: rotate 0.8s 1;
+}
+.x-lide.rotate-reverse .x-lide-list > *.visible{
+    animation: rotateReverse 0.8s 1;
+}
+.x-lide-row{
+    display: flex;
+    flex-direction: row;
+}
+.x-lide-full-row > *{
+    width: 33%;
+    box-sizing: border-box;
+    margin: 1%;
+}
+
+.x-lide-full-row > .x-lide{
+    overflow: hidden;
+}
+.x-lide-full-row{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.x-lide-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.x-lide-full-column{
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width:997px) {
+    .x-lide{
+        height: 55vh;
+    }
+    
+    .x-lide-galery{
+        height: 45vh;
+    }
+
+    .x-lide-list{
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        width:100%;
+        height: 85%;
+    }
+    
+    .x-lide-full-row{
+        flex-wrap: wrap;
+    }
+
+    .x-lide-full-row > * {
+        min-width: 50%;
+        overflow: hidden;
+    }
+
+    .x-lide-full-row > .x-lide {
+        min-width: 50%;
+        height: 40vh;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .x-lide > .x-lide-list {
+        height: 100%;
+    }
+
+    .x-lide-galery .previews{
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 30%;
+        overflow: hidden;
+        overflow-y: scroll;
+        padding: 0;
+    }
+    .x-lide-galery .previews .preview{
+        border-radius: 0;
+        min-height: 25%;
+        margin: 0;
+    }
+}
+
+.bgred{
+    background: red;
+}
+.bgblue{
+    background: #55e;
+}
+.bgblue-a{
+    background: #55e7;
+}
+.bgpurp{
+    background: #92e;
+}
+.bgpurp-a{
+    background: #92e7;
+}

@@ -1,7 +1,8 @@
 let slidelist = []
-let imgs = ['1.png','2.png','3.png','6.png','4.png','5.png']
+let imgs = ['slidepics/1.png','slidepics/2.png','slidepics/3.png','slidepics/6.png','slidepics/4.png','slidepics/5.png']
 
-const examplegalery = xg('examplegalery','une galerie simple avec xlide ',['1.png','2.png','3.png','5.png','4.png','2.png','5.png'],{autoplay:1,captions:1,classList:['bgpurp-a'],interval:4000,controls:1})
+const examplegaleryoptions = {autoplay:1,captions:1,classList:['bgpurp-a'],interval:4000,controls:1}
+const examplegalery = xg('examplegalery','une galerie simple avec xlide ',imgs,examplegaleryoptions)
 examplegalery.appendTo('#examplegalery')
 
 
