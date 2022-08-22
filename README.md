@@ -79,10 +79,8 @@
 >>//Initialisons d'abord notre slider
 >>const slide = xl()
 >>
->>/*Ci-dessous est un Array contenant les liens vers les images de notres slider cela peut être aussi bien 
->>pour addresses relatives si les photos sont accessible depuis le répertoire du projet (ex:'image.png') que des urls complètes ('https://via.placeholder.com/600/BBD3c7') si ce n'est pas le cas*/
->>/*Below is the Array containing the links to the images of our slider, it can be for relative 
->>addresses if the photos are accessible from the project directory (ex: 'image.png') as well as full urls (' https://via.placeholder.com/600/BBD3c7') if not*/
+>>/*Ci-dessous est un Array contenant les liens vers les images de notres slider 
+>>/*Below is the Array containing the links to the images of our slider
 >>
 >>const imgs = ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg']
 >>slide.addImages(images)
