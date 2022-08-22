@@ -59,7 +59,8 @@
 >
 >That's all we need on the html side, everything else will be handled on our javascript side
 >
-
+>**Créér et afficher notre slider || Create and show our slider**
+>
 
 
 
