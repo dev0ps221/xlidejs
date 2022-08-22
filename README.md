@@ -103,7 +103,7 @@
 >***That's it, we have a simple slider that starts automatically and adapts to the size of its container (note that the height attribute that we define at our div level is optional)***
 ***It was easy right?***
 
->**Mais, je fais comment si je veux changer, l'animation ou l'orientation du slider ?**
+>**Mais, je fais comment si je veux changer, l'animation ?**
 >
 
 
