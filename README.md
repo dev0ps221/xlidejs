@@ -115,10 +115,13 @@
 >></script>
 >>```
 >C'est tout, nous avons un simple slider qui démarre automatiquement et qui s'adapte à la taille de son conteneur (notez que l'attribut height que nous définissons au niveau de notre div est optionnelle)
+>
 >C'était facile non ?
 >
 >That's it, we have a simple slider that starts automatically and adapts to the size of its container (note that the height attribute that we define at our div level is optional)
+>
 >It was easy right?
+>
 >
 >**Mais, je fais comment si je veux changer, l'animation du slider, ou même la durée entre deux transitions ?**
 >
@@ -130,6 +133,13 @@
 >
 >Once again the answer is: simple.
 >These are just options, and as you may have noticed in our example, the object returned by `xl()` includes an `addOptions` method which allows us to define the options of our slider.
+>
+>
+>**Note:**
+>La méthode `appendSlide` ne doit être appellée qu'apres configuration du slider, si vous ajoutez des options avant cette fonction, ils risquent de ne pas avoir d'effet.
+>
+>The `appendSlide` method should only be called after configuring the slider, if you add options before this function, they may not have any effect.
+>
 >
 >Voici une liste des options qui sont pour le moment disponible :
 >>***interval:*** intervalle entre deux transitions
