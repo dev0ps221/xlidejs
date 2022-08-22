@@ -95,10 +95,8 @@
 >>
 >></script>
 >>```
-
-
-
-
+>***C'est tout, nous avons un simple slider qui démarre automatiquement et qui s'adapte à la taille de son conteneur (notez que l'attribut height que nous définissons au niveau de notre div est optionnelle)***
+>***C'était facile non ?***
 
 
 
