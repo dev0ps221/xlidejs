@@ -132,24 +132,24 @@
 >These are just options, and as you may have noticed in our example, the object returned by `xl()` includes an `addOptions` method which allows us to define the options of our slider.
 >
 >Voici une liste des options qui sont pour le moment disponible :
->>*interval*: intervalle entre deux transitions
+>>***interval:*** intervalle entre deux transitions
 >>
->>*autoplay*: le slider s'anime automatiquement ou non
+>>***autoplay:*** le slider s'anime automatiquement ou non
 >>
->>*controls*: des controls à notre slide pour changer d'image
+>>***controls:*** des controls à notre slide pour changer d'image
 >>
->>*previews*: des miniatures de chaque images du slide, similaire au controls mais avec des images
+>>***previews:*** des miniatures de chaque images du slide, similaire au controls mais avec des images
 >>
->>*vertical*: le slider défile verticalement, de la gauche vers la droite
+>>***vertical:*** le slider défile verticalement, de la gauche vers la droite
 >>
->>*horizontal*: le slider défile horizontalement, du haut vers le bas
+>>***horizontal:*** le slider défile horizontalement, du haut vers le bas
 >>
->>*rotate*: le slider défile en rotation
+>>***rotate:*** le slider défile en rotation
 >>
->>*rvertical*: le slider défile verticalement, du bas vers le haut
+>>***rvertical:*** le slider défile verticalement, du bas vers le haut
 >>
->>*rhorizontal*: le slider défile horizontalement, de la droite vers la gauche
+>>***rhorizontal:*** le slider défile horizontalement, de la droite vers la gauche
 >>
->>*rrotate*: le slider défile en rotation
+>>***rrotate:*** le slider défile en rotation
 >>
 
