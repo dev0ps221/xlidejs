@@ -11,7 +11,7 @@ ce fichier définit le style de base de nos futurs sliders et galeries.
 
 Pour l'inclure rajoutez cette ligne entre les deux balises <body>..</body> de notre fichier html:
 
-> ```                            
+> ```html                            
 >    <link href='xlide.css'/>
 > ```                         
                         
@@ -20,7 +20,7 @@ c'est la librairie en tant que telle, toutes les classes et fonctions sont défi
 
 Pour le rajouter au projet rajoutons cette ligne.:
 
-> ```                            
+> ```html                        
 >    <script src='xlide.js'>
 > ```                         
                             
