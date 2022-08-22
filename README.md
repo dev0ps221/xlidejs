@@ -40,4 +40,16 @@
 >That's all, we only have to create our sliders, everywhere we want on our websites.
 
 
+**Créeons notre premier *xlide !**
+**Let's create our first *xlide !** 
+
+>**Définir la cible de notre slider || Define the target of our slider**
+>
+>Commençons par définir l'élément qui va contenir notre slider, prenons dans notre cas ce div :
+>
+>
+>>```html
+>><div class='simpleslide'>
+>></div>
+>>```
 
