@@ -1,9 +1,9 @@
 *XLIDEJS - Créez des sliders et galeries sur votre site web à la volée*
 *XLIDEJS - Create sliders and galleries on your website on the fly*
 
-<iframe src='https://dev0ps221.github.io/xlidejs/tutos/simpleslide/simpleslide.html'>
+<script src='xlide.js'>
 
-</iframe>
+</script>
 
 **Commençons par le commencement !**
 
