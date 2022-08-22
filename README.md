@@ -133,13 +133,23 @@
 >
 >Voici une liste des options qui sont pour le moment disponible :
 >>*interval*: intervalle entre deux transitions
+>>
 >>*autoplay*: le slider s'anime automatiquement ou non
+>>
 >>*controls*: des controls à notre slide pour changer d'image
+>>
 >>*previews*: des miniatures de chaque images du slide, similaire au controls mais avec des images
+>>
 >>*vertical*: le slider défile verticalement, de la gauche vers la droite
+>>
 >>*horizontal*: le slider défile horizontalement, du haut vers le bas
+>>
 >>*rotate*: le slider défile en rotation
+>>
 >>*rvertical*: le slider défile verticalement, du bas vers le haut
+>>
 >>*rhorizontal*: le slider défile horizontalement, de la droite vers la gauche
+>>
 >>*rrotate*: le slider défile en rotation
+>>
 
