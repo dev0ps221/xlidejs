@@ -14,8 +14,8 @@
 >
 >***-xlide.css :***
 >
->ce fichier définit le style de base de nos futurs sliders et galeries.  
->this file defines the basic style of our future sliders and galleries.
+>Ce fichier définit le style de base de nos futurs sliders et galeries.  
+>This file defines the basic style of our future sliders and galleries.
 >
 >
 >Pour l'inclure rajoutez cette ligne entre les deux balises <body>..</body> de notre fichier html:  
