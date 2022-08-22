@@ -47,7 +47,7 @@
 >
 >Commençons par définir l'élément qui va contenir notre slider, prenons dans notre cas ce div :
 >
->
+>Let's start by defining the element that will contain our slider, take in our case this div:
 >>```html
 >><div class='simpleslide'>
 >></div>
