@@ -100,7 +100,7 @@
 >>//Ci-dessous est un Array contenant les liens vers les images de notres slider */
 >>//Below is the Array containing the links to the images of our slider
 >>
->>const imgs = ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg']
+>>const images = ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg']
 >>slide.addImages(images)
 >>
 >>//On fait en sorte que le slide démarre dès qu'il est monté
@@ -109,7 +109,7 @@
 >>
 >>//On affiche finalement notre slider sur notre div 
 >>//We finally display our slider on our div
->>slider.appendTo('.simpleslide')
+>>slide.appendTo('.simpleslide')
 >>
 >></script>
 >>```
