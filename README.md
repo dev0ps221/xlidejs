@@ -32,6 +32,6 @@
 >> ```                         
 >C'est tout, nous n'avons plus qu'à créér nos sliders partout où on veut sur nos sites web.
 >That's all, we only have to create our sliders, everywhere we want on our websites.
-                        
+
 
 
