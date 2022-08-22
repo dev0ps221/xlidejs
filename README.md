@@ -77,10 +77,11 @@
 >>```html
 >><script type="application/javascript">
 >>//Initialisons d'abord notre slider
+>>//Let's first initialize our slider
 >>const slide = xl()
 >>
->>/*Ci-dessous est un Array contenant les liens vers les images de notres slider 
->>/*Below is the Array containing the links to the images of our slider
+>>//Ci-dessous est un Array contenant les liens vers les images de notres slider */
+>>//Below is the Array containing the links to the images of our slider
 >>
 >>const imgs = ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg']
 >>slide.addImages(images)
