@@ -125,17 +125,18 @@
 >
 >**Mais, je fais comment si je veux changer, l'animation du slider, ou même la durée entre deux transitions ?**
 >
+>**But, how do I do if I want to change the animation of the slider, or even the duration between two transitions?**
+>
+>
 >Encore une fois la réponse est : simple.
 >Ce sont juste des options, et comme vous l'avez sans doute remarqué dans notre exemple, l'objet que renvoie `xl()` comporte une méthode `addOptions` qui nous permet justement de définir les options de notre slider.
->
->
->**But, how do I do if I want to change the animation of the slider, or even the duration between two transitions?**
 >
 >Once again the answer is: simple.
 >These are just options, and as you may have noticed in our example, the object returned by `xl()` includes an `addOptions` method which allows us to define the options of our slider.
 >
 >
 >**Note:**
+>
 >La méthode `appendSlide` ne doit être appellée qu'apres configuration du slider, si vous ajoutez des options avant cette fonction, ils risquent de ne pas avoir d'effet.
 >
 >The `appendSlide` method should only be called after configuring the slider, if you add options before this function, they may not have any effect.
