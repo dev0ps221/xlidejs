@@ -5,11 +5,14 @@
 **Commençons par le commencement !**
 **Let's start by the beginning !** 
 >**Inclure la librairie || Include the library**
+>
 >La librairie est principalement composée de deux fichiers : xlide.css et xlide.js 
+>
 >The library is mainly composed of two files: xlide.css and xlide.js:
 >
 >
 >***-xlide.css :***
+>
 >ce fichier définit le style de base de nos futurs sliders et galeries.  
 >this file defines the basic style of our future sliders and galleries.
 >
@@ -23,6 +26,7 @@
 >> ```                         
 >                        
 >***-xlide.js :***
+>
 >c'est la librairie en tant que telle, toutes les classes et fonctions sont définies dedans. Pour le rajouter au projet rajoutons cette ligne.: 
 >it's the library as such, all the classes and functions are defined in it. To add it to the project let's add this line:
 >
