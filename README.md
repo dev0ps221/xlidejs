@@ -1,5 +1,5 @@
-*XLIDEJS - Créez des sliders et galerie sur votre site web à la volée*
-*XLIDEJS - Create sliders and gallery on your website on the fly*
+*XLIDEJS - Créez des sliders et galeries sur votre site web à la volée*
+*XLIDEJS - Create sliders and galleries on your website on the fly*
 
 
 **Commençons par le commencement !**
