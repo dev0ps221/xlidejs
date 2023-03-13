@@ -40,6 +40,8 @@
         .xlider{
             isolation:isolate;
             position: relative;
+            --in-animation:fadeIn;
+            --out-animation:fadeOut;
             --slide-height:300px;
             --slide-position:1;
             --transition-time:.5s;
@@ -133,11 +135,19 @@
         .xlider .legends .legend.active{
             filter: none;
         }
-        .hidden{
-            animation:fadeOut calc(var(--transition-time) * 2) forwards;
+        .xlider.rotate{
+            --out-animation:rotateReverse;
+            --in-animation:rotate;
         }
-        .visible{
-            animation:fadeIn calc(var(--transition-time) * 2 ) forwards;
+        .xlider.topdir{
+            --out-animation:fromBottom;
+            --in-animation:fromTop;
+        }
+        .out{
+            animation:var(--out-animation) calc(var(--transition-time) * 2) backwards;
+        }
+        .in{
+            animation:var(--in-animation) calc(var(--transition-time) * 2 ) forwards;
         }
         @keyframes fadeOut{
             to{
@@ -152,8 +162,56 @@
                 opacity: 1;
             }
         }
+        @keyframes fromTop {
+            from{
+                transform: translateY(-100%);
+            }
+        }
+        @keyframes fromBottom {
+            from{
+                transform: translateY(100%);
+            }
+        }
+        @keyframes rotate {
+            from{
+                opacity: 0;
+                width: 5%;
+                transform: rotateZ(-95deg);
+            }
+            80%{
+                width: 70%;
+            }
+            to{
+                opacity: 1;
+                width: 100%;
+            }
+        }
+        @keyframes rotateReverse {
+            from{
+                opacity: 0;
+                width: 5%;
+                transform: rotateZ(95deg);
+            }
+            80%{
+                width: 70%;
+            }
+            to{
+                opacity: 1;
+                width: 100%;
+            }
+        }
+        @keyframes fromLeft {
+            from{
+                transform: translateX(-100%);
+            }
+        }
+        @keyframes fromRight {
+            from{
+                transform: translateX(100%);
+            }
+        }
     </style>
-    <section id='slider' class='xlider fade' >
+    <section id='slider' class='xlider topdir' >
         <div class="wrapper">
             <div class="slide">
                 <img src="slide1.avif" alt="">
@@ -211,10 +269,10 @@
                             setSlideVar(slider,'--slide-position',slidenumber-1)
                             disableLegends(slider)
                             enableLegend(slider,slidenumber-1)
-                            if(slider.classList.contains('fade')){
-                                disableSlides(slider)
-                                enableSlide(slider,slidenumber-1)
-                            }
+                            slideOut(slider,slidenumber)
+                            slideIn(slider,slidenumber-1)
+                            justSlide(slider)
+                        
                         }
                     })
                 }
@@ -229,10 +287,9 @@
                             setSlideVar(slider,'--slide-position',slidenumber+1)
                             disableLegends(slider)
                             enableLegend(slider,slidenumber+1)
-                            if(slider.classList.contains('fade')){
-                                disableSlides(slider)
-                                enableSlide(slider,slidenumber+1)
-                            }
+                            slideOut(slider,slidenumber)
+                            slideIn(slider,slidenumber+1)
+                            justSlide(slider)
                         }
                     })
                 }
@@ -247,10 +304,9 @@
                             setSlideVar(slider,'--slide-position',idx)
                             disableLegends(slider)
                             enableLegend(slider,idx)
-                            if(slider.classList.contains('fade')){
-                                disableSlides(slider)
-                                enableSlide(slider,idx)
-                            }
+                            slideOut(slider,idx)
+                            slideIn(slider,idx)
+                            justSlide(slider)
                         }
                     )
                     if(idx==0){
@@ -270,30 +326,50 @@
                 }
             )
         }
-        function disableSlides(slider){
+        function slidesOut(slider){
             slider.querySelectorAll('.slide').forEach(
                 slide=>{
-                    slide.classList.remove('visible')
-                    slide.classList.add('hidden')
+                    slide.classList.remove('in')
+                    slide.classList.add('out')
                 }
             )
         }
-        function enableSlides(slider){
+        function slidesIn(slider){
             slider.querySelectorAll('.slide').forEach(
                 slide=>{
-                    slide.classList.remove('hidden')
-                    slide.classList.add('visible')
+                    slide.classList.remove('out')
+                    slide.classList.add('in')
                 }
             )
         }
-        function enableSlide(slider,idx){
+        function slideIn(slider,idx){
             slider.querySelectorAll('.slide').forEach(
                 (slide,i)=>{
                     if(i == idx){
-                        slide.classList.remove('hidden')
-                        slide.classList.add('visible')
+                        slide.classList.remove('out')
+                        slide.classList.add('in')
                     }
                 }
+            )
+        }
+        function slideOut(slider,idx){
+            slider.querySelectorAll('.slide').forEach(
+                (slide,i)=>{
+                    if(i == idx){
+                        slide.classList.remove('in')
+                        slide.classList.add('out')
+                    }
+                }
+            )
+        }
+        function justSlide(slider){
+            slider.querySelectorAll('.slide').forEach(
+                (slide,i)=>{
+                    if(i == idx){
+                        slide.classList.remove('in')
+                        slide.classList.remove('out')
+                    }
+                }   
             )
         }
         function setSlideVar(slide,key,value){
