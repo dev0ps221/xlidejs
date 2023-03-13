@@ -56,10 +56,15 @@
                 ) 
             );
         }
-        .vslider{
+        .vslider .wrapper{
             flex-direction:column;
         }
+        .xlider .wrapper.x3 .slide{
+            min-width: 33%;
+            margin-block: end;
+        }
         .xlider.vslider .slide{
+            min-width: 100%;
             transform:translateY(
                 calc(
                     (
@@ -71,6 +76,10 @@
                 ) 
             );
         }
+        .xlider .wrapper.x3 .slide{
+            min-height: 33%;
+            margin-block: end;
+        }
         .xlider .slide img{
             width:100%;
             height:100%;
@@ -80,9 +89,13 @@
             width:100%;
             justify-content:space-between;
         }
+        .xlider .legends{
+            display: flex;
+            flex-direction: row;
+        }
     </style>
     <section id='slider' class='xlider' >
-        <div class="wrapper">
+        <div class="wrapper x3">
             <div class="slide">
                 <img src="slide1.avif" alt="">
             </div>
@@ -101,38 +114,56 @@
         </div>
         <div class="controlbar">
             <div class="before"><</div>
+            <div class="legends">
+                <div class="legend">
+                    <img src="slide1.avif" alt="">
+                </div>
+                <div class="legend">
+                    <img src="slide2.avif" alt="">
+                </div>
+                <div class="legend">
+                    <img src="slide3.avif" alt="">
+                </div>
+                <div class="legend">
+                    <img src="slide1.avif" alt="">
+                </div>
+                <div class="legend">
+                    <img src="slide2.avif" alt="">
+                </div>
+            </div>
             <div class="after">></div>
         </div>
     </section>
     <script>
+
+        function init_xlide_controls(slider){
+            slider.querySelectorAll(
+                '.before'
+            ).forEach(
+                before=>{
+                    before.addEventListener('click',e=>{
+                        const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
+                        if(slidenumber > 0){
+                            slider.style.setProperty('--slide-position',slidenumber-1)
+                        }
+                    })
+                }
+            )
+            slider.querySelectorAll(
+                '.after'
+            ).forEach(
+                after=>{
+                    after.addEventListener('click',e=>{
+                        const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
+                        if(slidenumber+1 < slider.querySelectorAll('.slide').length){
+                            slider.style.setProperty('--slide-position',slidenumber+1)
+                        }
+                    })
+                }
+            )
+        }
         
-        slider.querySelectorAll(
-            '.before'
-        ).forEach(
-            before=>{
-                before.addEventListener('click',e=>{
-                    const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
-                    console.log(slidenumber)
-                    if(slidenumber > 0){
-                        slider.style.setProperty('--slide-position',slidenumber-1)
-                    }
-                })
-            }
-        )
-        slider.querySelectorAll(
-            '.after'
-        ).forEach(
-            after=>{
-                after.addEventListener('click',e=>{
-                    const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
-                    console.log(slidenumber)
-                    console.log(slider.querySelectorAll('.slide').length)
-                    if(slidenumber <= slider.querySelectorAll('.slide').length){
-                        slider.style.setProperty('--slide-position',slidenumber+1)
-                    }
-                })
-            }
-        )
+        init_xlide_controls(slider)
     </script>
 </body>
 </html>
