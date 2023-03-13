@@ -19,6 +19,7 @@
             display: flex;
             justify-content:center;
             text-align:center;
+            align-items: center;
             font-size:18px;
             cursor:pointer;
         }
@@ -80,9 +81,10 @@
             min-height: 33%;
             margin-block: end;
         }
-        .xlider .slide img{
+        .xlider img{
             width:100%;
             height:100%;
+            object-fit: cover;
         }
         .xlider .controlbar{
             display:flex;
@@ -92,10 +94,18 @@
         .xlider .legends{
             display: flex;
             flex-direction: row;
+            height: 80px;
+            justify-content: flex-start;
+        }
+        .xlider .legends .legend{
+            filter: grayscale(80%);
+        }
+        .xlider .legends .legend.active{
+            filter: none;
         }
     </style>
     <section id='slider' class='xlider' >
-        <div class="wrapper x3">
+        <div class="wrapper">
             <div class="slide">
                 <img src="slide1.avif" alt="">
             </div>
@@ -145,10 +155,13 @@
                         const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
                         if(slidenumber > 0){
                             slider.style.setProperty('--slide-position',slidenumber-1)
+                            disableLegends(slider)
+                            enableLegend(slider,slidenumber-1)
                         }
                     })
                 }
             )
+
             slider.querySelectorAll(
                 '.after'
             ).forEach(
@@ -156,13 +169,56 @@
                     after.addEventListener('click',e=>{
                         const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
                         if(slidenumber+1 < slider.querySelectorAll('.slide').length){
-                            slider.style.setProperty('--slide-position',slidenumber+1)
+                            setSlideVar(slider,'--slide-position',slidenumber+1)
+                            disableLegends(slider)
+                            enableLegend(slider,slidenumber+1)
                         }
                     })
                 }
             )
+
+            slider.querySelectorAll(
+                '.legend'
+            ).forEach(
+                (elem,idx)=>{
+                    elem.addEventListener(
+                        'click',e=>{
+                            setSlideVar(slider,'--slide-position',idx)
+                            disableLegends(slider)
+                            enableLegend(slider,idx)
+                        }
+                    )
+                }
+            )
+            disableLegends(slider)
+            enableLegend(slider,0)
         }
         
+        function disableLegends(slider){
+            slider.querySelectorAll(
+                '.legend'
+            ).forEach(
+                (elem,idx)=>{
+                    elem.classList.remove('active')
+                }
+            )
+        }
+        function setSlideVar(slide,key,value){
+            slider.style.setProperty(key,value)
+        }
+        function enableLegend(slider,idx){
+
+            slider.querySelectorAll(
+                '.legend'
+            ).forEach(
+                (elem,x)=>{
+                    if(x == idx){
+                        elem.classList.add('active')
+                    }
+                }
+            )
+        }
+
         init_xlide_controls(slider)
     </script>
 </body>
