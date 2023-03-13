@@ -31,7 +31,6 @@
             isolation:isolate;
             position: relative;
             align-items:center;
-            background:#007;
             border-radius:10px;
             display:flex;
             overflow:hidden;
@@ -135,10 +134,10 @@
             filter: none;
         }
         .hidden{
-            animation:fadeOut calc((var(--transition-time)) + (var(--transition-time)/2)) forwards;
+            animation:fadeOut calc(var(--transition-time) * 2) forwards;
         }
         .visible{
-            animation:fadeIn calc(((var(--transition-time)) + (var(--transition-time)/2) )* 2) forwards;
+            animation:fadeIn calc(var(--transition-time) * 2 ) forwards;
         }
         @keyframes fadeOut{
             to{
@@ -146,12 +145,15 @@
             }
         }
         @keyframes fadeIn{
+            from{
+                opacity: 0;
+            }
             to{
                 opacity: 1;
             }
         }
     </style>
-    <section id='slider' class='xlider vslider fade' >
+    <section id='slider' class='xlider fade' >
         <div class="wrapper">
             <div class="slide">
                 <img src="slide1.avif" alt="">
@@ -217,7 +219,6 @@
                     })
                 }
             )
-
             slider.querySelectorAll(
                 '.after'
             ).forEach(
@@ -260,7 +261,6 @@
             disableLegends(slider)
             enableLegend(slider,0)
         }
-        
         function disableLegends(slider){
             slider.querySelectorAll(
                 '.legend'
