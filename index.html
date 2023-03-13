@@ -111,7 +111,11 @@
         ).forEach(
             before=>{
                 before.addEventListener('click',e=>{
-                    slider.style.setProperty('--slide-position',parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))-1)
+                    const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
+                    console.log(slidenumber)
+                    if(slidenumber > 0){
+                        slider.style.setProperty('--slide-position',slidenumber-1)
+                    }
                 })
             }
         )
@@ -120,7 +124,12 @@
         ).forEach(
             after=>{
                 after.addEventListener('click',e=>{
-                    slider.style.setProperty('--slide-position',parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))+1)
+                    const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
+                    console.log(slidenumber)
+                    console.log(slider.querySelectorAll('.slide').length)
+                    if(slidenumber <= slider.querySelectorAll('.slide').length){
+                        slider.style.setProperty('--slide-position',slidenumber+1)
+                    }
                 })
             }
         )
