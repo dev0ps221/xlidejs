@@ -139,14 +139,22 @@
             --out-animation:rotateReverse;
             --in-animation:rotate;
         }
+        .xlider.reverser-rotate{
+            --out-animation:rotate;
+            --in-animation:rotateReverse;
+        }
         .xlider.topdir{
             --out-animation:fromBottom;
             --in-animation:fromTop;
         }
-        .out{
+        .xlider.bottomdir{
+            --out-animation:fromTop;
+            --in-animation:fromBottom;
+        }
+        .xlider .out{
             animation:var(--out-animation) calc(var(--transition-time) * 2) backwards;
         }
-        .in{
+        .xlider .in{
             animation:var(--in-animation) calc(var(--transition-time) * 2 ) forwards;
         }
         @keyframes fadeOut{
@@ -211,7 +219,7 @@
             }
         }
     </style>
-    <section id='slider' class='xlider topdir' >
+    <section id='slider' class='xlider reverser-rotate' >
         <div class="wrapper">
             <div class="slide">
                 <img src="slide1.avif" alt="">
@@ -271,7 +279,6 @@
                             enableLegend(slider,slidenumber-1)
                             slideOut(slider,slidenumber)
                             slideIn(slider,slidenumber-1)
-                            justSlide(slider)
                         
                         }
                     })
@@ -289,7 +296,6 @@
                             enableLegend(slider,slidenumber+1)
                             slideOut(slider,slidenumber)
                             slideIn(slider,slidenumber+1)
-                            justSlide(slider)
                         }
                     })
                 }
@@ -306,12 +312,17 @@
                             enableLegend(slider,idx)
                             slideOut(slider,idx)
                             slideIn(slider,idx)
-                            justSlide(slider)
                         }
                     )
                     if(idx==0){
                         elem.click()
                     }
+                }
+            )
+
+            slider.addEventListener(
+                'animationend',e=>{
+                    justSlide(slider)
                 }
             )
             disableLegends(slider)
@@ -365,10 +376,9 @@
         function justSlide(slider){
             slider.querySelectorAll('.slide').forEach(
                 (slide,i)=>{
-                    if(i == idx){
-                        slide.classList.remove('in')
-                        slide.classList.remove('out')
-                    }
+                    slide.classList.remove('in')
+                    slide.classList.remove('out')
+                
                 }   
             )
         }
@@ -387,7 +397,6 @@
                 }
             )
         }
-
         init_xlide_controls(slider)
     </script>
 </body>
