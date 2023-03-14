@@ -2,9 +2,7 @@ function xlide(target,options){
     const slider = target
     const wrapper = document.createElement('div')
     let items = slider.querySelectorAll('.xlide-item').length
-    if(items.length){
-
-    }else{
+    if(items.length == 0){
         if(options.hasOwnProperty('images') && options['images'].length){
             options['images'].forEach(
                 img=>{
@@ -25,17 +23,32 @@ function xlide(target,options){
                                 item.appendChild(slideimg)
                             }
                             if(img.hasOwnProperty('data')){
-
                                 const data = img['data']
                                 if((data instanceof HTMLElement)){
-                                    item.appendChild
+                                    data.classList.add('data')
+                                    item.appendChild(data)
                                 }
+                                if((typeof data === 'string')){
+                                    const dataelem = document.createElement('div')
+                                    dataelem.classList.add('data')
+                                    dataelem.innerHTML=data
+                                    item.appendChild(dataelem)
+                                }
+
                             }
                         }
                     }
+                    items.push(item)
                 }
             )
         }
     }
+    items.forEach(
+        item=>{
+            wrapper.appendChild(item)
+        }
+    )
+    slider.innerHTML = ''
+    
 
 }
