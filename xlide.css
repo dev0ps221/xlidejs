@@ -130,7 +130,7 @@
     --out-animation:rotateReverse;
     --in-animation:rotate;
 }
-.xlide.reverser-rotate{
+.xlide.reverse-rotate{
     --out-animation:rotate;
     --in-animation:rotateReverse;
 }

@@ -10,7 +10,7 @@
 <body>
     <style>
     </style>
-    <section id='slider' class='xlide bgred reverser-rotate' >
+    <section id='slider' class='xlide' >
         <div class="wrapper">
             <div class="xlide-item">
                 <img src="slide1.avif" alt="">
@@ -33,30 +33,10 @@
                 <img src="slide2.avif" alt="">
             </div>
         </div>
-        <div class="controlbar">
-            <div class="before"><</div>
-            <div class="legends">
-                <div class="legend">
-                    <img src="slide1.avif" alt="">
-                </div>
-                <div class="legend">
-                    <img src="slide2.avif" alt="">
-                </div>
-                <div class="legend">
-                    <img src="slide3.avif" alt="">
-                </div>
-                <div class="legend">
-                    <img src="slide1.avif" alt="">
-                </div>
-                <div class="legend">
-                    <img src="slide2.avif" alt="">
-                </div>
-            </div>
-            <div class="after">></div>
-        </div>
     </section>
+    <script src="xlide.js"></script>
     <script>
-
+        xlide(slider,{controls:1,legends:1})
         function init_xlide_controls(slider){
             slider.querySelectorAll(
                 '.before'

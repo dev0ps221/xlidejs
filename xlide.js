@@ -1,7 +1,9 @@
 function xlide(target,options){
     const slider = target
     const wrapper = document.createElement('div')
-    let items = slider.querySelectorAll('.xlide-item').length
+    wrapper.classList.add('wrapper')
+    let items = slider.querySelectorAll('.xlide-item')
+    slider.innerHTML = ''
     if(items.length == 0){
         if(options.hasOwnProperty('images') && options['images'].length){
             options['images'].forEach(
@@ -27,12 +29,18 @@ function xlide(target,options){
                                 if((data instanceof HTMLElement)){
                                     data.classList.add('data')
                                     item.appendChild(data)
-                                }
-                                if((typeof data === 'string')){
+                                }else{
                                     const dataelem = document.createElement('div')
                                     dataelem.classList.add('data')
-                                    dataelem.innerHTML=data
-                                    item.appendChild(dataelem)
+                                    if((typeof data === 'string')){
+                                        dataelem.innerHTML=data
+                                        item.appendChild(dataelem)
+                                    }
+                                    if((typeof data) === 'object'){
+                                        if(data.hasOwnProperty('title')){
+                                            
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -44,10 +52,10 @@ function xlide(target,options){
     }
     items.forEach(
         item=>{
+            console.log(item.childNodes)
             wrapper.appendChild(item)
         }
     )
-    slider.innerHTML = ''
     slider.appendChild(wrapper)
     if(options.hasOwnProperty('controls') || options.hasOwnProperty('legends')){
         let legends = leftCtrl = rightCtrl = null
@@ -86,6 +94,9 @@ function xlide(target,options){
             if(legends){
                 controls.appendChild(legends)
             }
+        }
+        if(options.hasOwnProperty('vertical') && options['vertical']){
+            slider.classList.add('vslide')
         }
         slider.appendChild(controls)
     }
