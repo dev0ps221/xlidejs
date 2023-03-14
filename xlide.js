@@ -34,7 +34,6 @@ function xlide(target,options){
                                     dataelem.innerHTML=data
                                     item.appendChild(dataelem)
                                 }
-
                             }
                         }
                     }
@@ -49,6 +48,45 @@ function xlide(target,options){
         }
     )
     slider.innerHTML = ''
-    
-
+    slider.appendChild(wrapper)
+    if(options.hasOwnProperty('controls') || options.hasOwnProperty('legends')){
+        let legends = leftCtrl = rightCtrl = null
+        const controls = document.createElement('div')
+        controls.classList.add('controlbar')
+        if(options.hasOwnProperty('legends')){
+            legends = document.createElement('div')
+            legends.classList.add('legends')
+            items.forEach(
+                (item,idx)=>{
+                    const img = item.querySelector('img')
+                    const legend = document.createElement('div')
+                    legend.classList.add('legend')
+                    if(img){
+                        legend.appendChild(img)
+                    }else{
+                        const label = document.createElement('h4')
+                        label.innerHTML = "slide "+(idx+1)
+                        legend.appendChild(label)
+                    }
+                    legends.appendChild(legend)
+                }
+            )
+        }
+        if(options.hasOwnProperty('controls') && options['controls']){
+            leftCtrl = document.createElement('div')
+            leftCtrl.classList.add('before')
+            controls.appendChild(leftCtrl)
+            if(legends){
+                controls.appendChild(legends)
+            }
+            rightCtrl = document.createElement('div')
+            rightCtrl.classList.add('before')
+            controls.appendChild(rightCtrl)
+        }else{
+            if(legends){
+                controls.appendChild(legends)
+            }
+        }
+        slider.appendChild(controls)
+    }
 }
