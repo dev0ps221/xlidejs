@@ -9,9 +9,29 @@ function xlide(target,options){
             options['images'].forEach(
                 img=>{
                     const item = document.createElement('div')
-                    item.classList.add('div')
+                    item.classList.add('xlide-item')
                     if((typeof img) === 'string'){
+                        const slideimg = document.createElement('img')
+                        slideimg.src = img
+                        item.appendChild(slideimg)
+                    }
+                    if((typeof img) === 'object'){
+                        if(img instanceof HTMLElement){
+                            item.appendChild(img)
+                        }else{
+                            if(img.hasOwnProperty['img']){
+                                const slideimg = document.createElement('img')
+                                slideimg.src = img['img']
+                                item.appendChild(slideimg)
+                            }
+                            if(img.hasOwnProperty('data')){
 
+                                const data = img['data']
+                                if((data instanceof HTMLElement)){
+                                    item.appendChild
+                                }
+                            }
+                        }
                     }
                 }
             )
