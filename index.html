@@ -4,222 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="xlide.css">
     <title>Slides</title>
 </head>
 <body>
     <style>
-        .xlider,.xlider *{
-            box-sizing:border-box !important;
-        }
-        #slider{
-            width: 50%;
-            margin: auto;
-        }
-        .xlider .controlbar .before,.xlider .controlbar .after{
-            background:#222;
-            padding:10px;
-            width:25px;
-            color:#eee;
-            display: flex;
-            justify-content:center;
-            text-align:center;
-            align-items: center;
-            font-size:18px;
-            cursor:pointer;
-        }
-        .xlider .wrapper{
-            isolation:isolate;
-            position: relative;
-            align-items:center;
-            border-radius:10px;
-            display:flex;
-            overflow:hidden;
-            width:100%;
-            height:var(--slide-height);
-        }
-        .xlider{
-            isolation:isolate;
-            position: relative;
-            --in-animation:fadeIn;
-            --out-animation:fadeOut;
-            --slide-height:300px;
-            --slide-position:1;
-            --transition-time:.5s;
-            height:var(--slide-height);
-        }
-        .xlider .slide{
-            transition:var(--transition-time);
-            position: relative;
-            isolation: isolate;
-            display: grid;
-            background:#777;
-            min-width: 100%;
-            height: calc(var(--slide-height));
-            transform:translateX(
-                calc(
-                    (
-                        -100% 
-                            * 
-                        var(--slide-position)
-                    )
-                        
-                ) 
-            );
-        }
-        .xlider .slide > *{
-            grid-column: 1;
-            grid-row: 1/-1;
-        }
-        .xlider .slide img{
-            position: absolute;
-            z-index: -1;
-        }
-        .vslider .wrapper{
-            flex-direction:column;
-        }
-        .xlider .wrapper.x3 .slide{
-            min-width: 33%;
-            margin-block: end;
-        }
-        .xlider.vslider .wrapper .slide{
-            min-width: 100%;
-            min-height: 100%;
-            transform:translateY(
-                calc(
-                    (
-                        -100% 
-                            * 
-                        var(--slide-position)
-                    ) 
-                        
-                ) 
-            );
-        }
-        .xlider.vslider .wrapper.x3 .slide{
-            min-height: 33%;
-            margin-block: end;
-        }
-        .xlider img{
-            width:100%;
-            height:100%;
-            object-fit: cover;
-        }
-        .xlider .data{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #fff3;
-        }
-        .xlider .data .title{
-            font-weight: bolder;
-            font-size: 2rem;
-            color: #fff;
-            padding: 10px;
-            text-shadow: 0 0 5px #2228;
-        }
-        .xlider .controlbar{
-            display:flex;
-            width:100%;
-            justify-content:space-between;
-        }
-        .xlider .legends{
-            display: flex;
-            flex-direction: row;
-            height: 80px;
-            justify-content: flex-start;
-        }
-        .xlider .legends .legend{
-            filter: grayscale(80%);
-        }
-        .xlider .legends .legend.active{
-            filter: none;
-        }
-        .xlider.rotate{
-            --out-animation:rotateReverse;
-            --in-animation:rotate;
-        }
-        .xlider.reverser-rotate{
-            --out-animation:rotate;
-            --in-animation:rotateReverse;
-        }
-        .xlider.topdir{
-            --out-animation:fromBottom;
-            --in-animation:fromTop;
-        }
-        .xlider.bottomdir{
-            --out-animation:fromTop;
-            --in-animation:fromBottom;
-        }
-        .xlider .out{
-            animation:var(--out-animation) calc(var(--transition-time) * 2) backwards;
-        }
-        .xlider .in{
-            animation:var(--in-animation) calc(var(--transition-time) * 2 ) forwards;
-        }
-        @keyframes fadeOut{
-            to{
-                opacity: 0;
-            }
-        }
-        @keyframes fadeIn{
-            from{
-                opacity: 0;
-            }
-            to{
-                opacity: 1;
-            }
-        }
-        @keyframes fromTop {
-            from{
-                transform: translateY(-100%);
-            }
-        }
-        @keyframes fromBottom {
-            from{
-                transform: translateY(100%);
-            }
-        }
-        @keyframes rotate {
-            from{
-                opacity: 0;
-                width: 5%;
-                transform: rotateZ(-95deg);
-            }
-            80%{
-                width: 70%;
-            }
-            to{
-                opacity: 1;
-                width: 100%;
-            }
-        }
-        @keyframes rotateReverse {
-            from{
-                opacity: 0;
-                width: 5%;
-                transform: rotateZ(95deg);
-            }
-            80%{
-                width: 70%;
-            }
-            to{
-                opacity: 1;
-                width: 100%;
-            }
-        }
-        @keyframes fromLeft {
-            from{
-                transform: translateX(-100%);
-            }
-        }
-        @keyframes fromRight {
-            from{
-                transform: translateX(100%);
-            }
-        }
     </style>
-    <section id='slider' class='xlider reverser-rotate' >
+    <section id='slider' class='xlide bgred reverser-rotate' >
         <div class="wrapper">
             <div class="slide">
                 <img src="slide1.avif" alt="">
@@ -245,6 +36,9 @@
         <div class="controlbar">
             <div class="before"><</div>
             <div class="legends">
+                <div class="legend">
+                    <img src="slide1.avif" alt="">
+                </div>
                 <div class="legend">
                     <img src="slide2.avif" alt="">
                 </div>

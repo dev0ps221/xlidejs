@@ -1,0 +1,3 @@
+function createSlide(target,pictures){
+    
+}
