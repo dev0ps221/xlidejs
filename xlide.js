@@ -175,15 +175,6 @@ class xLide{
         this.disableLegends()
         this.enableLegend(0)
     }
-    disableLegends(){
-        this.slider.querySelectorAll(
-            '.legend'
-        ).forEach(
-            (elem,idx)=>{
-                elem.classList.remove('active')
-            }
-        )
-    }
 
 
 
@@ -233,7 +224,7 @@ class xLide{
         )
     }
 
-    //
+    //just remove all animations (just sslide just moves in a linear way without animation special animation)
     justSlide(){
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
@@ -243,9 +234,24 @@ class xLide{
             }   
         )
     }
+
+    //assigns some css value to the slider elem (mainly for css vars)
     setSlideVar(key,value){
         this.slider.style.setProperty(key,value)
     }
+
+    //resets legends highlights
+    disableLegends(){
+        this.slider.querySelectorAll(
+            '.legend'
+        ).forEach(
+            (elem,idx)=>{
+                elem.classList.remove('active')
+            }
+        )
+    }
+
+    //highlight the specified legend item of the slider
     enableLegend(idx){
         this.slider.querySelectorAll(
             '.legend'
