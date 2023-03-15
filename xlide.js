@@ -8,7 +8,7 @@ class xLide{
     checkBooleanOption(){
         return this.checkOption() && this.this.options[this.option]
     }
-    matchHtmlElemElem(elem){
+    matchHtmlElem(elem){
         return elem instanceof HTMLElement
     }
     xlide(){
@@ -27,7 +27,7 @@ class xLide{
                             item.appendChild(slideimg)
                         }
                         if((typeof img) === 'object'){
-                            if(this.matchHtmlElemElem(img)){
+                            if(this.matchHtmlElem(img)){
                                 item.appendChild(img)
                             }else{
                                 if(img.hasOwnProperty['img']){
@@ -37,7 +37,7 @@ class xLide{
                                 }
                                 if(img.hasOwnProperty('data')){
                                     const data = img['data']
-                                    if((this.matchHtmlElemElem(data))){
+                                    if((this.matchHtmlElem(data))){
                                         data.classList.add('data')
                                         item.appendChild(data)
                                     }else{
