@@ -14,10 +14,8 @@
     </section>
     <script src="xlide.js"></script>
     <script>
-        const slider = xlide(document.querySelector(('#slider')),{
+        const slideOptions = {
             controls:1,
-            legends:1,
-            vertical:1,
             images:[
                 'slide1.avif',
                 'slide2.avif',
@@ -25,7 +23,8 @@
                 'slide1.avif',
                 'slide2.avif'
             ]
-        })
+        }
+        const slider = xlide(document.querySelector(('#slider')),slideOptions)
     </script>
 </body>
 </html>

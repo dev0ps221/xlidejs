@@ -1,12 +1,12 @@
 class xLide{
     checkOptionsList(name){
-        return this.checkOption(name) && Array.isArray(this.this.options[name]) && this.this.options[name].length
+        return this.checkOption(name) && Array.isArray(this.options[name]) && this.options[name].length
     }
     checkOption(name){
         return this.options.hasOwnProperty(name)
     }
     checkBooleanOption(){
-        return this.checkOption() && this.this.options[this.option]
+        return this.checkOption() && this.options[this.option]
     }
     matchHtmlElem(elem){
         return elem instanceof HTMLElement
@@ -66,9 +66,11 @@ class xLide{
                 this.wrapper.appendChild(item)
             }
         )
-        this.slider.appendChild(wrapper)
+        this.slider.appendChild(this.wrapper)
         if(this.options.hasOwnProperty('controls') || this.options.hasOwnProperty('legends')){
-            let legends = leftCtrl = rightCtrl = null
+            let legends = null,
+                leftCtrl = null,
+                rightCtrl = null
             const controls = document.createElement('div')
             controls.classList.add('controlbar')
             if(this.options.hasOwnProperty('legends')){
@@ -122,11 +124,11 @@ class xLide{
                 before.addEventListener('click',e=>{
                     const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
                     if(slidenumber > 0){
-                        setSlideVar('--slide-position',slidenumber-1)
-                        disableLegends()
-                        enableLegend(slidenumber-1)
-                        slideOut(slidenumber)
-                        slideIn(slidenumber-1)
+                        this.setSlideVar('--slide-position',slidenumber-1)
+                        this.disableLegends()
+                        this.enableLegend(slidenumber-1)
+                        this.slideOut(slidenumber)
+                        this.slideIn(slidenumber-1)
                     }
                 })
             }
@@ -138,11 +140,11 @@ class xLide{
                 after.addEventListener('click',e=>{
                     const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
                     if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
-                        setSlideVar('--slide-position',slidenumber+1)
-                        disableLegends()
-                        enableLegend(slidenumber+1)
-                        slideOut(slidenumber)
-                        slideIn(slidenumber+1)
+                        this.setSlideVar('--slide-position',slidenumber+1)
+                        this.disableLegends()
+                        this.enableLegend(slidenumber+1)
+                        this.slideOut(slidenumber)
+                        this.slideIn(slidenumber+1)
                     }
                 })
             }
@@ -153,11 +155,11 @@ class xLide{
             (elem,idx)=>{
                 elem.addEventListener(
                     'click',e=>{
-                        setSlideVar('--slide-position',idx)
-                        disableLegends()
-                        enableLegend(idx)
-                        slideOut(idx)
-                        slideIn(idx)
+                        this.setSlideVar('--slide-position',idx)
+                        this.disableLegends()
+                        this.enableLegend(idx)
+                        this.slideOut(idx)
+                        this.slideIn(idx)
                     }
                 )
                 if(idx==0){
@@ -167,11 +169,11 @@ class xLide{
         )
         this.slider.addEventListener(
             'animationend',e=>{
-                justSlide(this.slider)
+                this.justSlide(this.slider)
             }
         )
-        disableLegends()
-        enableLegend(0)
+        this.disableLegends()
+        this.enableLegend(0)
     }
     disableLegends(){
         this.slider.querySelectorAll(
@@ -242,7 +244,7 @@ class xLide{
         )
     }
     constructor(target,options){
-        this.target = this.slider = this.target
+        this.target = this.slider = target
         this.options = options
         this.wrapper = document.createElement('div')
         this.target.classList.add('xlide')
