@@ -20,6 +20,7 @@
         <div class="slide2"></div>
         <div class="slide3"></div>
     </section>
+    <div id="slide"></div>
     <script src="xlide.js"></script>
     <script>
         var images = [
@@ -31,16 +32,24 @@
         ]
 
 
+        const slide = xlide(document.querySelector("#slide"),{
+            autoplay:1,
+            previews:1,
+            interval:2,
+            images
+        })
+
         const slide1 = xlide()
         slide1.addImages(images)
         slide1.addOption('autoplay')
+        slide1.addOption('previews')
         slide1.addOption('interval',2)
         slide1.appendTo(document.querySelector('#first_sliders .slide1'))
 
         const slide2 = xlide()
         slide2.addImages(images)
         slide2.addOption('autoplay')
-        slide2.addOption('previews')
+        slide2.addOption('controls')
         slide2.addOption('interval',4)
         slide2.appendTo(document.querySelector('#first_sliders .slide2'))
 

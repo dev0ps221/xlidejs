@@ -16,6 +16,9 @@
     position:absolute;
     top:45%;
 }
+.xlide .controlbar .after{
+    right: 0;
+}
 .xlide .wrapper{
     isolation:isolate;
     position: relative;
@@ -23,9 +26,9 @@
     display:flex;
     overflow:hidden;
     width:100%;
-    height:var(--slide-height);
 }
 .xlide{
+    display: grid;
     isolation:isolate;
     position: relative;
     --in-animation:fadeIn;
