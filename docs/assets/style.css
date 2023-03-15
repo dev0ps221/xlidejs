@@ -1,21 +1,30 @@
 :root{
-    --lnk-clr:#ffc73d;
+    --lnk-clr:#ffc73d99;
+    --lnk-hv-clr:#ffc73d;
+    --heading-clr:#ffc73d;
     --fg-clr:#eeeeff;
     --bg-clr:#333344;
+    --nav-height:80px;
 }
 *,*::before,*::after{
     margin: 0;
     box-sizing: border-box;   
     text-decoration: none;
 }
+h1,h2,h3,h4,h5,h6{
+    color:var(--heading-clr);
+}
 a{
     color:var(--lnk-clr);
+}
+a:hover{
+    color:var(--lnk-hv-clr);
 }
 body{
     background: var(--bg-clr);
     color: var(--fg-clr);
     font-family: sans-serif;
-    font-size: 2em;
+    font-size: 1.3em;
     padding-inline: 5rem;
 }
 img{

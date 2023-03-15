@@ -10,39 +10,49 @@
     <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-    <header>
-        <section id="heading">
-            <img src="head.avif" alt="XLIDEJS">
-            <div class="data">
-                <h1>
-                    <a href="index.html">Decouvrez &#8211; xlidejs</a>  
-                </h1>
-                <h3>
-                    Créez des galeries d'image sur votre site à la volée
-                </h3>
-            </div>
-        </section>
-        <nav>
-            <span class="elem-nav">
-                <a class='link' href="index.html">accueil</a>
-            </span>
-            <span class="elem-nav">
-                <a class='link' href="tutos.html">tutos</a>
-            </span>
-            <span class="elem-nav">
-                <a class='link' href="docs.html">documentation</a>
-            </span>
-            <span class="elem-nav">
-                <a class='link' href="about.html">a propos</a>
-            </span>
-        </nav>
-    </header>
-
-    <section id='first_sliders'>
-        <div class="slide1"></div>
-        <div class="slide2"></div>
-        <div class="slide3"></div>
-    </section>
+    <style>
+        .navbar{
+            width: 100%;
+            background:var(--bg-clr);
+            display:flex;
+            justify-content: space-between;
+            height: var(--nav-height);
+            background:red;
+        }
+        .navbar > *{
+            width: 100%;
+            height:calc(var(--nav-height) - 10px);
+            margin-block:auto;
+        }
+        .navbar .logobox{
+            width:160px;
+        }
+        .navbar .links{
+            position: relative;
+            right: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .navbar .links .link{
+            margin-right:.5rem;
+            height:100%;
+            display: grid;
+            align-items: center;
+        }
+        .logobox img{
+            width:100%;
+            height: 100%;
+        }
+    </style>
+    <div class="nav navbar">
+        <div class="logobox">
+            <img src="xlide2alpha.png" alt="XLIDEJS" class="logo-img">
+        </div>
+        <div class="links">
+            <a href="/" class="link">Accueil</a>
+            <a href="/" class="link">Docs</a>
+        </div>
+    </div>
     <script src="assets/xlide.js"></script>
     <script src="assets/index.js">
     </script>
