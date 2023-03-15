@@ -1,7 +1,11 @@
 const imgs = [
-    'slidepics/slide1.avif',
-    'slidepics/slide2.avif',
-    'slidepics/slide3.avif'
+    'slidepics/slide1.png',
+    'slidepics/slide2.png',
+    'slidepics/slide3.png',
+    'slidepics/slide4.png',
+    'slidepics/slide5.png',
+    'slidepics/slide6.png',
+    'slidepics/slide7.png'
 ]
 
 const liste_exemples = document.querySelector('#exemples .liste_exemples')
