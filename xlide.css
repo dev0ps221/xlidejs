@@ -2,11 +2,6 @@
 .xlide,.xlide *{
     box-sizing:border-box !important;
 }
-#slider{
-    width: 50%;
-    margin: auto;
-    border-radius:10px;
-}
 .xlide .controlbar .before,.xlide .controlbar .after{
     background:#222;
     padding:10px;
