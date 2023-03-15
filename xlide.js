@@ -242,6 +242,37 @@ class xLide{
             this.play()
         }
 
+
+        this.target.removeEventListener(
+            'mouseenter',e=>{
+                this.is_playing=false
+            }
+        )
+
+        this.target.removeEventListener(
+            'mouseleave',e=>{
+                if(this.checkOption('autoplay') && this.options['autoplay']){
+                    this.is_playing=true
+                    this.play()
+                }
+            }
+        )
+
+        this.target.addEventListener(
+            'mouseenter',e=>{
+                this.is_playing=false
+            }
+        )
+
+        this.target.addEventListener(
+            'mouseleave',e=>{
+                if(this.checkOption('autoplay') && this.options['autoplay']){
+                    this.is_playing=true
+                    this.play()
+                }
+            }
+        )
+
     }
     
     slideTo(position){
@@ -249,9 +280,9 @@ class xLide{
         this.setSlideVar('--slide-position',position)
         this.disablepreviews()
         this.enablepreview(position)
-        this.slideOut(position-1)
+        this.justSlide()
+        this.slidesOut()
         this.slideIn(position)
-        this.slideOut(position+1)
         
 
     }
@@ -373,8 +404,8 @@ class xLide{
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 if(i == idx){
-                    slide.classList.remove('in')
                     slide.classList.add('out')
+                    slide.classList.remove('in')
                 }
             }
         )
@@ -384,7 +415,6 @@ class xLide{
     justSlide(){
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
-                slide.classList.remove('in')
                 slide.classList.remove('out')
             
             }   
@@ -438,6 +468,8 @@ class xLide{
 
     //autoplay feature
     play(){
+
+
         if(this.play_state == 'paused'){
             this.play_state='playing'
             this.move()
