@@ -7,6 +7,13 @@ const imgs = [
     'slidepics/slide6.png',
     'slidepics/slide7.png'
 ]
+const images = [
+    'slidepics/slide1.avif',
+    'slidepics/slide2.avif',
+    'slidepics/slide3.avif',
+    'slidepics/slide4.avif',
+    'slidepics/slide5.avif'
+]
 
 const liste_exemples = document.querySelector('#exemples .liste_exemples')
 if(liste_exemples){
@@ -27,7 +34,7 @@ if(liste_exemples){
     let slide_exemple2 = xlide(liste_exemples.querySelector('.exemple2'),optionsExemple2)
 
     const optionsExemple3 = {
-        images:imgs,
+        images,
         interval:6,
         autoplay:1,
         vertical:1,
@@ -36,7 +43,7 @@ if(liste_exemples){
     let slide_exemple3 = xlide(liste_exemples.querySelector('.exemple3'),optionsExemple3)
 
     const optionsExemple4 = {
-        images:imgs,
+        images,
         interval:6,
         autoplay:1,
         rhorizontal:1,
