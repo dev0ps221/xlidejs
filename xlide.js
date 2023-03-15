@@ -238,6 +238,30 @@ class xLide{
             this.slider.classList.add('rotate')
         }
 
+        this.target.removeEventListener(
+            'mouseenter',e=>{
+                this.is_playing = false
+            }
+        )
+
+        this.target.removeEventListener(
+            'mouseleave',e=>{
+                this.is_playing = true
+            }
+        )
+
+        this.target.addEventListener(
+            'mouseenter',e=>{
+                this.is_playing = false
+            }
+        )
+
+        this.target.addEventListener(
+            'mouseleave',e=>{
+                this.is_playing = true
+            }
+        )
+
         if(this.checkOption('autoplay')){
             this.play()
         }
@@ -425,16 +449,18 @@ class xLide{
 
     //move the slide
     move(){
-        console.log('called')
         setTimeout(()=>{
                 if(this.is_playing){
                     this[this.reverse_playing ? "prevSlide" : 'nextSlide']()
-                    this.move()
-                }else{
-                    this.play_state = 'paused'
                 }
+                this.move()
             },this.play_interval * 1000)
         }
+
+    //pause
+    pause(){
+        this.play_state = 'paused'
+    }
 
     //autoplay feature
     play(){
