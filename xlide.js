@@ -8,12 +8,15 @@ class xLide{
     checkBooleanOption(){
         return this.checkOption() && this.this.options[this.option]
     }
+    matchHtmlElemElem(elem){
+
+    }
     xlide(){
         this.items = this.slider.querySelectorAll('.xlide-item')
         this.slider.innerHTML = ''
         if(this.items.length == 0){
             this.items = []
-            if(this.options.hasOwnProperty('images') && this.options['images'].length){
+            if(this.checkOptionsList('images')){
                 this.options['images'].forEach(
                     img=>{
                         const item = document.createElement('div')
