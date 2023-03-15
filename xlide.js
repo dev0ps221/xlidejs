@@ -392,7 +392,7 @@ class xLide{
             setTimeout(
                 ()=>{   
                     this.nextSlide()
-                    if(this.is_playing()){
+                    if(this.is_playing){
                         this.play()
                     }
                 },(this.play_interval * 1000)
@@ -400,7 +400,15 @@ class xLide{
         }
     }
 
-    constructor(target,options={}){
+    appendTo(target){
+        try{
+            target.appendChild(this.target)
+        }catch(e){
+            console.log(`'failed appending slider to target: { ${e} }'`)
+        }
+    }
+
+    constructor(target=document.createElement('section'),options={}){
         this.is_playing = false
         this.play_interval = 3 //seconds
         this.target = this.slider = target
@@ -412,7 +420,7 @@ class xLide{
     }
 }
 
-function xlide(target,options){
+function xlide(target=document.createElement('section'),options){
     const slider = new xLide(target,options)
     return slider
 }
