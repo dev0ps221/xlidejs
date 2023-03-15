@@ -265,6 +265,7 @@ class xLide{
         )
 
         if(this.checkOption('autoplay')){
+            this.is_playing = true
             this.play()
         }
 

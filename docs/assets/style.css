@@ -6,6 +6,7 @@
     --bg-clr:#222211;
     --nav-height:46px;
     --header-height:520px;
+    --section-inline-pad:20rem;
 }
 *,*::before,*::after{
     margin: 0;
@@ -104,4 +105,9 @@ button:hover{
 button:hover::before{
     background-color: var(--fg-clr);
     width: 100%;
+}
+@media screen and (max-width:992px){
+    :root{
+        --section-inline-pad:5rem;
+    }
 }
