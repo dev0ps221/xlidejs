@@ -129,6 +129,8 @@ class xLide{
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
         if(slidenumber > 0){
             this.slideTo(slidenumber,-1)
+        }else{
+            this.slideTo(this.items.length-1,0)
         }
     }
 
@@ -136,6 +138,8 @@ class xLide{
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
         if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
             this.slideTo(slidenumber)
+        }else{
+            this.slideTo(0,0)
         }
     }
 
