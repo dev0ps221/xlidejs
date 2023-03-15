@@ -247,6 +247,7 @@ class xLide{
         this.target.removeEventListener(
             'mouseleave',e=>{
                 this.is_playing = true
+                this.move()
             }
         )
 
@@ -259,6 +260,7 @@ class xLide{
         this.target.addEventListener(
             'mouseleave',e=>{
                 this.is_playing = true
+                this.move()
             }
         )
 
@@ -452,8 +454,8 @@ class xLide{
         setTimeout(()=>{
                 if(this.is_playing){
                     this[this.reverse_playing ? "prevSlide" : 'nextSlide']()
+                    this.move()
                 }
-                this.move()
             },this.play_interval * 1000)
         }
 
