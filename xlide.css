@@ -39,7 +39,7 @@
     isolation: isolate;
     display: grid;
     background:#777;
-    min-width: 100%;
+    min-width: 33%;
     height: calc(var(--slide-height));
     transform:translateX(
         calc(
@@ -139,7 +139,7 @@
     --in-animation:fromBottom;
 }
 .xlide .out{
-    animation:var(--out-animation) calc(var(--transition-time) * 2) backwards;
+    animation:var(--out-animation) calc(var(--transition-time)) backwards;
 }
 .xlide .in{
     animation:var(--in-animation) calc(var(--transition-time) * 2 ) forwards;
