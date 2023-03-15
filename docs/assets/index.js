@@ -28,7 +28,7 @@ if(liste_exemples){
 
     const optionsExemple3 = {
         images:imgs,
-        interval:4,
+        interval:6,
         autoplay:1,
         vertical:1,
         previews:1

@@ -269,6 +269,11 @@ class xLide{
             this.play()
         }
 
+        if(this.checkBooleanOption('interval')){
+            this.play_interval = this.options['interval']
+            this.play()
+        }
+
     }
     
     slideTo(position){
