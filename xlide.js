@@ -11,69 +11,67 @@ class xLide{
     matchHtmlElem(elem){
         return elem instanceof HTMLElement
     }
-    xlide(){
+    processItems(){
+
         this.items = this.slider.querySelectorAll('.xlide-item')
-        this.slider.innerHTML = ''
-        if(this.items.length == 0){
-            this.items = []
-            if(this.checkOptionsList('images')){
-                this.options['images'].forEach(
-                    img=>{
-                        const item = document.createElement('div')
-                        item.classList.add('xlide-item')
-                        if((typeof img) === 'string'){
-                            const slideimg = document.createElement('img')
-                            slideimg.src = img
-                            item.appendChild(slideimg)
-                        }
-                        if((typeof img) === 'object'){
-                            if(this.matchHtmlElem(img)){
-                                item.appendChild(img)
-                            }else{
-                                if(img.hasOwnProperty['img']){
-                                    const slideimg = document.createElement('img')
-                                    slideimg.src = img['img']
-                                    item.appendChild(slideimg)
-                                }
-                                if(img.hasOwnProperty('data')){
-                                    const data = img['data']
-                                    if((this.matchHtmlElem(data))){
-                                        data.classList.add('data')
-                                        item.appendChild(data)
-                                    }else{
-                                        const dataelem = document.createElement('div')
-                                        dataelem.classList.add('data')
-                                        if((typeof data === 'string')){
-                                            dataelem.innerHTML=data
-                                            item.appendChild(dataelem)
-                                        }
-                                        if((typeof data) === 'object'){
-                                            if(data.hasOwnProperty('title')){
-                                                
-                                            }
+        this.items = []
+        if(this.checkOptionsList('images')){
+            this.options['images'].forEach(
+                img=>{
+                    const item = document.createElement('div')
+                    item.classList.add('xlide-item')
+                    if((typeof img) === 'string'){
+                        const slideimg = document.createElement('img')
+                        slideimg.src = img
+                        item.appendChild(slideimg)
+                    }
+                    if((typeof img) === 'object'){
+                        if(this.matchHtmlElem(img)){
+                            item.appendChild(img)
+                        }else{
+                            if(img.hasOwnProperty['img']){
+                                const slideimg = document.createElement('img')
+                                slideimg.src = img['img']
+                                item.appendChild(slideimg)
+                            }
+                            if(img.hasOwnProperty('data')){
+                                const data = img['data']
+                                if((this.matchHtmlElem(data))){
+                                    data.classList.add('data')
+                                    item.appendChild(data)
+                                }else{
+                                    const dataelem = document.createElement('div')
+                                    dataelem.classList.add('data')
+                                    if((typeof data === 'string')){
+                                        dataelem.innerHTML=data
+                                        item.appendChild(dataelem)
+                                    }
+                                    if((typeof data) === 'object'){
+                                        if(data.hasOwnProperty('title')){
+                                            
                                         }
                                     }
                                 }
                             }
                         }
-                        this.items.push(item)
                     }
-                )
-            }
+                    this.items.push(item)
+                }
+            )
         }
-        this.items.forEach(
-            item=>{
-                this.wrapper.appendChild(item)
-            }
-        )
-        this.slider.appendChild(this.wrapper)
-        if(this.options.hasOwnProperty('controls') || this.options.hasOwnProperty('legends')){
+    }
+    hasCtrlBar(){
+        return this.checkOption('controls') || this.checkOption('legends')
+    }
+    processCtrlBar(){
+        //check if a controlbar is needed and build it if necessary
+        if(this.hasCtrlBar()){
             let legends = null,
                 leftCtrl = null,
                 rightCtrl = null
             const controls = document.createElement('div')
             controls.classList.add('controlbar')
-            if(this.options.hasOwnProperty('legends')){
+            if(this.checkOption('legends')){
                 legends = document.createElement('div')
                 legends.classList.add('legends')
                 this.items.forEach(
@@ -92,7 +90,7 @@ class xLide{
                     }
                 )
             }
-            if(this.options.hasOwnProperty('controls') && this.options['controls']){
+            if(this.checkOption('controls') && this.options['controls']){
                 leftCtrl = document.createElement('div')
                 leftCtrl.classList.add('before')
                 leftCtrl.innerHTML = "<"
@@ -109,14 +107,31 @@ class xLide{
                     controls.appendChild(legends)
                 }
             }
-            if(this.options.hasOwnProperty('vertical') && this.options['vertical']){
+            if(this.checkOption('vertical') && this.options['vertical']){
                 this.slider.classList.add('vslider')
             }
-            this.slider.appendChild(controls)
+            return controls
+        }
+    }
+    xlide(){
+        this.slider.innerHTML = ''
+        this.processItems()
+        this.items.forEach(
+            item=>{
+                this.wrapper.appendChild(item)
+            }
+        )
+        this.slider.appendChild(this.wrapper)
+
+        //build and append a .controlbar element if necessary
+        if(this.hasCtrlBar()){
+            this.controlbar = this.processCtrlBar()
+            this.slider.appendChild(this.controlbar)
         }
     }
     
     slideTo(position,outnumber=1){
+        //moves to the specified slide
         this.setSlideVar('--slide-position',position+outnumber)
         this.disableLegends()
         this.enableLegend(position+outnumber)
@@ -126,6 +141,7 @@ class xLide{
     }
 
     prevSlide(){
+        //moves to the previous slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
         if(slidenumber > 0){
             this.slideTo(slidenumber,-1)
@@ -135,6 +151,7 @@ class xLide{
     }
 
     nextSlide(){
+        //moves to the next slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
         if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
             this.slideTo(slidenumber)
@@ -242,8 +259,17 @@ class xLide{
 
     //assigns some css value to the slider elem (mainly for css vars)
     setSlideVar(key,value){
-        this.slider.style.setProperty(key,value)
+        this.setElemVar(this.slider,key,value)
     }
+
+    //assigns some css value to the specified elem
+    setElemVar(elem,key,value){
+        if(elem instanceof HTMLElement){
+            elem.style.setProperty(key,value)
+        }
+    }
+
+
 
     //resets legends highlights
     disableLegends(){
