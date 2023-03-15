@@ -73,6 +73,7 @@ header .data{
 }
 button,input,select,textarea,p{
     padding: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 5px #fff5;
 }
 button{
