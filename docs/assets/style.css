@@ -5,6 +5,7 @@
     --fg-clr:#eeeeff;
     --bg-clr:#222211;
     --nav-height:80px;
+    --header-height:520px;
 }
 *,*::before,*::after{
     margin: 0;

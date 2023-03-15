@@ -42,8 +42,24 @@
             width:100%;
             height: 100%;
         }
+        header{
+            display: grid;
+            position:relative;
+            isolation:isolate;
+            align-items: center;
+            height:var(--header-height);
+        }
+        header > *{
+            grid-column: 1;
+            grid-row: 1/-1;
+            width: 100%;
+            height:100%;
+        }
+        header > img{
+            z-index: -1;
+        }
     </style>
-    <div class="nav navbar">
+    <nav class="navbar">
         <div class="logobox">
             <img src="xlide2alpha.png" alt="XLIDEJS" class="logo-img">
         </div>
@@ -54,7 +70,15 @@
         <div class="extern links">
             <a href="https://github.com/dev0ps221/xlidejs" class="link">github</a>
         </div>
-    </div>
+    </nav>
+    <header>
+        <img src="head.avif" alt="" class="src">
+        <div class="data">
+            <h4>
+                Un slider/carrousel léger, flexible et accessible est parfait pour n'importe quel site Web. Il est facile à utiliser et à configurer, et il a fière allure sur n'importe quel appareil.
+            </h4>
+        </div>
+    </header>
     <script src="assets/xlide.js"></script>
     <script src="assets/index.js">
     </script>
