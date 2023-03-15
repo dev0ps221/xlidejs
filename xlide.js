@@ -1,7 +1,10 @@
 class xLide{
     constructor(target,options){
-        this.target = target
+        this.target = this.slider = target
         this.options = options
+        
+        
+        
     }
 }
 function xlide(target,options){
