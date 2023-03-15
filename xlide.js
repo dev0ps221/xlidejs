@@ -8,7 +8,7 @@ class xLide{
     checkBooleanOption(){
         return this.checkOption() && this.options[this.option]
     }
-    function xlide(target,options){
+    xlide(target,options){
         let items = slider.querySelectorAll('.xlide-item')
         slider.innerHTML = ''
         if(items.length == 0){
@@ -111,7 +111,7 @@ class xLide{
         }
     }
     
-    function init_xlide_controls(slider){
+    init_xlide_controls(slider){
         slider.querySelectorAll(
             '.before'
         ).forEach(
@@ -170,7 +170,7 @@ class xLide{
         disableLegends(slider)
         enableLegend(slider,0)
     }
-    function disableLegends(slider){
+    disableLegends(slider){
         slider.querySelectorAll(
             '.legend'
         ).forEach(
@@ -179,7 +179,7 @@ class xLide{
             }
         )
     }
-    function slidesOut(slider){
+    slidesOut(slider){
         slider.querySelectorAll('.xlide-item').forEach(
             slide=>{
                 slide.classList.remove('in')
@@ -187,7 +187,7 @@ class xLide{
             }
         )
     }
-    function slidesIn(slider){
+    slidesIn(slider){
         slider.querySelectorAll('.xlide-item').forEach(
             slide=>{
                 slide.classList.remove('out')
@@ -195,7 +195,7 @@ class xLide{
             }
         )
     }
-    function slideIn(slider,idx){
+    slideIn(slider,idx){
         slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 if(i == idx){
@@ -205,7 +205,7 @@ class xLide{
             }
         )
     }
-    function slideOut(slider,idx){
+    slideOut(slider,idx){
         slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 if(i == idx){
@@ -215,7 +215,7 @@ class xLide{
             }
         )
     }
-    function justSlide(slider){
+    justSlide(slider){
         slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 slide.classList.remove('in')
@@ -224,10 +224,10 @@ class xLide{
             }   
         )
     }
-    function setSlideVar(slide,key,value){
+    setSlideVar(slide,key,value){
         slider.style.setProperty(key,value)
     }
-    function enableLegend(slider,idx){
+    enableLegend(slider,idx){
         slider.querySelectorAll(
             '.legend'
         ).forEach(
@@ -244,6 +244,7 @@ class xLide{
         this.wrapper = document.createElement('div')
         this.target.classList.add('xlide')
         this.wrapper.classList.add('wrapper')
+        this.xlide()
     }
 }
 
