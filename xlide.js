@@ -127,7 +127,9 @@ class xLide{
         if(this.hasCtrlBar()){
             this.controlbar = this.processCtrlBar()
             this.slider.appendChild(this.controlbar)
+            this.init_xlide_controls()
         }
+
     }
     
     slideTo(position,outnumber=1){
@@ -160,7 +162,7 @@ class xLide{
         }
     }
 
-    init_xlide_controls(){
+    reset_left_arrow_event(){
         this.slider.querySelectorAll(
             '.before'
         ).forEach(
@@ -168,34 +170,56 @@ class xLide{
                 before.addEventListener('click',e=>this.prevSlide())
             }
         )
+    }
+
+    reset_right_arrow_event(){
         this.slider.querySelectorAll(
             '.after'
         ).forEach(
-            after=>{
-                after.addEventListener('click',e=>this.nextSlide())
+            before=>{
+                before.addEventListener('click',e=>this.nextSlide())
             }
         )
+    }
+
+    reset_arrows_events(){
+        this.reset_left_arrow_event()
+        this.reset_right_arrow_event()
+    }
+
+    reset_legend_events(legend,idx){
+        legend.removeEventListener(
+            'click',e=>{
+                this.slideTo(idx,0)
+            }
+        )
+        legend.addEventListener(
+            'click',e=>{
+                this.slideTo(idx,0)
+            }
+        )
+        if(idx==0){
+            legend.click()
+        }
+    }
+
+    reset_legends_events(){
+
         this.slider.querySelectorAll(
             '.legend'
         ).forEach(
             (elem,idx)=>{
-                elem.addEventListener(
-                    'click',e=>{
-                        this.slideTo(idx,0)
-                    }
-                )
-                if(idx==0){
-                    elem.click()
-                }
+                this.reset_legend_events(elem,idx)
             }
         )
-        this.slider.addEventListener(
-            'animationend',e=>{
-                this.justSlide(this.slider)
-            }
-        )
+
         this.disableLegends()
         this.enableLegend(0)
+    }
+
+    init_xlide_controls(){
+        this.reset_arrows_events()
+        this.reset_legends_events()
     }
 
 
@@ -301,7 +325,6 @@ class xLide{
         this.target.classList.add('xlide')
         this.wrapper.classList.add('wrapper')
         this.xlide()
-        this.init_xlide_controls()
     }
 }
 
