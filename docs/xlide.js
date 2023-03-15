@@ -1,440 +1,472 @@
 class xLide{
-    options = {}
-    images = []
-    name = null
-    target = null
-    idx = null
-    list = null
-    interval = null
-    elems = null
-    actualTimeOut = null
-    running = false
-    isRunning(){
-        return this.getVal('running')
+    checkOptionsList(name){
+        return this.checkOption(name) && Array.isArray(this.options[name]) && this.options[name].length
     }
-    appendTo(root){
-        root.appendChild(this.target)
+    checkOption(name){
+        return this.options.hasOwnProperty(name)
     }
-    setVal(key,val){
-        this[key] = val
+    checkBooleanOption(){
+        return this.checkOption() && this.options[this.option]
     }
-    getVal(key,ref=null){
-        return (ref ? ref : this).hasOwnProperty(key) ? (ref ? ref : this)[key] : null
+    matchHtmlElem(elem){
+        return elem instanceof HTMLElement
     }
-    setTarget(target){
-        this.setVal('target',target)
-    }
-    getTarget(){
-        return this.getVal('target')
-    }
-    setName(name){
-        this.setVal('name',name)
-    }
-    setImages(images){
-        this.setVal('images',images)
-    }
-    setOptions(options){
-        this.setVal('options',options)
-    }
-    getOptions(){
-        return this.getVal('options')
-    }
-    getOption(option){
-        return this.getVal(option,this.getOptions())
-    }
-    setOption(option,value){
-        if(option){
-            let options = this.getOptions()
-            options[option] = value
-        }
-    }
-    setOptions(options){
-        Object.keys(options).forEach(
-            (option)=>{
-                if(option=='interval') this.setVal('interval',options[option])
-                if(option=='autoplay') this.setVal('running',options[option])
-                if(option=='controls') this.setOption('ctrls',options[option])
-                this.setOption(option,options[option])
-            }
-        )
-    }
-    hasOption(option){
-        return this.getOption(option) !=null
-    }
-    selectTarget(){
-        this.setTarget(document.querySelector(this.getVal('selector')))
-    }
-    createSlide(){
-        const name = this.getVal('name')
-        const xlide = this.getTarget()
-        if(xlide){
-            xlide.classList.add('x-lide')
-            const xlidelist = document.createElement('div')
-            const previews = document.createElement('div')
-            const ctrls = document.createElement('div')
-            const galerybox = document.createElement('div')
-            const galerytitle = document.createElement('h2')
-            if(this.hasOption('classList')){
-                this.getOption('classList').forEach(
-                    className => xlide.classList.add(className)
-                )
-            }
-            xlidelist.classList.add('x-lide-list')
-            this.setVal('list',xlidelist)
-            let elems = []
-            let captions = []
-            let caption = null
+    processItems(){
 
-            let images = Array.from(this.getVal('images').map(
-                (img)=>{
-                    return img.match(":") ? img.split(':')[0] : img
-                }
-            ))
-            images.forEach(
-                pic=>{
-                    const picture_container = document.createElement('div')
-                    const picture = document.createElement('img')
-                    picture.src = pic
-                    picture_container.appendChild(picture)
-                    elems.push(picture_container)
-                    xlidelist.appendChild(picture_container)
+        this.items = this.slider.querySelectorAll('.xlide-item')
+        this.items = []
+        if(this.checkOptionsList('images')){
+            this.options['images'].forEach(
+                img=>{
+                    const item = document.createElement('div')
+                    item.classList.add('xlide-item')
+                    if((typeof img) === 'string'){
+                        const slideimg = document.createElement('img')
+                        slideimg.src = img+"?t="+new Date().getTime()
+                        item.appendChild(slideimg)
+                    }
+                    if((typeof img) === 'object'){
+                        if(this.matchHtmlElem(img)){
+                            item.appendChild(img)
+                        }else{
+                            if(img.hasOwnProperty['img']){
+                                const slideimg = document.createElement('img')
+                                slideimg.src = img['img']+"?t="+new Date().getTime()
+                                item.appendChild(slideimg)
+                            }
+                            if(img.hasOwnProperty('data')){
+                                const data = img['data']
+                                if((this.matchHtmlElem(data))){
+                                    data.classList.add('data')
+                                    item.appendChild(data)
+                                }else{
+                                    const dataelem = document.createElement('div')
+                                    dataelem.classList.add('data')
+                                    if((typeof data === 'string')){
+                                        dataelem.innerHTML=data
+                                        item.appendChild(dataelem)
+                                    }
+                                    if((typeof data) === 'object'){
+                                        if(data.hasOwnProperty('title')){
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    this.items.push(item)
                 }
             )
-            this.setVal('elems',elems)
-            
-            if(this.getOption('captions')){
-                caption = document.createElement('div')
-                captions = []
-                xlide.classList.add('hasCaptions')
-                caption.classList.add('caption')
-                this.getVal('elems').forEach(
-                    (elem,idx)=>{
-                        const imgarr = this.getVal('images')[idx].split(':')
-                        
-                        captions.push(imgarr.length>1?imgarr[1]: `preview ${idx}`)
-                        
-                    }
-                )
-                this.setVal('caption',caption)
-                this.setVal('captions',captions)
-            }
-            if(this.getOption('vertical')){
-                xlide.classList.add('vertical')
-            }
-            if(this.getOption('rvertical')){
-                xlide.classList.add('vertical-reverse')
-            }
-            if(this.getOption('horizontal')){
-                xlide.classList.add('horizontal')
-            }
-            if(this.getOption('rhorizontal')){
-                xlide.classList.add('horizontal-reverse')
-            }
-            if(this.getOption('rotate')){
-                xlide.classList.add('rotate')
-            }
-            if(this.getOption('rrotate')){
-                xlide.classList.add('rotate-reverse')
-            }
-            if(this.getOption('fade')){
-                xlide.classList.add('fade')
-            }
-            if(this.getOption('rfade')){
-                xlide.classList.add('fade-reverse')
-            }
-            if(this.getOption('previews')){
-                xlide.classList.add('hasPreviews')
-
+        }
+    }
+    hasCtrlBar(){
+        return this.checkOption('controls') || this.checkOption('previews')
+    }
+    processCtrlBar(){
+        //check if a controlbar is needed and build it if necessary
+        if(this.hasCtrlBar()){
+            let previews = null,
+                leftCtrl = null,
+                rightCtrl = null
+            const controls = document.createElement('div')
+            controls.classList.add('controlbar')
+            if(this.checkOption('previews') && this.options['previews']){
+                previews = document.createElement('div')
                 previews.classList.add('previews')
-                this.getVal('elems').forEach(
-                    (elem,idx)=>{
-                        const elempreview = document.createElement('span')
-                        elempreview.classList.add('preview')
-                        const elempreviewimg = document.createElement('img')
-                        elempreview.classList.add('preview-img')
-                        elempreviewimg.src = images[idx]
-                        elempreview.addEventListener('click',e=>{
-                            clearTimeout(this.actualTimeOut)
-                            this.setVal('idx',idx)
-                            this.showCurrentElem()
-                        })
-                        elempreview.appendChild(elempreviewimg)
-                        previews.appendChild(elempreview)
+                this.items.forEach(
+                    (item,idx)=>{
+                        const img = item.querySelector('img')
+                        const preview = document.createElement('div')
+                        preview.classList.add('preview')
+                        if(img){
+                            preview.appendChild(img.cloneNode())
+                        }else{
+                            const label = document.createElement('h4')
+                            label.innerHTML = "slide "+(idx+1)
+                            preview.appendChild(label)
+                        }
+                        previews.appendChild(preview)
                     }
                 )
             }
-            if(this.getOption('isgalery')){
-                xlide.classList.add('x-lide-galery')
-                galerybox.classList.add('x-lide-galerybox')
-                galerytitle.classList.add('x-lide-galerytitle')
-                galerytitle.innerHTML = this.getVal('name')
-                galerytitle.id = `title-galery-${this.getVal('name')}`
-                xlide.appendChild(galerytitle)
-            }
-            if(this.getOption('ctrls')){
-                xlide.classList.add('hasCtrl')
-                if(this.getOption('ctrls')=='captions') xlide.classList.add('hasCaptionCtrl')
-                ctrls.classList.add('ctrls')
-                this.getVal('elems').forEach(
-                    (elem,idx)=>{
-                        const elemctrl = document.createElement('span')
-                        elemctrl.classList.add('ctrl')
-                        elemctrl.innerHTML = (this.getOption('ctrls')=='captions' && this.getOption('captions')) ? this.getVal('captions')[idx] : idx+1
-                        elemctrl.addEventListener('click',e=>{
-                            clearTimeout(this.actualTimeOut)
-                            this.setVal('idx',idx)
-                            this.showCurrentElem()
-                        })
-                        ctrls.appendChild(elemctrl)
-                    }
-                )
-            }
-            if(this.hasOption('captions')){
-                xlide.appendChild(caption)
-            }
-            if(this.hasOption('isgalery')){
-                galerybox.appendChild(xlidelist)
-                xlide.appendChild(galerybox)
+            if(this.checkOption('controls') && this.options['controls']){
+                leftCtrl = document.createElement('div')
+                leftCtrl.classList.add('before')
+                leftCtrl.innerHTML = "<"
+                controls.appendChild(leftCtrl)
+                if(previews){
+                    controls.appendChild(previews)
+                }
+                rightCtrl = document.createElement('div')
+                rightCtrl.classList.add('after')
+                rightCtrl.innerHTML = ">"
+                controls.appendChild(rightCtrl)
             }else{
-                xlide.appendChild(xlidelist)
-            }
-
-            if(this.hasOption('previews')){
-                if(this.getOption('isgalery')){
-                    previews?galerybox.appendChild(previews):null
-                    previews?xlide.appendChild(galerybox):null
-                }else{
-                    previews?xlide.appendChild(previews):null
+                if(previews){
+                    controls.appendChild(previews)
                 }
             }
-
-            if(this.hasOption('ctrls')){
-                xlide.appendChild(ctrls)
+            return controls
+        }
+    }
+    delImage(image,refresh=1){
+        if(this.checkOption('images')){
+            let images = []
+            this.options.images.forEach(
+                (img,idx)=>{
+                    console.log(image)
+                    if(idx != image){
+                        console.log(idx)
+                        images.push(img)
+                    }
+                }
+            )
+            this.options['images'] = images
+            if(refresh){
+                this.xlide()
             }
         }
-        xlide.classList.add('cf')
-        this.showCurrentElem()
-        this.setVal('idx',0)
-        const action = ()=>{
-            this.showCurrentElem()
-        }
-        this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
-        return name
     }
-    run(){
-        this.setVal('running',true)
-        if(!this.getVal('interval')){
-            this.setVal('interval',3000)
-        }
-        this.showCurrentElem()
-    }
-    showCurrentElem(){
-        let idx = this.getVal('idx')
-        let elems = this.getVal('elems')
-        let list = this.getVal('list')
-        const lastelem = idx != 0 ? elems[idx-1] : idx != elems.length-1 ? elems[elems.length-1] : elems[elems.length-2]
-        
-        if(lastelem && lastelem.querySelector('img')){
-            list.style.background = `url(${lastelem.querySelector('img').src})`
-            list.style.backgroundSize = '100% 100%'
-        }
-        if(this.hasOption('captions')){
-            this.getVal('caption').innerHTML = this.getVal('captions')[idx]
-        }
-        elems.forEach(
-            (lm,i)=>{
-                if(i!=idx)lm.classList.remove('visible')
-                else{
-                    lm.classList.add('visible')
-                }
+    delImages(images){
+        images.forEach(
+            (image,idx)=>{
+                this.delImage(idx,0)
+                this.xlide()
             }
         )
-        if(lastelem){
-            lastelem.classList.remove('visible')
-        }
-        this.nextIndex()
-        const action = ()=>{
-            this.showCurrentElem()
-        }
-        if(this.isRunning()){
-            this.setVal('actualTimeOut',setTimeout(action,this.getVal('interval'))) 
+    }
+    addImage(image,refresh=1){
+        if(!this.checkOption('images')) this.options['images'] = []
+        this.options.images.push(image)
+        if(refresh){
+            this.xlide()
         }
     }
-    nextIndex(){
-        let idx = this.getVal('idx')
-        idx++
-        if(idx >= this.getVal('elems').length) idx = 0
-        this.setVal('idx',idx)
+    addImages(images){
+        images.forEach(
+            image => {
+                this.addImage(image,0)
+            }
+        )
+        if(images.length){
+            this .xlide()
+        }
     }
-    prevIndex(){
-        let idx = this.getVal('idx')
-        idx--
-        if(idx <= 0) idx = this.getVal('elems').length -1 
-        this.setVal('idx',idx)
+    processOption(option){
+        if(this.checkOption(option)){
+            let value = this.options[option]
+            if(option == 'autoplay' && value){
+                this.is_playing = true
+            }
+            if(option == 'rotate'){
+                this.setOption('vertical',false)
+                this.slider.classList[value ? 'add' : 'remove' ]('rotate')
+            }
+            if(['rvertical','rhorizontal'].includes(option)){
+                if(option == 'rvertical'){
+                    this.setOption('vertical',1)
+                }
+                if(option == 'rhorizontal'){
+                    this.setOption('horizontal',1)
+                }
+                if(value){
+                    this.reverse_playing = true
+                }
+            }
+            if(option == 'vertical' && value){
+                this.setOption('horizontal',0)
+                this.slider.classList[value ? 'add' : 'remove' ]('vertical')
+                this.reverse_playing = false
+            }
+            if(option == 'horizontal' && value){
+                this.setOption('vertical',false)
+                this.slider.classList.remove('vertical')
+                this.reverse_playing = false
+            }
+            if(option == 'interval'){
+                this.play_interval = value
+            }
+            this.xlide()
+        }
     }
-    getSlide(){
-        return this.getTarget()
+    setOption(option,value){
+        this.addOption(option,value)
     }
-    isConfigured(){
-        return this.getTarget().classList.contains('cf')
-    }
-    destroy(){
-        this.target.innerHTML = ''
-    }
-    constructor(selector,name,images,options){
-        this.setVal('selector',selector)
-        this.setName(name)
-
+    setOptions(options){
         this.setOptions(options)
-        images = images.map(
-            img=>(Array.isArray(img))?
-                    img.length ? 
-                            img.length > 1 ? `${img[0]}:${img[1]}` : img[0] 
-                    : ''
-                :    img 
+    }
+    addOption(option,value=true){
+        this.options[option] = value
+        this.processOption(option)
+    }
+    addOptions(options={}){
+        Object.keys(options).forEach(
+            option=>{
+                const value = options[option]
+                this.addOption(option,value)
+
+            }
         )
+    }
+    xlide(){
+        this.slider.innerHTML = ''
+        this.wrapper.innerHTML = ''
+        this.processItems()
+        this.items.forEach(
+            item=>{
+                this.wrapper.appendChild(item)
+            }
+        )
+        this.slider.appendChild(this.wrapper)
+
+
+
+        //build and append a .controlbar element if necessary
+        if(this.hasCtrlBar()){
+            this.controlbar = this.processCtrlBar()
+            this.slider.appendChild(this.controlbar)
+            this.init_xlide_controls()
+        }
+
+
+        if(this.checkOption('vertical') && this.options['vertical']){
+            this.slider.classList.add('vslider')
+        }
+
+        if(this.checkOption('rotate') && this.options['rotate']){
+            this.slider.classList.add('rotate')
+        }
+
+        if(this.checkOption('autoplay')){
+            this.play()
+        }
+
+    }
     
-        this.setImages(images)
-        this.selectTarget()
-        this.setVal('idx',0)
-        this.createSlide()
+    slideTo(position){
+        //moves to the specified slide
+        this.setSlideVar('--slide-position',position)
+        this.disablepreviews()
+        this.enablepreview(position)
+        this.slideOut(position-1)
+        this.slideIn(position)
+        this.slideOut(position+1)
+        
+
     }
-}
-class xLideGalery extends xLide{
-    constructor(selector,name,images,options){
-        options.previews = 1
-        options.isgalery = 1
-        super(selector,name,images,options)
+
+    prevSlide(){
+        //moves to the previous slide
+        const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
+        if(slidenumber > 0){
+            this.slideTo(slidenumber-1)
+        }else{
+            this.slideTo(this.items.length-1)
+        }
     }
-}
-class xLideManager{
-    slides = []
-    get(name){
-        let match = null
-        this.slides.forEach(
+
+    nextSlide(){
+        //moves to the next slide
+        const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
+        if(slidenumber+1 < this.items.length){
+            this.slideTo(slidenumber+1)
+        }else{
+            this.slideTo(0)
+        }
+    }
+
+    reset_left_arrow_event(){
+        this.slider.querySelectorAll(
+            '.before'
+        ).forEach(
+            before=>{
+                before.addEventListener('click',e=>this.prevSlide())
+            }
+        )
+    }
+
+    reset_right_arrow_event(){
+        this.slider.querySelectorAll(
+            '.after'
+        ).forEach(
+            before=>{
+                before.addEventListener('click',e=>this.nextSlide())
+            }
+        )
+    }
+
+    reset_arrows_events(){
+        this.reset_left_arrow_event()
+        this.reset_right_arrow_event()
+    }
+
+    reset_preview_events(preview,idx){
+        preview.removeEventListener(
+            'click',e=>{
+                this.slideTo(idx)
+            }
+        )
+        preview.addEventListener(
+            'click',e=>{
+                this.slideTo(idx)
+            }
+        )
+    }
+
+    reset_previews_events(){
+
+        this.slider.querySelectorAll(
+            '.preview'
+        ).forEach(
+            (elem,idx)=>{
+                this.reset_preview_events(elem,idx)
+            }
+        )
+        this.disablepreviews()
+        this.enablepreview(this.reverse_playing ? this.items.length-1 : 0)
+    }
+
+    init_xlide_controls(){
+        this.reset_arrows_events()
+        this.reset_previews_events()
+    }
+
+
+
+    //slide animations related actions
+
+    //assign defined moving out animation on all items
+    slidesOut(){
+        this.slider.querySelectorAll('.xlide-item').forEach(
             slide=>{
-                if(slide.getVal('name') && slide.getVal('name') == name){
-                    match = slide
+                slide.classList.remove('in')
+                slide.classList.add('out')
+            }
+        )
+    }
+
+    //assign defined moving in animation on  all items
+    slidesIn(){
+        this.slider.querySelectorAll('.xlide-item').forEach(
+            slide=>{
+                slide.classList.remove('out')
+                slide.classList.add('in')
+            }
+        )
+    }
+
+    //assign defined moving in animation on one item
+    slideIn(idx){
+        this.slider.querySelectorAll('.xlide-item').forEach(
+            (slide,i)=>{
+                if(i == idx){
+                    slide.classList.remove('out')
+                    slide.classList.add('in')
                 }
             }
         )
-        return match
     }
-    appendSlide(slide){
-        if(!this.get(slide.getVal('name'))){
-            this.slides.push(slide)
-        }
-    }
-    slide(...data){
-        const slide = new xLide(...data)
-        this.appendSlide(slide)
-        return slide
-    }
-    galery(...data){
-        const slide = new xLideGalery(...data)
-        this.appendSlide(slide)
-        return slide
-    }
-    slideList(data){
-        return Array.from(data.map(
-            (slide)=>{return this.slide(...slide)}            
-        ))
-    }
-}
-const xLides = new xLideManager()
 
-function xl(className='xslide',name=null,images=[],options={},isgalery=null){
-    images = (!images) ? [] : images
-    name = name ? name : `xlide ${xLides.slides.length}`
-    let lasttgt = undefined
-    let lastsel = undefined
-    let slider = null
-    const addOption = (opt,val=1)=>{
-        options[opt] = val
-    }
-    const addOptions = (...options)=>{
-        options.forEach(
-            opt=>{
-                (Array.isArray(opt)) ?   addOption(...opt) : addOption(opt)  
+    //assign defined moving out animation on  one item
+    slideOut(idx){
+        this.slider.querySelectorAll('.xlide-item').forEach(
+            (slide,i)=>{
+                if(i == idx){
+                    slide.classList.remove('in')
+                    slide.classList.add('out')
+                }
             }
         )
-    } 
-    const addImage = (image,caption='xlide preview')=>{
-        if(caption){
-            image = `${image}:${caption}`
-        }
-        images.push(image)
     }
-    const addImages = (imgs)=>{
-        imgs.forEach(
-            img=>{
-                Array.isArray(img) ?   addImage(...img) : addImage(img)  
+
+    //just remove all animations (just sslide just moves in a linear way without animation special animation)
+    justSlide(){
+        this.slider.querySelectorAll('.xlide-item').forEach(
+            (slide,i)=>{
+                slide.classList.remove('in')
+                slide.classList.remove('out')
+            
             }   
         )
     }
-    const appendTo = (sel=null)=>{
-        const target = document.querySelector(sel)
-        if(target){
-            start(target)
+    //assigns some css value to the slider elem (mainly for css vars)
+    setSlideVar(key,value){
+        this.setElemVar(this.slider,key,value)
+    }
+    //assigns some css value to the specified elem
+    setElemVar(elem,key,value){
+        if(elem instanceof HTMLElement){
+            elem.style.setProperty(key,value)
         }
     }
-    const refresh=()=>{
-        start(lasttgt,lastsel)
-    }
-    const start = (tgt,sel=null)=>{
-        if(slider!=null){
-            slider.destroy()
-        }
-        if(!tgt){
-            if(sel) tgt = document.querySelector(sel)
-        }
-        if(tgt){
-            tgt.classList.add(className)
-            slider = xLides[isgalery ? 'galery' : 'slide'](`.${className}`,name,images,options)
-        }
-        lastsel = sel
-        lasttgt = tgt
-        return slider 
-    }
-    const addClass = className=>{
-        if(options.hasOwnProperty('classList')){
-            options.classList.push(className)
-        }else{
-            options.classList = [className]
-        }
-    }
-    const addClassList = classList=>{
-        classList.forEach(
-            addClass
+    //resets previews highlights
+    disablepreviews(){
+        this.slider.querySelectorAll(
+            '.preview'
+        ).forEach(
+            (elem,idx)=>{
+                elem.classList.remove('active')
+            }
         )
     }
-    const addClasses = (...classList)=>{
-        classList.forEach(
-            addClass
+    //highlight the specified preview item of the slider
+    enablepreview(idx){
+        this.slider.querySelectorAll(
+            '.preview'
+        ).forEach(
+            (elem,x)=>{
+                if(x == idx){
+                    elem.classList.add('active')
+                }
+            }
         )
     }
-    addOption('interval',4000)
-    return {
-        slider,
-        options,
-        images,
-        addClass,
-        addClasses,
-        addClassList,
-        addOption,
-        addOptions,
-        addImage,
-        appendTo,
-        start,
-        refresh,
-        addImages
+
+    //move the slide
+    move(){
+        console.log('called')
+        setTimeout(()=>{
+                if(this.is_playing){
+                    this[this.reverse_playing ? "prevSlide" : 'nextSlide']()
+                    this.move()
+                }else{
+                    this.play_state = 'paused'
+                }
+            },this.play_interval * 1000)
+        }
+
+    //autoplay feature
+    play(){
+        if(this.play_state == 'paused'){
+            this.play_state='playing'
+            this.move()
+        }
     }
-    
+                
+    appendTo(target){
+        try{
+            target.appendChild(this.target)
+        }catch(e){
+            console.log(`'failed appending slider to target: { ${e} }'`)
+        }
+    }
+
+    constructor(target=document.createElement('section'),options={}){
+        this.play_state = 'paused'
+        this.is_playing = false
+        this.reverse_playing = false
+        this.play_interval = 3 //seconds
+        this.target = this.slider = target
+        this.options = options
+        this.wrapper = document.createElement('div')
+        this.target.classList.add('xlide')
+        this.wrapper.classList.add('wrapper')
+        this.xlide()
+    }
 }
-function xg(...args){
-    while(args.length<4){
-        args.push(undefined)
-    }
-    args.push(true)
-    return xl(...args)
+
+function xlide(target=document.createElement('section'),options){
+    const slider = new xLide(target,options)
+    return slider
 }
