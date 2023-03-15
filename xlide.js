@@ -52,7 +52,6 @@ function xlide(target,options){
     }
     items.forEach(
         item=>{
-            console.log(item.childNodes)
             wrapper.appendChild(item)
         }
     )
@@ -70,7 +69,7 @@ function xlide(target,options){
                     const legend = document.createElement('div')
                     legend.classList.add('legend')
                     if(img){
-                        legend.appendChild(img)
+                        legend.appendChild(img.cloneNode())
                     }else{
                         const label = document.createElement('h4')
                         label.innerHTML = "slide "+(idx+1)
