@@ -71,7 +71,7 @@ class xLide{
                 rightCtrl = null
             const controls = document.createElement('div')
             controls.classList.add('controlbar')
-            if(this.checkOption('legends')){
+            if(this.checkOption('legends') && this.options['legends']){
                 legends = document.createElement('div')
                 legends.classList.add('legends')
                 this.items.forEach(
@@ -161,27 +161,34 @@ class xLide{
             let value = this.options[option]
             if(option == 'autoplay' && value){
                 this.is_playing = true
+                this.xlide()
+            }
+            if(['controls','legends','vertical'].includes(option)){
+                this.xlide()
+            }
+            if(option == 'interval'){
+                this.play_interval = value
             }
         }
     }
-    addOption(option,value=null,refresh=1){
+    setOption(option,value){
+        this.addOption(option,value)
+    }
+    setOptions(options){
+        this.setOptions(options)
+    }
+    addOption(option,value=null){
         this.options[option] = value
         this.processOption(option)
-        if(refresh){
-            this.xlide()
-        }
     }
-    addOptions(options){
-        options.forEach(
-            ({option,value})=>{
-                if(option){
-                    this.addOption(option,value,0)
-                }
+    addOptions(options={}){
+        Object.keys(options).forEach(
+            option=>{
+                const value = options[option]
+                this.addOption(option,value)
+
             }
         )
-        if(options.length){
-            this.xlide()
-        }
     }
     xlide(){
         this.slider.innerHTML = ''
