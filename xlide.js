@@ -119,11 +119,11 @@ class xLide{
                 before.addEventListener('click',e=>{
                     const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
                     if(slidenumber > 0){
-                        setSlideVar(this.slider,'--slide-position',slidenumber-1)
-                        disableLegends(this.slider)
-                        enableLegend(this.slider,slidenumber-1)
-                        slideOut(this.slider,slidenumber)
-                        slideIn(this.slider,slidenumber-1)
+                        setSlideVar('--slide-position',slidenumber-1)
+                        disableLegends()
+                        enableLegend(slidenumber-1)
+                        slideOut(slidenumber)
+                        slideIn(slidenumber-1)
                     }
                 })
             }
@@ -135,11 +135,11 @@ class xLide{
                 after.addEventListener('click',e=>{
                     const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
                     if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
-                        setSlideVar(this.slider,'--slide-position',slidenumber+1)
-                        disableLegends(this.slider)
-                        enableLegend(this.slider,slidenumber+1)
-                        slideOut(this.slider,slidenumber)
-                        slideIn(this.slider,slidenumber+1)
+                        setSlideVar('--slide-position',slidenumber+1)
+                        disableLegends()
+                        enableLegend(slidenumber+1)
+                        slideOut(slidenumber)
+                        slideIn(slidenumber+1)
                     }
                 })
             }
@@ -150,11 +150,11 @@ class xLide{
             (elem,idx)=>{
                 elem.addEventListener(
                     'click',e=>{
-                        setSlideVar(this.slider,'--slide-position',idx)
-                        disableLegends(this.slider)
-                        enableLegend(this.slider,idx)
-                        slideOut(this.slider,idx)
-                        slideIn(this.slider,idx)
+                        setSlideVar('--slide-position',idx)
+                        disableLegends()
+                        enableLegend(idx)
+                        slideOut(idx)
+                        slideIn(idx)
                     }
                 )
                 if(idx==0){
@@ -167,8 +167,8 @@ class xLide{
                 justSlide(this.slider)
             }
         )
-        disableLegends(this.slider)
-        enableLegend(this.slider,0)
+        disableLegends()
+        enableLegend(0)
     }
     disableLegends(){
         this.slider.querySelectorAll(
@@ -195,7 +195,7 @@ class xLide{
             }
         )
     }
-    slideIn(this.slider,idx){
+    slideIn(idx){
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 if(i == idx){
@@ -205,7 +205,7 @@ class xLide{
             }
         )
     }
-    slideOut(this.slider,idx){
+    slideOut(idx){
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 if(i == idx){
@@ -224,10 +224,10 @@ class xLide{
             }   
         )
     }
-    setSlideVar(slide,key,value){
+    setSlideVar(key,value){
         this.slider.style.setProperty(key,value)
     }
-    enableLegend(this.slider,idx){
+    enableLegend(idx){
         this.slider.querySelectorAll(
             '.legend'
         ).forEach(
@@ -238,7 +238,7 @@ class xLide{
             }
         )
     }
-    constructor(this.target,options){
+    constructor(target,options){
         this.target = this.slider = this.target
         this.options = options
         this.wrapper = document.createElement('div')
