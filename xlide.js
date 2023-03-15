@@ -246,3 +246,8 @@ class xLide{
         this.wrapper.classList.add('wrapper')
     }
 }
+
+function xlide(target,options){
+    const slider = new xLide(target,options)
+    return slider
+}
