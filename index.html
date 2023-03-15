@@ -26,7 +26,11 @@
             'slide1.avif',
             'slide2.avif'
         ]
-        const slider = xlide()
+        const slide = xlide()
+        slide.addImages(images)
+        slide.addOption('autoplay')
+        slide.appendTo(document.querySelector('#slider'))
+
     </script>
 </body>
 </html>

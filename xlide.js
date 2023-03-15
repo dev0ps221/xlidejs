@@ -61,32 +61,32 @@ class xLide{
         }
     }
     hasCtrlBar(){
-        return this.checkOption('controls') || this.checkOption('legends')
+        return this.checkOption('controls') || this.checkOption('previews')
     }
     processCtrlBar(){
         //check if a controlbar is needed and build it if necessary
         if(this.hasCtrlBar()){
-            let legends = null,
+            let previews = null,
                 leftCtrl = null,
                 rightCtrl = null
             const controls = document.createElement('div')
             controls.classList.add('controlbar')
-            if(this.checkOption('legends') && this.options['legends']){
-                legends = document.createElement('div')
-                legends.classList.add('legends')
+            if(this.checkOption('previews') && this.options['previews']){
+                previews = document.createElement('div')
+                previews.classList.add('previews')
                 this.items.forEach(
                     (item,idx)=>{
                         const img = item.querySelector('img')
-                        const legend = document.createElement('div')
-                        legend.classList.add('legend')
+                        const preview = document.createElement('div')
+                        preview.classList.add('preview')
                         if(img){
-                            legend.appendChild(img.cloneNode())
+                            preview.appendChild(img.cloneNode())
                         }else{
                             const label = document.createElement('h4')
                             label.innerHTML = "slide "+(idx+1)
-                            legend.appendChild(label)
+                            preview.appendChild(label)
                         }
-                        legends.appendChild(legend)
+                        previews.appendChild(preview)
                     }
                 )
             }
@@ -95,20 +95,17 @@ class xLide{
                 leftCtrl.classList.add('before')
                 leftCtrl.innerHTML = "<"
                 controls.appendChild(leftCtrl)
-                if(legends){
-                    controls.appendChild(legends)
+                if(previews){
+                    controls.appendChild(previews)
                 }
                 rightCtrl = document.createElement('div')
                 rightCtrl.classList.add('after')
                 rightCtrl.innerHTML = ">"
                 controls.appendChild(rightCtrl)
             }else{
-                if(legends){
-                    controls.appendChild(legends)
+                if(previews){
+                    controls.appendChild(previews)
                 }
-            }
-            if(this.checkOption('vertical') && this.options['vertical']){
-                this.slider.classList.add('vslider')
             }
             return controls
         }
@@ -163,7 +160,10 @@ class xLide{
                 this.is_playing = true
                 this.xlide()
             }
-            if(['controls','legends','vertical'].includes(option)){
+            if(option == 'rotate'){
+                this.slider.classList[value ? 'add' : 'remove' ]('rotate')
+            }
+            if(['controls','previews','vertical'].includes(option)){
                 this.xlide()
             }
             if(option == 'interval'){
@@ -177,7 +177,7 @@ class xLide{
     setOptions(options){
         this.setOptions(options)
     }
-    addOption(option,value=null){
+    addOption(option,value=true){
         this.options[option] = value
         this.processOption(option)
     }
@@ -201,11 +201,22 @@ class xLide{
         )
         this.slider.appendChild(this.wrapper)
 
+
+
         //build and append a .controlbar element if necessary
         if(this.hasCtrlBar()){
             this.controlbar = this.processCtrlBar()
             this.slider.appendChild(this.controlbar)
             this.init_xlide_controls()
+        }
+
+
+        if(this.checkOption('vertical') && this.options['vertical']){
+            this.slider.classList.add('vslider')
+        }
+
+        if(this.checkOption('rotate') && this.options['rotate']){
+            this.slider.classList.add('rotate')
         }
 
         if(this.checkOption('autoplay')){
@@ -217,8 +228,8 @@ class xLide{
     slideTo(position,outnumber=1){
         //moves to the specified slide
         this.setSlideVar('--slide-position',position+outnumber)
-        this.disableLegends()
-        this.enableLegend(position+outnumber)
+        this.disablepreviews()
+        this.enablepreview(position+outnumber)
         this.slideOut(position)
         this.slideIn(position+outnumber)
 
@@ -269,38 +280,38 @@ class xLide{
         this.reset_right_arrow_event()
     }
 
-    reset_legend_events(legend,idx){
-        legend.removeEventListener(
+    reset_preview_events(preview,idx){
+        preview.removeEventListener(
             'click',e=>{
                 this.slideTo(idx,0)
             }
         )
-        legend.addEventListener(
+        preview.addEventListener(
             'click',e=>{
                 this.slideTo(idx,0)
             }
         )
         if(idx==0){
-            legend.click()
+            preview.click()
         }
     }
 
-    reset_legends_events(){
+    reset_previews_events(){
 
         this.slider.querySelectorAll(
-            '.legend'
+            '.preview'
         ).forEach(
             (elem,idx)=>{
-                this.reset_legend_events(elem,idx)
+                this.reset_preview_events(elem,idx)
             }
         )
-        this.disableLegends()
-        this.enableLegend(0)
+        this.disablepreviews()
+        this.enablepreview(0)
     }
 
     init_xlide_controls(){
         this.reset_arrows_events()
-        this.reset_legends_events()
+        this.reset_previews_events()
     }
 
 
@@ -371,20 +382,20 @@ class xLide{
             elem.style.setProperty(key,value)
         }
     }
-    //resets legends highlights
-    disableLegends(){
+    //resets previews highlights
+    disablepreviews(){
         this.slider.querySelectorAll(
-            '.legend'
+            '.preview'
         ).forEach(
             (elem,idx)=>{
                 elem.classList.remove('active')
             }
         )
     }
-    //highlight the specified legend item of the slider
-    enableLegend(idx){
+    //highlight the specified preview item of the slider
+    enablepreview(idx){
         this.slider.querySelectorAll(
-            '.legend'
+            '.preview'
         ).forEach(
             (elem,x)=>{
                 if(x == idx){

@@ -109,19 +109,20 @@
     width:100%;
     justify-content:space-between;
 }
-.xlide .legends{
+.xlide .previews{
     display: flex;
     flex-direction: row;
     height: 80px;
     justify-content: flex-start;
 }
-.xlide .legends .legend{
+.xlide .previews .preview{
     filter: grayscale(80%);
 }
-.xlide .legends .legend.active{
+.xlide .previews .preview.active{
     filter: none;
 }
 .xlide.rotate{
+    transform-origin:left;
     --out-animation:rotateReverse;
     --in-animation:rotate;
 }
