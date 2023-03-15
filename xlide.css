@@ -28,7 +28,8 @@
     width:100%;
 }
 .xlide{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     isolation:isolate;
     position: relative;
     --in-animation:fadeIn;
