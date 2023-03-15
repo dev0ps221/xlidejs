@@ -184,6 +184,12 @@ class xLide{
             }
         )
     }
+
+
+
+    //slide animations related actions
+
+    //assign defined moving out animation on all items
     slidesOut(){
         this.slider.querySelectorAll('.xlide-item').forEach(
             slide=>{
@@ -192,6 +198,8 @@ class xLide{
             }
         )
     }
+
+    //assign defined moving in animation on  all items
     slidesIn(){
         this.slider.querySelectorAll('.xlide-item').forEach(
             slide=>{
@@ -200,6 +208,8 @@ class xLide{
             }
         )
     }
+
+    //assign defined moving in animation on one item
     slideIn(idx){
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
@@ -210,6 +220,8 @@ class xLide{
             }
         )
     }
+
+    //assign defined moving out animation on  one item
     slideOut(idx){
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
@@ -220,6 +232,8 @@ class xLide{
             }
         )
     }
+
+    //
     justSlide(){
         this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
