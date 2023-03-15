@@ -137,7 +137,6 @@ function init_xlide_controls(slider){
             })
         }
     )
-
     slider.querySelectorAll(
         '.legend'
     ).forEach(
@@ -156,7 +155,6 @@ function init_xlide_controls(slider){
             }
         }
     )
-
     slider.addEventListener(
         'animationend',e=>{
             justSlide(slider)
@@ -223,7 +221,6 @@ function setSlideVar(slide,key,value){
     slider.style.setProperty(key,value)
 }
 function enableLegend(slider,idx){
-
     slider.querySelectorAll(
         '.legend'
     ).forEach(
