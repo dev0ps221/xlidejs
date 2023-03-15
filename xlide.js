@@ -1,6 +1,12 @@
 class xLide{
     checkOptionsList(name){
-        return this.options[]
+        return this.checkOption(name) && Array.isArray(this.options[name]) && this.options[name].length
+    }
+    checkOption(name){
+        return this.options.hasOwnProperty(name)
+    }
+    checkBooleanOption(){
+        return this.checkOption() && this.options[this.option]
     }
     constructor(target,options){
         this.target = this.slider = target
