@@ -156,8 +156,17 @@ class xLide{
             this .xlide()
         }
     }
-    addOption(option,value=null){
+    processOption(option){
+        if(this.checkOption(option)){
+            let value = this.options[option]
+            if(option == 'autoplay' && value){
+                this.is_playing = true
+            }
+        }
+    }
+    addOption(option,value=null,refresh=1){
         this.options[option] = value
+        this.processOption(option)
         if(refresh){
             this.xlide()
         }
@@ -166,10 +175,13 @@ class xLide{
         options.forEach(
             ({option,value})=>{
                 if(option){
-                    this.addOption(option)
+                    this.addOption(option,value,0)
                 }
             }
         )
+        if(options.length){
+            this.xlide()
+        }
     }
     xlide(){
         this.slider.innerHTML = ''
