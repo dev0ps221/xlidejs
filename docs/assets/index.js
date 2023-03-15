@@ -52,7 +52,7 @@ if(liste_exemples){
 
     const optionsExemple4 = {
         images,
-        interval:6,
+        interval:2,
         autoplay:1,
         rhorizontal:1,
         previews:1
@@ -62,11 +62,26 @@ if(liste_exemples){
     const optionsExemple5 = {
         images:pics,
         interval:6,
-        autoplay:1,
-        rhorizontal:1,
         controls:1
     }
     let slide_exemple5 = xlide(liste_exemples.querySelector('.exemple5'),optionsExemple5)
+
+    const optionsExemple6 = {
+        images:pics,
+        interval:4,
+        autoplay:1,
+        controls:1
+    }
+    let slide_exemple6 = xlide(liste_exemples.querySelector('.exemple6'),optionsExemple6)
+
+    const optionsExemple7 = {
+        images:pics,
+        interval:2,
+        autoplay:1,
+        controls:1,
+        previews:1
+    }
+    let slide_exemple7 = xlide(liste_exemples.querySelector('.exemple7'),optionsExemple7)
 
 
 }
