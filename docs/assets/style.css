@@ -4,6 +4,7 @@
     --heading-clr:#ffffff;
     --fg-clr:#eeeeff;
     --bg-clr:#222211;
+    --fsize:1.6em;
     --nav-height:46px;
     --header-height:520px;
     --section-inline-pad:20rem;
@@ -26,7 +27,7 @@ body{
     background: var(--bg-clr);
     color: var(--fg-clr);
     font-family: sans-serif;
-    font-size: 1.6em;
+    font-size: var(--fsize);
 }
 img{
     object-fit:cover;
@@ -114,5 +115,6 @@ button:hover::before{
 @media screen and (max-width:600px){
     :root{
         --section-inline-pad:2rem;
+        --fsize:1rem;
     }
 }
