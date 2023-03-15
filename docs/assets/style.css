@@ -111,3 +111,8 @@ button:hover::before{
         --section-inline-pad:5rem;
     }
 }
+@media screen and (max-width:600px){
+    :root{
+        --section-inline-pad:2rem;
+    }
+}
