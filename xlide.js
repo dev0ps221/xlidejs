@@ -1,3 +1,9 @@
+class xLide{
+    constructor(target,options){
+        this.target = target
+        this.options = options
+    }
+}
 function xlide(target,options){
     const slider = target
     const wrapper = document.createElement('div')
