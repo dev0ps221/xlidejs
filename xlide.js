@@ -22,7 +22,7 @@ class xLide{
                     item.classList.add('xlide-item')
                     if((typeof img) === 'string'){
                         const slideimg = document.createElement('img')
-                        slideimg.src = img
+                        slideimg.src = img+"?t="+new Date().getTime()
                         item.appendChild(slideimg)
                     }
                     if((typeof img) === 'object'){
@@ -31,7 +31,7 @@ class xLide{
                         }else{
                             if(img.hasOwnProperty['img']){
                                 const slideimg = document.createElement('img')
-                                slideimg.src = img['img']
+                                slideimg.src = img['img']+"?t="+new Date().getTime()
                                 item.appendChild(slideimg)
                             }
                             if(img.hasOwnProperty('data')){
@@ -113,8 +113,28 @@ class xLide{
             return controls
         }
     }
+    addImage(image){
+        if(this.checkOption('images')){
+            this.options.images.push(image)
+            this.xlide()
+        }
+    }
+    addImages(images){
+
+        if(this.checkOption('images')){
+            images.forEach(
+                image => {
+                    this.options.images.push(image)
+                }
+            )
+            if(images.length){
+                this .xlide()
+            }
+        }
+    }
     xlide(){
         this.slider.innerHTML = ''
+        this.wrapper.innerHTML = ''
         this.processItems()
         this.items.forEach(
             item=>{
