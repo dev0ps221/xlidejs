@@ -18,4 +18,22 @@ if(liste_exemples){
     let slide_exemple1 = xlide(liste_exemples.querySelector('.exemple1'),optionsExemple1)
 
 
+    const optionsExemple2 = {
+        images:imgs,
+        interval:4,
+        autoplay:1,
+        vertical:1
+    }
+    let slide_exemple2 = xlide(liste_exemples.querySelector('.exemple2'),optionsExemple2)
+
+    const optionsExemple3 = {
+        images:imgs,
+        interval:4,
+        autoplay:1,
+        vertical:1,
+        previews:1
+    }
+    let slide_exemple3 = xlide(liste_exemples.querySelector('.exemple3'),optionsExemple3)
+
+
 }
