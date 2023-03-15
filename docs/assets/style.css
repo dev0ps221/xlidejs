@@ -16,6 +16,8 @@
 }
 h1,h2,h3,h4,h5,h6{
     color:var(--heading-clr);
+    padding-bottom: 1rem;
+    padding-top: 2.5rem;
 }
 a{
     color:var(--lnk-clr);

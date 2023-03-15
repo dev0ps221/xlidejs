@@ -265,6 +265,12 @@ class xLide{
         )
 
         if(this.checkOption('autoplay')){
+            this.is_playing = true
+            this.play()
+        }
+
+        if(this.checkBooleanOption('interval')){
+            this.play_interval = this.options['interval']
             this.play()
         }
 
