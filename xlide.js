@@ -144,14 +144,14 @@ class xLide{
             '.before'
         ).forEach(
             before=>{
-                before.addEventListener('click',this.prevSlide)
+                before.addEventListener('click',e=>this.prevSlide())
             }
         )
         this.slider.querySelectorAll(
             '.after'
         ).forEach(
             after=>{
-                after.addEventListener('click',this.nextSlide)
+                after.addEventListener('click',e=>this.nextSlide())
             }
         )
         this.slider.querySelectorAll(
