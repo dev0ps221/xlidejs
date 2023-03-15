@@ -116,37 +116,42 @@ class xLide{
         }
     }
     
+    slideTo(position,outnumber=1){
+        this.setSlideVar('--slide-position',position+outnumber)
+        this.disableLegends()
+        this.enableLegend(position+outnumber)
+        this.slideOut(position)
+        this.slideIn(position+outnumber)
+
+    }
+
+    prevSlide(){
+        const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
+        if(slidenumber > 0){
+            this.slideTo(slidenumber,-1)
+        }
+    }
+
+    nextSlide(){
+        const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
+        if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
+            this.slideTo(slidenumber)
+        }
+    }
+
     init_xlide_controls(){
         this.slider.querySelectorAll(
             '.before'
         ).forEach(
             before=>{
-                before.addEventListener('click',e=>{
-                    const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
-                    if(slidenumber > 0){
-                        this.setSlideVar('--slide-position',slidenumber-1)
-                        this.disableLegends()
-                        this.enableLegend(slidenumber-1)
-                        this.slideOut(slidenumber)
-                        this.slideIn(slidenumber-1)
-                    }
-                })
+                before.addEventListener('click',this.prevSlide)
             }
         )
         this.slider.querySelectorAll(
             '.after'
         ).forEach(
             after=>{
-                after.addEventListener('click',e=>{
-                    const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
-                    if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
-                        this.setSlideVar('--slide-position',slidenumber+1)
-                        this.disableLegends()
-                        this.enableLegend(slidenumber+1)
-                        this.slideOut(slidenumber)
-                        this.slideIn(slidenumber+1)
-                    }
-                })
+                after.addEventListener('click',this.nextSlide)
             }
         )
         this.slider.querySelectorAll(
@@ -155,11 +160,7 @@ class xLide{
             (elem,idx)=>{
                 elem.addEventListener(
                     'click',e=>{
-                        this.setSlideVar('--slide-position',idx)
-                        this.disableLegends()
-                        this.enableLegend(idx)
-                        this.slideOut(idx)
-                        this.slideIn(idx)
+                        this.slideTo(idx,0)
                     }
                 )
                 if(idx==0){
