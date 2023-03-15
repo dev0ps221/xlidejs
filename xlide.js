@@ -1,10 +1,13 @@
 class xLide{
+    checkOptionsList(name){
+        return this.options[]
+    }
     constructor(target,options){
         this.target = this.slider = target
         this.options = options
-        
-        
-        
+        this.wrapper = document.createElement('div')
+        this.target.classList.add('xlide')
+        this.wrapper.classList.add('wrapper')
     }
 }
 function xlide(target,options){
