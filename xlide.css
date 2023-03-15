@@ -13,6 +13,8 @@
     align-items: center;
     font-size:18px;
     cursor:pointer;
+    position:absolute;
+    top:45%;
 }
 .xlide .wrapper{
     isolation:isolate;
@@ -39,7 +41,7 @@
     isolation: isolate;
     display: grid;
     background:#777;
-    min-width: 33%;
+    min-width: 100%;
     height: calc(var(--slide-height));
     transform:translateX(
         calc(
@@ -139,7 +141,7 @@
     --in-animation:fromBottom;
 }
 .xlide .out{
-    animation:var(--out-animation) calc(var(--transition-time)) backwards;
+    animation:var(--out-animation) calc(var(--transition-time)* 2 ) forwards;
 }
 .xlide .in{
     animation:var(--in-animation) calc(var(--transition-time) * 2 ) forwards;

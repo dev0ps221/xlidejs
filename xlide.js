@@ -249,9 +249,9 @@ class xLide{
         this.setSlideVar('--slide-position',position)
         this.disablepreviews()
         this.enablepreview(position)
-        this.slideOut(position-1)
+        this.justSlide()
+        this.slidesOut()
         this.slideIn(position)
-        this.slideOut(position+1)
         
 
     }

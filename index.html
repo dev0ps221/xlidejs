@@ -9,13 +9,16 @@
 </head>
 <body>
     <style>
-        #slider{
-            width: 50%;
-            margin: auto;
-            border-radius:10px;
+        #first_sliders{
+            width: 100%;
+            display:grid;
+            grid-template-columns:repeat(3,4fr);
         }
     </style>
-    <section id='slider' class='xlide'>
+    <section id='first_sliders'>
+        <div class="slide1"></div>
+        <div class="slide2"></div>
+        <div class="slide3"></div>
     </section>
     <script src="xlide.js"></script>
     <script>
@@ -26,11 +29,28 @@
             'slide1.avif',
             'slide2.avif'
         ]
-        const slide = xlide()
-        slide.addImages(images)
-        slide.addOption('autoplay')
-        slide.addOption('previews')
-        slide.appendTo(document.querySelector('#slider'))
+
+
+        const slide1 = xlide()
+        slide1.addImages(images)
+        slide1.addOption('autoplay')
+        slide1.addOption('interval',2)
+        slide1.appendTo(document.querySelector('#first_sliders .slide1'))
+
+        const slide2 = xlide()
+        slide2.addImages(images)
+        slide2.addOption('autoplay')
+        slide2.addOption('previews')
+        slide2.addOption('interval',4)
+        slide2.appendTo(document.querySelector('#first_sliders .slide2'))
+
+        const slide3 = xlide()
+        slide3.addImages(images)
+        slide3.addOption('autoplay')
+        slide3.addOption('previews')
+        slide3.addOption('controls')
+        slide3.addOption('interval',5)
+        slide3.appendTo(document.querySelector('#first_sliders .slide3'))
 
     </script>
 </body>
