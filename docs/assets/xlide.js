@@ -227,7 +227,7 @@ class xLide{
             this.init_xlide_controls()
         }
         if(this.checkBooleanOption('rvertical') || this.checkBooleanOption('rhorizontal')){
-            this.slider.classList.add('reverse')
+            this.reverse_playing = true
         }
 
         if(this.checkOption('vertical') && this.options['vertical']){

@@ -5,8 +5,8 @@ class xLide{
     checkOption(name){
         return this.options.hasOwnProperty(name)
     }
-    checkBooleanOption(){
-        return this.checkOption() && this.options[this.option]
+    checkBooleanOption(option){
+        return this.checkOption(option) && this.options[option]
     }
     matchHtmlElem(elem){
         return elem instanceof HTMLElement
@@ -115,9 +115,7 @@ class xLide{
             let images = []
             this.options.images.forEach(
                 (img,idx)=>{
-                    console.log(image)
                     if(idx != image){
-                        console.log(idx)
                         images.push(img)
                     }
                 }
@@ -228,11 +226,14 @@ class xLide{
             this.slider.appendChild(this.controlbar)
             this.init_xlide_controls()
         }
-
+        if(this.checkBooleanOption('rvertical') || this.checkBooleanOption('rhorizontal')){
+            this.reverse_playing = true
+        }
 
         if(this.checkOption('vertical') && this.options['vertical']){
             this.slider.classList.add('vslider')
         }
+
 
         if(this.checkOption('rotate') && this.options['rotate']){
             this.slider.classList.add('rotate')
