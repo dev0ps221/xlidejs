@@ -5,6 +5,7 @@
 #slider{
     width: 50%;
     margin: auto;
+    border-radius:10px;
 }
 .xlide .controlbar .before,.xlide .controlbar .after{
     background:#222;
@@ -22,7 +23,6 @@
     isolation:isolate;
     position: relative;
     align-items:center;
-    border-radius:10px;
     display:flex;
     overflow:hidden;
     width:100%;
@@ -34,7 +34,7 @@
     --in-animation:fadeIn;
     --out-animation:fadeOut;
     --slide-height:300px;
-    --slide-position:1;
+    --slide-position:0;
     --transition-time:.5s;
     height:var(--slide-height);
 }
