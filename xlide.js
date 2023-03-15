@@ -113,24 +113,63 @@ class xLide{
             return controls
         }
     }
-    addImage(image){
+    delImage(image,refresh=1){
         if(this.checkOption('images')){
-            this.options.images.push(image)
+            let images = []
+            this.options.images.forEach(
+                (img,idx)=>{
+                    console.log(image)
+                    if(idx != image){
+                        console.log(idx)
+                        images.push(img)
+                    }
+                }
+            )
+            this.options['images'] = images
+            if(refresh){
+                this.xlide()
+            }
+        }
+    }
+    delImages(images){
+        images.forEach(
+            (image,idx)=>{
+                this.delImage(idx,0)
+                this.xlide()
+            }
+        )
+    }
+    addImage(image,refresh=1){
+        if(!this.checkOption('images')) this.options['images'] = []
+        this.options.images.push(image)
+        if(refresh){
             this.xlide()
         }
     }
     addImages(images){
-
-        if(this.checkOption('images')){
-            images.forEach(
-                image => {
-                    this.options.images.push(image)
-                }
-            )
-            if(images.length){
-                this .xlide()
+        images.forEach(
+            image => {
+                this.addImage(image,0)
             }
+        )
+        if(images.length){
+            this .xlide()
         }
+    }
+    addOption(option,value=null){
+        this.options[option] = value
+        if(refresh){
+            this.xlide()
+        }
+    }
+    addOptions(options){
+        options.forEach(
+            ({option,value})=>{
+                if(option){
+                    this.addOption(option)
+                }
+            }
+        )
     }
     xlide(){
         this.slider.innerHTML = ''
@@ -148,6 +187,10 @@ class xLide{
             this.controlbar = this.processCtrlBar()
             this.slider.appendChild(this.controlbar)
             this.init_xlide_controls()
+        }
+
+        if(this.checkOption('autoplay')){
+            this.play()
         }
 
     }
@@ -232,7 +275,6 @@ class xLide{
                 this.reset_legend_events(elem,idx)
             }
         )
-
         this.disableLegends()
         this.enableLegend(0)
     }
@@ -300,21 +342,16 @@ class xLide{
             }   
         )
     }
-
     //assigns some css value to the slider elem (mainly for css vars)
     setSlideVar(key,value){
         this.setElemVar(this.slider,key,value)
     }
-
     //assigns some css value to the specified elem
     setElemVar(elem,key,value){
         if(elem instanceof HTMLElement){
             elem.style.setProperty(key,value)
         }
     }
-
-
-
     //resets legends highlights
     disableLegends(){
         this.slider.querySelectorAll(
@@ -325,7 +362,6 @@ class xLide{
             }
         )
     }
-
     //highlight the specified legend item of the slider
     enableLegend(idx){
         this.slider.querySelectorAll(
@@ -338,7 +374,23 @@ class xLide{
             }
         )
     }
-    constructor(target,options){
+    //autoplay feature
+    play(){
+        if(this.is_playing){
+            setTimeout(
+                ()=>{   
+                    this.nextSlide()
+                    if(this.is_playing()){
+                        this.play()
+                    }
+                },(this.play_interval * 1000)
+            )
+        }
+    }
+
+    constructor(target,options={}){
+        this.is_playing = false
+        this.play_interval = 3 //seconds
         this.target = this.slider = target
         this.options = options
         this.wrapper = document.createElement('div')
