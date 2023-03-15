@@ -14,10 +14,9 @@
         .navbar{
             width: 100%;
             background:var(--bg-clr);
-            display:flex;
-            justify-content: space-between;
+            display:grid;
+            grid-template-columns: 2fr 8fr 2fr;
             height: var(--nav-height);
-            background:red;
         }
         .navbar > *{
             width: 100%;
@@ -31,7 +30,7 @@
             position: relative;
             right: 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
         }
         .navbar .links .link{
             margin-right:.5rem;
@@ -51,6 +50,9 @@
         <div class="links">
             <a href="/" class="link">Accueil</a>
             <a href="/" class="link">Docs</a>
+        </div>
+        <div class="extern links">
+            <a href="https://github.com/dev0ps221/xlidejs" class="link">github</a>
         </div>
     </div>
     <script src="assets/xlide.js"></script>

@@ -1,9 +1,9 @@
 :root{
-    --lnk-clr:#ffc73d99;
-    --lnk-hv-clr:#ffc73d;
-    --heading-clr:#ffc73d;
+    --lnk-clr:#ffffff99;
+    --lnk-hv-clr:#ffffff;
+    --heading-clr:#ffffff;
     --fg-clr:#eeeeff;
-    --bg-clr:#333344;
+    --bg-clr:#222211;
     --nav-height:80px;
 }
 *,*::before,*::after{
