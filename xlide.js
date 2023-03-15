@@ -1,20 +1,20 @@
 class xLide{
     checkOptionsList(name){
-        return this.checkOption(name) && Array.isArray(this.options[name]) && this.options[name].length
+        return this.checkOption(name) && Array.isArray(this.this.options[name]) && this.this.options[name].length
     }
     checkOption(name){
         return this.options.hasOwnProperty(name)
     }
     checkBooleanOption(){
-        return this.checkOption() && this.options[this.option]
+        return this.checkOption() && this.this.options[this.option]
     }
-    xlide(target,options){
-        let items = slider.querySelectorAll('.xlide-item')
-        slider.innerHTML = ''
-        if(items.length == 0){
-            items = []
-            if(options.hasOwnProperty('images') && options['images'].length){
-                options['images'].forEach(
+    xlide(){
+        this.items = this.slider.querySelectorAll('.xlide-item')
+        this.slider.innerHTML = ''
+        if(this.items.length == 0){
+            this.items = []
+            if(this.options.hasOwnProperty('images') && this.options['images'].length){
+                this.options['images'].forEach(
                     img=>{
                         const item = document.createElement('div')
                         item.classList.add('xlide-item')
@@ -53,25 +53,25 @@ class xLide{
                                 }
                             }
                         }
-                        items.push(item)
+                        this.items.push(item)
                     }
                 )
             }
         }
-        items.forEach(
+        this.items.forEach(
             item=>{
                 wrapper.appendChild(item)
             }
         )
-        slider.appendChild(wrapper)
-        if(options.hasOwnProperty('controls') || options.hasOwnProperty('legends')){
+        this.slider.appendChild(wrapper)
+        if(this.options.hasOwnProperty('controls') || this.options.hasOwnProperty('legends')){
             let legends = leftCtrl = rightCtrl = null
             const controls = document.createElement('div')
             controls.classList.add('controlbar')
-            if(options.hasOwnProperty('legends')){
+            if(this.options.hasOwnProperty('legends')){
                 legends = document.createElement('div')
                 legends.classList.add('legends')
-                items.forEach(
+                this.items.forEach(
                     (item,idx)=>{
                         const img = item.querySelector('img')
                         const legend = document.createElement('div')
@@ -87,7 +87,7 @@ class xLide{
                     }
                 )
             }
-            if(options.hasOwnProperty('controls') && options['controls']){
+            if(this.options.hasOwnProperty('controls') && this.options['controls']){
                 leftCtrl = document.createElement('div')
                 leftCtrl.classList.add('before')
                 leftCtrl.innerHTML = "<"
@@ -104,15 +104,15 @@ class xLide{
                     controls.appendChild(legends)
                 }
             }
-            if(options.hasOwnProperty('vertical') && options['vertical']){
-                slider.classList.add('vslider')
+            if(this.options.hasOwnProperty('vertical') && this.options['vertical']){
+                this.slider.classList.add('vslider')
             }
-            slider.appendChild(controls)
+            this.slider.appendChild(controls)
         }
     }
     
     init_xlide_controls(slider){
-        slider.querySelectorAll(
+        this.slider.querySelectorAll(
             '.before'
         ).forEach(
             before=>{
@@ -128,13 +128,13 @@ class xLide{
                 })
             }
         )
-        slider.querySelectorAll(
+        this.slider.querySelectorAll(
             '.after'
         ).forEach(
             after=>{
                 after.addEventListener('click',e=>{
                     const slidenumber = parseInt(getComputedStyle(slider).getPropertyValue('--slide-position'))
-                    if(slidenumber+1 < slider.querySelectorAll('.xlide-item').length){
+                    if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
                         setSlideVar(slider,'--slide-position',slidenumber+1)
                         disableLegends(slider)
                         enableLegend(slider,slidenumber+1)
@@ -144,7 +144,7 @@ class xLide{
                 })
             }
         )
-        slider.querySelectorAll(
+        this.slider.querySelectorAll(
             '.legend'
         ).forEach(
             (elem,idx)=>{
@@ -162,7 +162,7 @@ class xLide{
                 }
             }
         )
-        slider.addEventListener(
+        this.slider.addEventListener(
             'animationend',e=>{
                 justSlide(slider)
             }
@@ -171,7 +171,7 @@ class xLide{
         enableLegend(slider,0)
     }
     disableLegends(slider){
-        slider.querySelectorAll(
+        this.slider.querySelectorAll(
             '.legend'
         ).forEach(
             (elem,idx)=>{
@@ -180,7 +180,7 @@ class xLide{
         )
     }
     slidesOut(slider){
-        slider.querySelectorAll('.xlide-item').forEach(
+        this.slider.querySelectorAll('.xlide-item').forEach(
             slide=>{
                 slide.classList.remove('in')
                 slide.classList.add('out')
@@ -188,7 +188,7 @@ class xLide{
         )
     }
     slidesIn(slider){
-        slider.querySelectorAll('.xlide-item').forEach(
+        this.slider.querySelectorAll('.xlide-item').forEach(
             slide=>{
                 slide.classList.remove('out')
                 slide.classList.add('in')
@@ -196,7 +196,7 @@ class xLide{
         )
     }
     slideIn(slider,idx){
-        slider.querySelectorAll('.xlide-item').forEach(
+        this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 if(i == idx){
                     slide.classList.remove('out')
@@ -206,7 +206,7 @@ class xLide{
         )
     }
     slideOut(slider,idx){
-        slider.querySelectorAll('.xlide-item').forEach(
+        this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 if(i == idx){
                     slide.classList.remove('in')
@@ -216,7 +216,7 @@ class xLide{
         )
     }
     justSlide(slider){
-        slider.querySelectorAll('.xlide-item').forEach(
+        this.slider.querySelectorAll('.xlide-item').forEach(
             (slide,i)=>{
                 slide.classList.remove('in')
                 slide.classList.remove('out')
@@ -225,10 +225,10 @@ class xLide{
         )
     }
     setSlideVar(slide,key,value){
-        slider.style.setProperty(key,value)
+        this.slider.style.setProperty(key,value)
     }
     enableLegend(slider,idx){
-        slider.querySelectorAll(
+        this.slider.querySelectorAll(
             '.legend'
         ).forEach(
             (elem,x)=>{
@@ -238,8 +238,8 @@ class xLide{
             }
         )
     }
-    constructor(target,options){
-        this.target = this.slider = target
+    constructor(this.target,options){
+        this.target = this.slider = this.target
         this.options = options
         this.wrapper = document.createElement('div')
         this.target.classList.add('xlide')
@@ -248,7 +248,7 @@ class xLide{
     }
 }
 
-function xlide(target,options){
-    const slider = new xLide(target,options)
+function xlide(this.target,options){
+    const slider = new xLide(this.target,options)
     return slider
 }
