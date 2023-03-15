@@ -4,7 +4,7 @@
     --heading-clr:#ffffff;
     --fg-clr:#eeeeff;
     --bg-clr:#222211;
-    --nav-height:80px;
+    --nav-height:46px;
     --header-height:520px;
 }
 *,*::before,*::after{
@@ -25,8 +25,7 @@ body{
     background: var(--bg-clr);
     color: var(--fg-clr);
     font-family: sans-serif;
-    font-size: 1.3em;
-    padding-inline: 5rem;
+    font-size: 1.6em;
 }
 img{
     object-fit:cover;
@@ -55,9 +54,54 @@ header #heading > *{
     grid-column: 1;
     grid-row: 1/-1;
 }
-
-header #heading > .data{
-    display:grid;
+header .logobox{
+    width:25%;
+    height: 50%;
+    margin-inline: auto;
+}
+header .data{
+    display:flex;
+    flex-direction: column;
     align-items: center;
-    background:#8885;
+    justify-content: center;
+    margin-inline: auto;
+    width: 60%;
+}
+button,input,select,textarea,p{
+    padding: 10px;
+    box-shadow: 0 0 5px #fff5;
+}
+button{
+    position:relative;
+    isolation:isolate;
+    margin: 2rem;
+    padding: 12px;
+    min-width: 120px;
+    background: var(--bg-clr);
+    color:var(--fg-clr);
+    border-radius:15px;
+    font-weight: bolder;
+    cursor: pointer;
+    isolation: isolate;
+    transition: .5s;
+}
+button::before{
+    transition: .5s;
+    border-radius:13px;
+    content:'';
+    position: absolute;
+    width: 0;
+    height:100%;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+button:hover{
+    background: unset;
+    box-shadow: 0 0 5px #333;
+    color:var(--bg-clr);
+}
+button:hover::before{
+    background-color: var(--fg-clr);
+    width: 100%;
 }
