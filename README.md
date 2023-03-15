@@ -95,7 +95,7 @@
 >><script type="application/javascript">
 >>//Initialisons d'abord notre slider
 >>//Let's first initialize our slider
->>const slide = xl()
+>>const slide = xlide()
 >>
 >>//Ci-dessous est un Array contenant les liens vers les images de notres slider */
 >>//Below is the Array containing the links to the images of our slider

@@ -158,17 +158,36 @@ class xLide{
             let value = this.options[option]
             if(option == 'autoplay' && value){
                 this.is_playing = true
-                this.xlide()
             }
             if(option == 'rotate'){
+                this.setOption('vertical',false)
                 this.slider.classList[value ? 'add' : 'remove' ]('rotate')
             }
-            if(['controls','previews','vertical'].includes(option)){
-                this.xlide()
+            if(['rvertical','rhorizontal'].includes(option)){
+                if(option == 'rvertical'){
+                    this.setOption('vertical',1)
+                }
+                if(option == 'rhorizontal'){
+                    this.setOption('horizontal',1)
+                }
+                if(value){
+                    this.reverse_playing = true
+                }
+            }
+            if(option == 'vertical' && value){
+                this.setOption('horizontal',0)
+                this.slider.classList[value ? 'add' : 'remove' ]('vertical')
+                this.reverse_playing = false
+            }
+            if(option == 'horizontal' && value){
+                this.setOption('vertical',false)
+                this.slider.classList.remove('vertical')
+                this.reverse_playing = false
             }
             if(option == 'interval'){
                 this.play_interval = value
             }
+            this.xlide()
         }
     }
     setOption(option,value){
@@ -225,13 +244,14 @@ class xLide{
 
     }
     
-    slideTo(position,outnumber=1){
+    slideTo(position){
         //moves to the specified slide
-        this.setSlideVar('--slide-position',position+outnumber)
+        this.setSlideVar('--slide-position',position)
         this.disablepreviews()
-        this.enablepreview(position+outnumber)
-        this.slideOut(position)
-        this.slideIn(position+outnumber)
+        this.enablepreview(position)
+        this.slideIn(position)
+        this.slideOut(position+1)
+        this.slideOut(position-1)
 
     }
 
@@ -239,19 +259,19 @@ class xLide{
         //moves to the previous slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
         if(slidenumber > 0){
-            this.slideTo(slidenumber,-1)
+            this.slideTo(slidenumber-1)
         }else{
-            this.slideTo(this.items.length-1,0)
+            this.slideTo(this.items.length-1)
         }
     }
 
     nextSlide(){
         //moves to the next slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
-        if(slidenumber+1 < this.slider.querySelectorAll('.xlide-item').length){
-            this.slideTo(slidenumber)
+        if(slidenumber+1 < this.items.length){
+            this.slideTo(slidenumber+1)
         }else{
-            this.slideTo(0,0)
+            this.slideTo(0)
         }
     }
 
@@ -283,17 +303,14 @@ class xLide{
     reset_preview_events(preview,idx){
         preview.removeEventListener(
             'click',e=>{
-                this.slideTo(idx,0)
+                this.slideTo(idx)
             }
         )
         preview.addEventListener(
             'click',e=>{
-                this.slideTo(idx,0)
+                this.slideTo(idx)
             }
         )
-        if(idx==0){
-            preview.click()
-        }
     }
 
     reset_previews_events(){
@@ -306,7 +323,7 @@ class xLide{
             }
         )
         this.disablepreviews()
-        this.enablepreview(0)
+        this.enablepreview(this.reverse_playing ? this.items.length-1 : 0)
     }
 
     init_xlide_controls(){
@@ -404,20 +421,28 @@ class xLide{
             }
         )
     }
+
+    //move the slide
+    move(){
+        console.log('called')
+        setTimeout(()=>{
+                if(this.is_playing){
+                    this[this.reverse_playing ? "prevSlide" : 'nextSlide']()
+                    this.move()
+                }else{
+                    this.play_state = 'paused'
+                }
+            },this.play_interval * 1000)
+        }
+
     //autoplay feature
     play(){
-        if(this.is_playing){
-            setTimeout(
-                ()=>{   
-                    this.nextSlide()
-                    if(this.is_playing){
-                        this.play()
-                    }
-                },(this.play_interval * 1000)
-            )
+        if(this.play_state == 'paused'){
+            this.play_state='playing'
+            this.move()
         }
     }
-
+                
     appendTo(target){
         try{
             target.appendChild(this.target)
@@ -427,7 +452,9 @@ class xLide{
     }
 
     constructor(target=document.createElement('section'),options={}){
+        this.play_state = 'paused'
         this.is_playing = false
+        this.reverse_playing = false
         this.play_interval = 3 //seconds
         this.target = this.slider = target
         this.options = options
