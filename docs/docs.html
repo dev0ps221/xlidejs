@@ -276,13 +276,12 @@
                             <p>
                                 Vous etes pret ? allons y rajoutons ce code javascript:
                                 <div class='codebox'>
-                                    <code class="language-html">
+                                    <code class="language-javascript">
                                         &lt;script>
-                                            //we store all the images urls into an Array
-                                            const imgs = [] 
-
-
-                                            const slide = xlide('#my-xlide') 
+                                            const imgs = ['slidepics/slide1.png','slidepics/slide1.png'] //the images urls
+                                            const selector = '#my-xlide'
+                                            const slide = xlide(selector)
+                                            slide.addImages(imgs)
                                         &lt;/script>
                                     </code>
                                 </div>
