@@ -117,6 +117,9 @@
             display: grid;
             grid-template-columns: 3fr 9fr;
         }
+        #docs aside ul{
+            padding: 0;
+        }
         
     </style>
     <section id="docs">
@@ -154,17 +157,25 @@
                     <div class="wrap">
                         Vous avez principalement trois moyens d'integrer xlidejs a votre projet
 
-                        <section>
-                            <h2>
-                                En incluant les fichiers directement dans le dossier de votre projet
-                            </h2>
-                        </section>
-
-                        <section>
-                            <h2>
-                                Via cdn
-                            </h2>
-                        </section>
+                        <ul>
+                            <li>
+                                <h3>
+                                    En incluant les fichiers directement dans le dossier de votre projet
+                                </h3>
+                                <p>
+                                    Vous pouvez directement telecharger xlidejs sur ce bouton :
+                                </p>
+                                <button onClick="window.open('https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlidejs.zip','_blank')">
+                                    telecharger
+                                </button>
+                            </li>
+    
+                            <li>
+                                <h3>
+                                    Via cdn
+                                </h3>
+                            </li>
+                        </ul>
 
                     </div>
                 </section>
