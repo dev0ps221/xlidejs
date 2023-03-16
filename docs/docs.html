@@ -11,12 +11,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/prism.css">
     <link rel="stylesheet" href="assets/xlide.css">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/index.css">
     <link rel="icon" href="xlide.png">
 </head>
 <body>
+    <script src='assets/prism.js'></script>
     <style>
         nav a{
             margin-inline: 10px;
@@ -113,6 +115,9 @@
         #docs{
             padding-inline: var(--section-inline-pad);
         }
+        #docs pre{
+            color: unset;
+        }
         #docs .container{
             display: grid;
             grid-template-columns: 3fr 9fr;
@@ -173,6 +178,15 @@
                                 <button onClick="window.open('https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlidejs.zip','_blank')">
                                     telecharger
                                 </button>
+                                <p>
+                                    Apres avoir telecharge les fichiers, mettez les dans le repertoire du projet ou dans un sous-repertoire contenu dans le repertoire racine du projet (en general 'assets').
+                                    Puis, incluez le fichier xlidejs sur votre page avec la balise script comme cela :
+                                    <pre>
+                                        <code class="language-html">
+                                            &lt;script> src="adresse-vers-le-repertoire-contenant-le-script/xlidejs.js">&lt;/script>
+                                        </code>
+                                    </pre>
+                                </p>
                             </li>
     
                             <li>
