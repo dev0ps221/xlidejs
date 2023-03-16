@@ -142,7 +142,6 @@
     </style>
     <section id="docs">
         <!-- cdn : https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlide.css -->
-        <!-- cdn : https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlide.js -->
         <h1>
             <a href="docs.html">
                 Read the docs &#8211; xlidejs
@@ -163,50 +162,64 @@
                 </ul>
             </aside>
             <section>
-                <section class="docsection" id="commencer">
+                <section class="docsections" id="commencer">
                     <h2>
                         A Propos
                     </h2>
+                    <section class="docsection">
+                        <h2>
+                            Installation
+                        </h2>
+                        <div class="wrap">
+                            Vous avez principalement 3 moyens d'integrer xlidejs a votre projet
+
+                            <div>
+                                <h3>
+                                    En incluant les fichiers directement dans le dossier de votre projet
+                                </h3>
+                                <p>
+                                    Vous pouvez directement telecharger xlidejs sur ce bouton :
+                                </p>
+                                <button onClick="window.open('https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlidejs.zip','_blank')">
+                                    telecharger
+                                </button>
+                                <p>
+                                    Apres avoir telecharge les fichiers, mettez les dans un repertoire accessible a partir de le racine du projet ( en general '/assets/' ).
+                                    Puis, incluez le fichier xlidejs sur votre page avec la balise script comme cela :
+                                    <div class='codebox'>
+                                        <code class="language-html">
+                                            &lt;script src="adresse-vers-le-repertoire-contenant-le-script/xlide.js">&lt;/script>
+                                        </code>
+                                    </div>
+                                </p>
+                            </div>
+
+                            <li>
+                                <h3>
+                                    Via cdn
+                                </h3>
+                                <p>
+                                    Si vous preferez les cdn, vous pouvez utiliser le code suivant :
+
+                                    <div class='codebox'>
+                                        <code class="language-html">
+                                            &lt;script src="https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlide.js">&lt;/script>
+                                        </code>
+                                    </div>
+                                </p>
+                            </li>
+
+                        </div>
+                    </section>
                 </section>
                 <section class="docsection" id="options">
                     <h2>
-                        Installation
+                        Options
                     </h2>
-                    <div class="wrap">
-                        Vous avez principalement 3 moyens d'integrer xlidejs a votre projet
-
-                        <div>
-                            <h3>
-                                En incluant les fichiers directement dans le dossier de votre projet
-                            </h3>
-                            <p>
-                                Vous pouvez directement telecharger xlidejs sur ce bouton :
-                            </p>
-                            <button onClick="window.open('https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlidejs.zip','_blank')">
-                                telecharger
-                            </button>
-                            <p>
-                                Apres avoir telecharge les fichiers, mettez les dans un repertoire accessible a partir de le racine du projet ( en general '/assets/' ).
-                                Puis, incluez le fichier xlidejs sur votre page avec la balise script comme cela :
-                                <div class='codebox'>
-                                    <code class="language-html">
-                                        &lt;script src="adresse-vers-le-repertoire-contenant-le-script/xlidejs.js">&lt;/script>
-                                    </code>
-                                </div>
-                            </p>
-                        </div>
-
-                        <li>
-                            <h3>
-                                Via cdn
-                            </h3>
-                        </li>
-
-                    </div>
                 </section>
                 <section class="docsection" id="advanced">
                     <h2>
-                        Introduction
+                        Avance
                     </h2>
                 </section>
             </section>
