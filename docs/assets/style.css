@@ -74,7 +74,6 @@ header .data{
 button,input,select,textarea,p{
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 0 5px #bbb4;
 }
 button{
     position:relative;
@@ -83,6 +82,7 @@ button{
     padding: 12px;
     min-width: 120px;
     background: var(--bg-clr);
+    box-shadow: 0 0 5px #bbb4;
     color:var(--fg-clr);
     border-radius:15px;
     font-weight: bolder;
