@@ -30,7 +30,7 @@ if(liste_exemples){
         interval:2,
         autoplay:1
     }
-    let slide_exemple1 = xlide(liste_exemples.querySelector('.exemple1'),optionsExemple1)
+    let slide_exemple1 = xlide('.exemple1',optionsExemple1)
 
 
     const optionsExemple2 = {
@@ -39,7 +39,7 @@ if(liste_exemples){
         autoplay:1,
         vertical:1
     }
-    let slide_exemple2 = xlide(liste_exemples.querySelector('.exemple2'),optionsExemple2)
+    let slide_exemple2 = xlide('.exemple2',optionsExemple2)
 
     const optionsExemple3 = {
         images,
@@ -48,7 +48,7 @@ if(liste_exemples){
         vertical:1,
         previews:1
     }
-    let slide_exemple3 = xlide(liste_exemples.querySelector('.exemple3'),optionsExemple3)
+    let slide_exemple3 = xlide('.exemple3',optionsExemple3)
 
     const optionsExemple4 = {
         images,
@@ -57,14 +57,14 @@ if(liste_exemples){
         rhorizontal:1,
         previews:1
     }
-    let slide_exemple4 = xlide(liste_exemples.querySelector('.exemple4'),optionsExemple4)
+    let slide_exemple4 = xlide('.exemple4',optionsExemple4)
 
     const optionsExemple5 = {
         images:pics,
         interval:6,
         controls:1
     }
-    let slide_exemple5 = xlide(liste_exemples.querySelector('.exemple5'),optionsExemple5)
+    let slide_exemple5 = xlide('.exemple5',optionsExemple5)
 
     const optionsExemple6 = {
         images:pics,
@@ -72,7 +72,7 @@ if(liste_exemples){
         autoplay:1,
         controls:1
     }
-    let slide_exemple6 = xlide(liste_exemples.querySelector('.exemple6'),optionsExemple6)
+    let slide_exemple6 = xlide('.exemple6',optionsExemple6)
 
     const optionsExemple7 = {
         images:pics,
@@ -81,7 +81,7 @@ if(liste_exemples){
         controls:1,
         previews:1
     }
-    let slide_exemple7 = xlide(liste_exemples.querySelector('.exemple7'),optionsExemple7)
+    let slide_exemple7 = xlide('.exemple7',optionsExemple7)
 
 
 }
