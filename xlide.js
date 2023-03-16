@@ -502,6 +502,9 @@ class xLide{
 }
 
 function xlide(target=document.createElement('section'),options){
+    if((typeof target) === 'string'){
+        target = document.querySelector(target)
+    }
     const slider = new xLide(target,options)
     return slider
 }
