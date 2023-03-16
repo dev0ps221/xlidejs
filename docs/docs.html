@@ -133,6 +133,8 @@
             padding: 0;
         }
         #docs .docsection{
+            position: relative;
+            isolation: isolate;
             display: grid;
             width: 100%;
             padding-bottom: calc(var(--section-inline-pad)/4);
@@ -199,8 +201,7 @@
                                     </div>
                                 </p>
                             </div>
-
-                            <li>
+                            <div>
                                 <h3>
                                     Via cdn
                                 </h3>
@@ -213,7 +214,7 @@
                                         </code>
                                     </div>
                                 </p>
-                            </li>
+                            </div>
 
                         </div>
                     </section>
