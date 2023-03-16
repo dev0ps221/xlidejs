@@ -125,9 +125,8 @@
         #docs aside ul{
             padding: 0;
         }
-        #docs .codebox{
-            position:relative;
-            display: grid;
+        #docs .docsection{
+            padding-block: calc(var(--section-inline-pad)/2);
         }
         @media screen and (max-width:640px){
             #docs .container{
@@ -185,9 +184,9 @@
                                 <p>
                                     Apres avoir telecharge les fichiers, mettez les dans le repertoire du projet ou dans un sous-repertoire contenu dans le repertoire racine du projet (en general 'assets').
                                     Puis, incluez le fichier xlidejs sur votre page avec la balise script comme cela :
-                                    <pre class='codebox'>
+                                    <pre>
                                         <code class="language-html">
-                                            &lt;script> src="adresse-vers-le-repertoire-contenant-le-script/xlidejs.js">&lt;/script>
+                                            &lt;script src="adresse-vers-le-repertoire-contenant-le-script/xlidejs.js">&lt;/script>
                                         </code>
                                     </pre>
                                 </p>
