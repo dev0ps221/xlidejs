@@ -1,41 +1,177 @@
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+    <title> Lire la documentation &#8211;&#8211; xlide - Créez des galeries d'image sur votre site à la volée &#8211;&#8211; Xlide-Js</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="xlide.css">
-    <title> Lire la documentation &#8211;&#8211; xlide - Créez des galeries d'image sur votre site à la volée &#8211;&#8211; Xlide-Js</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/xlide.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/index.css">
+    <link rel="icon" href="xlide.png">
 </head>
 <body>
+    <style>
+        nav a{
+            margin-inline: 10px;
+        }
+        .navbar{
+            width: 100%;
+            background:var(--bg-clr);
+            display:grid;
+            grid-template-columns: 2fr 8fr 2fr;
+            height: var(--nav-height);
+        }
+        .navbar > *{
+            width: 100%;
+            height:calc(var(--nav-height) - 10px);
+            margin-block:auto;
+        }
+        .navbar .logobox{
+            width:160px;
+        }
+        .navbar .links{
+            position: relative;
+            right: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar .links .link{
+            margin-right:.5rem;
+            height:100%;
+            display: grid;
+            align-items: center;
+        }
+        .logobox img{
+            width:100%;
+            height: 100%;
+        }
+        header{
+            display: grid;
+            position:relative;
+            isolation:isolate;
+            align-items: center;
+            height:var(--header-height);
+        }
+        header > *{
+            grid-column: 1;
+            grid-row: 1/-1;
+            width: 100%;
+            height:100%;
+        }
+        header > img{
+            z-index: -1;
+        }
+    </style>
+    <nav class="navbar">
+        <div class="logobox">
+            <img src="xlide.png" alt="XLIDEJS" class="logo-img">
+        </div>
+        <div class="links">
+            <a href="index.html" class="link">Accueil</a>
+            <a href="index.html" class="link">Docs</a>
+        </div>
+        <div class="extern links">
+            <a href="https://github.com/dev0ps221/xlidejs" class="link">github</a>
+        </div>
+    </nav>
     <header>
-        <section id="heading">
-            <h1>
+        <img src="head.avif" alt="" class="src">
+        <div class="data">
+
+            <div class="logobox">
+                <img src="xlide.png" alt="XLIDEJS" class="logo-img">
+            </div>
+
+            <h5>
                 <a href="docs.html">
                     Read the docs &#8211; xlide 
                 </a>
-            </h1>
-            <h3>
-                Créez des galeries d'image sur votre site à la volée
-            </h3>
-        </section>
-        <nav>
-            <span class="elem-nav">
-                <a class='link' href="index.html">accueil</a>
-            </span>
-            <span class="elem-nav">
-                <a class='link' href="tutos.html">tutos</a>
-            </span>
-            <span class="elem-nav">
-                <a class='link' href="docs.html">documentation</a>
-            </span>
-            <span class="elem-nav">
-                <a class='link' href="about.html">a propos</a>
-            </span>
-        </nav>
+            </h5>
+            <div class="actions">
+                <button>
+                    telecharger
+                </button>
+                <button>
+                    commencer
+                </button>
+            </div>
+        </div>
     </header>
-    <script src="xlide.js"></script>
+
+
+    <section>
+        <h1>
+            <a href="docs.html">
+                Read the docs &#8211; xlide 
+            </a>
+        </h1>
+        <h3>
+            Créez des galeries d'image sur votre site à la volée
+        </h3>
+    </section>
+
+
+
+
+    <style>
+        footer{
+            border-top:1px solid var(--fg-clr);
+        }
+        footer p{
+            text-align: center;
+            font-size:1rem;
+        }
+        footer nav{
+            display:flex;
+            justify-content:center;
+            padding:1.25rem;
+        }
+        
+    </style>
+    <footer>
+        <nav>
+            <a href="index.html" class="link">Accueil</a>
+            <a href="docs.html" class="link">Docs</a>
+            <a href="https://github.com/dev0ps221/xlidejs" class="link">github</a>
+        </nav>
+        <p>
+            xlidejs est une librairie opensource développée en partenariat avec <a href="http://tektech.rf.gd">TEK TECH</a>
+        </p>
+        <p>
+            © 2023 <a href="http://mrmbengue.rf.gd"> El Hadji Seybatou Mbengue </a> &#8211 <a href="http://tektech.rf.gd">TEK TECH</a>
+        </p>
+    </footer>
+    <style>
+        #underconstruct{
+            position:sticky;
+            bottom:0;
+            text-align: center;
+            background-color: var(--fg-clr);
+            color: var(--bg-clr);
+        }
+    </style>
+    <section id="underconstruct">
+        <h6>
+            site web en construction
+        </h6>
+    </section>
+    
+
+
+
+
+
+
+
+    <script src="assets/xlide.js"></script>
+    <script src="assets/index.js">
     </script>
 </body>
 </html>
