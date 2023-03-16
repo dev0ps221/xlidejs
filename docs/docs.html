@@ -113,6 +113,10 @@
         #docs{
             padding-inline: var(--section-inline-pad);
         }
+        #docs .container{
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+        }
         
     </style>
     <section id="docs">
@@ -133,19 +137,41 @@
                         Guide de l'utilisateur
                     </h4>
                     <li><a href="#commencer">Commencer</a></li>
-                    <li><a href="#options"></a>Options</li>
-                    <li>Actions avancees</li>
+                    <li><a href="#options">Options</a></li>
+                    <li><a href="#advanced">Actions avancees</a></li>
                 </ul>
             </aside>
             <section>
-                <section id="commencer">
-
+                <section class="docsection" id="commencer">
+                    <h2>
+                        A Propos
+                    </h2>
                 </section>
-                <section id="options">
+                <section class="docsection" id="options">
+                    <h2>
+                        Installation
+                    </h2>
+                    <div class="wrap">
+                        Vous avez principalement trois moyens d'integrer xlidejs a votre projet
 
+                        <section>
+                            <h2>
+                                En incluant les fichiers directement dans le dossier de votre projet
+                            </h2>
+                        </section>
+
+                        <section>
+                            <h2>
+                                Via cdn
+                            </h2>
+                        </section>
+
+                    </div>
                 </section>
-                <section id="advanced">
-
+                <section class="docsection" id="advanced">
+                    <h2>
+                        Introduction
+                    </h2>
                 </section>
             </section>
         </div>
