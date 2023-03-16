@@ -4,7 +4,7 @@
     --heading-clr:#ffffff;
     --fg-clr:#eeeeff;
     --bg-clr:#222211;
-    --fsize:1.6em;
+    --fsize:1.4rem;
     --nav-height:46px;
     --header-height:520px;
     --section-inline-pad:20rem;
@@ -89,6 +89,8 @@ button{
     cursor: pointer;
     isolation: isolate;
     transition: .5s;
+    font-size: 1.2rem;
+    padding-inline: calc(var(--section-inline-pad)/4);
 }
 button::before{
     transition: .5s;
