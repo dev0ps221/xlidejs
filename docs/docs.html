@@ -119,13 +119,15 @@
             color: unset;
         }
         #docs .container{
-            display: grid;
-            grid-template-columns: 4fr 8fr;
+            display: flex;
         }
-        #docs .container{
-            width: 100%;
+        #docs .container > aside{
+            width: 35%;
         }
-        #docs aside ul{
+        #docs .container > section{
+            width: 65%;
+        }
+        #docs .container aside ul{
             position: sticky;
             top: 0;
             padding: 0;
@@ -137,8 +139,10 @@
         }
         @media screen and (max-width:640px){
             #docs .container{
-                display: grid;
-                grid-template-columns: 12fr;
+                flex-direction:column;
+            }
+            #docs .container > *{
+                width: 100%;
             }
         }
     </style>

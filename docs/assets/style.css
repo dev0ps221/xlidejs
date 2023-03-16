@@ -124,9 +124,15 @@ button:hover::before{
     padding:10px;
     border-radius: 1.2rem;
     display: grid;
+    grid-template-columns: 12fr;
+    width: 100%;
+    overflow-wrap: break-word;
+    position: relative;
+    isolation: isolate;
+}
+.codebox code{
     width: 100%;
     overflow-x: scroll;
-    overflow-wrap: break-word;
 }
 @media screen and (max-width:992px){
     :root{
