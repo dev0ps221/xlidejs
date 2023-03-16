@@ -132,6 +132,7 @@ button:hover::before{
 }
 .codebox code{
     width: 100%;
+    word-wrap: break-word;
     overflow-x: scroll;
 }
 @media screen and (max-width:992px){
