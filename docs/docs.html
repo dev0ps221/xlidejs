@@ -120,7 +120,12 @@
         #docs aside ul{
             padding: 0;
         }
-        
+        @media screen and (max-width:600px){
+            #docs .container{
+                display: grid;
+                grid-template-columns: 12fr;
+            }
+        }
     </style>
     <section id="docs">
         <!-- cdn : https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlide.css -->
