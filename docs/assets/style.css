@@ -7,7 +7,7 @@
     --fsize:1rem;
     --nav-height:46px;
     --header-height:520px;
-    --section-inline-pad:20rem;
+    --section-inline-pad:25rem;
 }
 *,*::before,*::after{
     margin: 0;
@@ -138,7 +138,7 @@ button:hover::before{
 }
 @media screen and (max-width:992px){
     :root{
-        --section-inline-pad:5rem;
+        --section-inline-pad:4rem;
     }
 }
 @media screen and (max-width:600px){
