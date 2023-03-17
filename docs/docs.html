@@ -182,6 +182,20 @@
                 </ul>
             </aside>
             <section>
+                <section id="docchapter">
+                    <h2>
+                        Introduction
+                    </h2>
+                    <div class="slideintro"></div>
+                    <div class="wrap">
+                        <h3>
+                            A propos
+                        </h3>
+                        <p>
+                            xlidejs est un slider/carrousel léger, flexible, accessible et parfait pour n'importe quel site Web. Il est facile à utiliser et à configurer, et il a fière allure sur n'importe quel appareil.
+                        </p>
+                    </div>
+                </section>
                 <section class="docchapter" id="commencer">
                     <h2>
                         Commencer
@@ -541,6 +555,20 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
 
     <script src="assets/xlide.js"></script>
     <script src="assets/index.js">
+    </script>
+    <script>
+        const introslide = xlide('.slideintro')
+            .addImage(
+                'slidepics/slide1.png'
+            ).addImage(
+                'slidepics/slide2.png'
+            ).addImage(
+                'slidepics/slide3.png'
+            ).addOption(
+                'autoplay'
+            ).addOption(
+                'interval',2
+            )
     </script>
 </body>
 </html>
