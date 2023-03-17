@@ -207,11 +207,11 @@
                                     Apres avoir telecharge les fichiers, mettez les dans un repertoire accessible a partir de le racine du projet ( en general '/assets/' ).
                                     Puis, incluez le fichier xlidejs sur votre page avec la balise script comme cela:
                                     <div class='codebox'>
-                                        
+                                        <pre>
                                             <code class="language-html">
     &lt;script src="/assets/xlide.js">&lt;/script>
                                             </code>
-                                        
+                                        </pre>
                                     </div>
                                 </p>
                             </div>
@@ -223,11 +223,11 @@
                                     Si vous preferez les cdn, vous pouvez utiliser le code suivant:
 
                                     <div class='codebox'>
-                                        
+                                        <pre>
                                             <code class="language-html">
 &lt;script src="https://cdn.jsdelivr.net/gh/dev0ps221/xlidejs/dist/xlide.js">&lt;/script>
                                             </code>
-                                        
+                                        </pre>
                                     </div>
                                 </p>
                             </div>
@@ -245,11 +245,11 @@
                             <p>
                                 Maintenant vous devez lier le fichier xlide.css au projet ainsi:
                                 <div class='codebox'>
-                                    
+                                    <pre>
                                         <code class="language-html">
 &lt;link rel="stylesheet" href="/assets/xlide.css"/>
                                         </code>
-                                    
+                                    </pre>
                                 </div>
                             </p>
                         </div>
@@ -268,11 +268,11 @@
                             <p>
                                 Sur votre fichier html, vous allons rajouter ce bout de code, cet element va contenir votre slider:
                                 <div class='codebox'>
-                                    
+                                    <pre>
                                         <code class="language-html">
 &lt;div id="my-xlide">&lt;/div>
                                         </code>
-                                    
+                                    </pre>
                                 </div>
                             </p>
                             <p>
@@ -316,22 +316,22 @@
                             <p>
                                 Vous etes pret ? allons y rajoutons ce code javascript:
                                 <div class='codebox'>
-                                    
+                                    <pre>
 <code class="language-javascript">const imgs = ['slide1.png','slide2.png'] //les urls des images
     const selector = '#my-xlide'
     const options = {   images:imgs,    autoplay:1  }
     const slide = xlide(selector,options)</code>
-                                    
+                                    </pre>
                                 </div>
                             </p>
                             <p>
                                 Plus simplement, vous pouvez ecrire:
                                 <div class='codebox'>
-                                    
+                                    <pre>
                                         <code class="language-javascript">
 const imgs = ['slide1.png','slide2.png'] //les urls des images
 const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
-                                    
+                                    </pre>
                                 </div>
                             </p>
                         </div>
@@ -352,19 +352,21 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                                 <p>
                                     Vous auriez tres bien pu appeler la fonction sans argument. Dans ce cas la selection et la configuration se font respectivement avec les methodes <span><code class="language-js">appendTo</code></span> , <span><code class="language-js">addImages</code></span> et <span><code class="language-js">addOption</code></span> de votre objet xLide
                                     <div class='codebox'>
+                                        <pre>
     <code class="language-javascript">const slide = xlide()
     slide.addImages(['slide1.png','slide2.png'])
     slide.addOption('autoplay')                                                
     slide.appendTo(document.querySelector('#my-xlide'))</code>
+                                        </pre>
                                     </div>
                                 </p>
                                 <p>
                                     Vous pouvez meme creer un slider en une ligne
                                     <div class="codebox">
-                                        
+                                        <pre>
     <code class="language-js">//bonus
     const slide = xlide('#my-xlide').addImages(['slide1.png','slide2.png']).addOption('autoplay')</code>
-                                        
+                                        </pre>
                                     </div> 
                                 </p>
     
@@ -434,21 +436,21 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                             <p>
                                 Par exemple si je veux changer la duree entre deux transitions:
 
-                                <div class="codebox"><code class="language-js">
+                                <div class="codebox"><pre><code class="language-js">
                                     slide.addOption('interval',3)
-                                </code></div>
+                                </code></pre></div>
                             </p>
                             <p>
                                 Notez que `value` a pour valeur par defaut true, qu'importe l'option specifie, voyez le code ci-dessous
-                                <div class="codebox"><code class="language-js">
+                                <div class="codebox"><pre><code class="language-js">
                                     slide.addOption('previews',true)
-                                </code></div>
+                                </code></pre></div>
                             </p>
                             <p>
                                 Il peut etre ecrit ainsi
-                                    <div class="codebox"><code class="language-js">
+                                    <div class="codebox"><pre><code class="language-js">
                                         slide.addOption('previews')
-                                    </code></div>
+                                    </code></pre></div>
                                 </em>
                             </p>
                         </div>
