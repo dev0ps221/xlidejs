@@ -14,7 +14,7 @@
     box-sizing: border-box;   
     text-decoration: none;
     list-style-type: none;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 h1,h2,h3,h4,h5,h6{
     color:var(--heading-clr);
