@@ -301,8 +301,16 @@
                                         </p>
                                     </li>
                                 </ul>
-                                Pour ce faire, la librairie nous fournit fonction <code class="language-js">`xlide`</code>.<br/>
-                                Cette fonction prend deux arguments : <code class="language-js">target</code> et options.
+                                Pour ce faire, la librairie nous fournit fonction <span> <code class="language-js"> xlide </code> </span>.<br/>
+                                Cette fonction prend deux arguments : 
+                                <ul>
+                                    <li>
+                                        <span> <code class="language-js"> target </code> </span> : le selecteur de l'element cible, ou l'objet HTMLElement de l'element cible lui-meme.
+                                    </li>
+                                    <li>
+                                        et <span> <code class="language-js"> options </code> </span>: un objet comprenant les options du slider (tel que les images et les parametres de lecture)
+                                    </li>
+                                </ul>
                             </p>
                             <p>
                                 Vous etes pret ? allons y rajoutons ce code javascript:
@@ -312,19 +320,26 @@
 &lt;script>
     const imgs = ['slidepics/slide1.png','slidepics/slide1.png'] //les urls des images
     const selector = '#my-xlide'
-    const slide = xlide(selector)
-    slide.addImages(imgs)
-    slide.addOption('autoplay')
+    const options = {   images:imgs,    autoplay:1  }
+    const slide = xlide(selector,options)
 &lt;/script>
                                         </code>
                                     </pre>
                                 </div>
                             </p>
-                        </div>
-                        <div class="wrap">
-                            <h3>
-                                Le petit recap: expliquons le code
-                            </h3>
+                            <p>
+                                Plus simplement, vous pouvez ecrire:
+                                <div class='codebox'>
+                                    <pre>
+                                        <code class="language-javascript">
+&lt;script>
+    const imgs = ['slidepics/slide1.png','slidepics/slide1.png'] //les urls des images
+    const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })
+&lt;/script>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </p>
                         </div>
                     </section>
                 </section>
