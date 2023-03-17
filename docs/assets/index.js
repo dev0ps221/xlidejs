@@ -51,13 +51,12 @@ if(liste_exemples){
     let slide_exemple3 = xlide('.exemple3',optionsExemple3)
 
     const optionsExemple4 = {
-        images,
         interval:2,
         autoplay:1,
         rhorizontal:1,
         previews:1
     }
-    let slide_exemple4 = xlide('.exemple4',optionsExemple4)
+    let slide_exemple4 = xlide().addOptions(optionsExemple4).addImages(images).appendTo('.exemple4')
 
     const optionsExemple5 = {
         images:pics,

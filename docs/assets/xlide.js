@@ -513,6 +513,9 @@ class xLide{
                 
     appendTo(target){
         try{
+            if((typeof target) === 'string'){
+                target = document.querySelector(target)
+            }
             target.appendChild(this.target)
         }catch(e){
             console.log(`'failed appending slider to target: { ${e} }'`)

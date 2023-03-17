@@ -59,6 +59,7 @@ class xLide{
                 }
             )
         }
+        return this
     }
     hasCtrlBar(){
         return this.checkOption('controls') || this.checkOption('previews')
@@ -125,6 +126,7 @@ class xLide{
                 this.xlide()
             }
         }
+        return this
     }
     delImages(images){
         images.forEach(
@@ -133,6 +135,7 @@ class xLide{
                 this.xlide()
             }
         )
+        return this
     }
     addImage(image,refresh=1){
         if(!this.checkOption('images')) this.options['images'] = []
@@ -140,6 +143,7 @@ class xLide{
         if(refresh){
             this.xlide()
         }
+        return this
     }
     addImages(images){
         images.forEach(
@@ -150,6 +154,7 @@ class xLide{
         if(images.length){
             this .xlide()
         }
+        return this
     }
     processOption(option){
         if(this.checkOption(option)){
@@ -187,16 +192,20 @@ class xLide{
             }
             this.xlide()
         }
+        return this
     }
     setOption(option,value){
         this.addOption(option,value)
+        return this
     }
     setOptions(options){
         this.setOptions(options)
+        return this
     }
     addOption(option,value=true){
         this.options[option] = value
         this.processOption(option)
+        return this
     }
     addOptions(options={}){
         Object.keys(options).forEach(
@@ -206,6 +215,7 @@ class xLide{
 
             }
         )
+        return this
     }
     xlide(){
         this.slider.innerHTML = ''
@@ -274,6 +284,7 @@ class xLide{
             this.play_interval = this.options['interval']
             this.play()
         }
+        return this
 
     }
     
@@ -286,7 +297,7 @@ class xLide{
         this.slidesOut()
         this.slideIn(position)
         
-
+        return this
     }
 
     prevSlide(){
@@ -297,6 +308,7 @@ class xLide{
         }else{
             this.slideTo(this.items.length-1)
         }
+        return this
     }
 
     nextSlide(){
@@ -307,6 +319,7 @@ class xLide{
         }else{
             this.slideTo(0)
         }
+        return this
     }
 
     reset_left_arrow_event(){
@@ -317,6 +330,7 @@ class xLide{
                 before.addEventListener('click',e=>this.prevSlide())
             }
         )
+        return this
     }
 
     reset_right_arrow_event(){
@@ -327,11 +341,13 @@ class xLide{
                 before.addEventListener('click',e=>this.nextSlide())
             }
         )
+        return this
     }
 
     reset_arrows_events(){
         this.reset_left_arrow_event()
         this.reset_right_arrow_event()
+        return this
     }
 
     reset_preview_events(preview,idx){
@@ -345,6 +361,7 @@ class xLide{
                 this.slideTo(idx)
             }
         )
+        return this
     }
 
     reset_previews_events(){
@@ -358,11 +375,13 @@ class xLide{
         )
         this.disablepreviews()
         this.enablepreview(this.reverse_playing ? this.items.length-1 : 0)
+        return this
     }
 
     init_xlide_controls(){
         this.reset_arrows_events()
         this.reset_previews_events()
+        return this
     }
 
 
@@ -377,6 +396,7 @@ class xLide{
                 slide.classList.add('out')
             }
         )
+        return this
     }
 
     //assign defined moving in animation on  all items
@@ -387,6 +407,7 @@ class xLide{
                 slide.classList.add('in')
             }
         )
+        return this
     }
 
     //assign defined moving in animation on one item
@@ -399,6 +420,7 @@ class xLide{
                 }
             }
         )
+        return this
     }
 
     //assign defined moving out animation on  one item
@@ -411,6 +433,7 @@ class xLide{
                 }
             }
         )
+        return this
     }
 
     //just remove all animations (just sslide just moves in a linear way without animation special animation)
@@ -422,16 +445,19 @@ class xLide{
             
             }   
         )
+        return this
     }
     //assigns some css value to the slider elem (mainly for css vars)
     setSlideVar(key,value){
         this.setElemVar(this.slider,key,value)
+        return this
     }
     //assigns some css value to the specified elem
     setElemVar(elem,key,value){
         if(elem instanceof HTMLElement){
             elem.style.setProperty(key,value)
         }
+        return this
     }
     //resets previews highlights
     disablepreviews(){
@@ -442,6 +468,7 @@ class xLide{
                 elem.classList.remove('active')
             }
         )
+        return this
     }
     //highlight the specified preview item of the slider
     enablepreview(idx){
@@ -454,6 +481,7 @@ class xLide{
                 }
             }
         )
+        return this
     }
 
     //move the slide
@@ -463,12 +491,15 @@ class xLide{
                     this[this.reverse_playing ? "prevSlide" : 'nextSlide']()
                     this.move()
                 }
-            },this.play_interval * 1000)
-        }
+            },this.play_interval * 1000
+        )
+        return this
+    }
 
     //pause
     pause(){
         this.play_state = 'paused'
+        return this
     }
 
     //autoplay feature
@@ -477,14 +508,19 @@ class xLide{
             this.play_state='playing'
             this.move()
         }
+        return this
     }
                 
     appendTo(target){
         try{
+            if((typeof target) === 'string'){
+                target = document.querySelector(target)
+            }
             target.appendChild(this.target)
         }catch(e){
             console.log(`'failed appending slider to target: { ${e} }'`)
         }
+        return this
     }
 
     constructor(target=document.createElement('section'),options={}){
@@ -498,6 +534,7 @@ class xLide{
         this.target.classList.add('xlide')
         this.wrapper.classList.add('wrapper')
         this.xlide()
+        return this
     }
 }
 
