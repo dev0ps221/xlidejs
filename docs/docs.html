@@ -252,7 +252,7 @@
                     </section>
                     <section class="docsection">
                         <h2>
-                            Votre premier xlide
+                            Creer un xlide
                         </h2>
                         <p>
                             Bien ! vos dependences sont pretes, creez votre premier "xlide" 
@@ -316,14 +316,10 @@
                                 Vous etes pret ? allons y rajoutons ce code javascript:
                                 <div class='codebox'>
                                     <pre>
-                                        <code class="language-javascript">
-
-    const imgs = ['slide1.png','slide2.png'] //les urls des images
+<code class="language-javascript">const imgs = ['slide1.png','slide2.png'] //les urls des images
     const selector = '#my-xlide'
     const options = {   images:imgs,    autoplay:1  }
-    const slide = xlide(selector,options)
-
-                                        </code>
+    const slide = xlide(selector,options)</code>
                                     </pre>
                                 </div>
                             </p>
@@ -332,14 +328,18 @@
                                 <div class='codebox'>
                                     <pre>
                                         <code class="language-javascript">
-
-    const imgs = ['slide1.png','slide2.png'] //les urls des images
-    const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })
-
-                                        </code>
+const imgs = ['slide1.png','slide2.png'] //les urls des images
+const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                                     </pre>
                                 </div>
                             </p>
+                        </div>
+                    </section>
+                    <section class="docsection">
+                        <h2>
+                            La prise en main
+                        </h2>
+                        <div class="wrap">
                             <p>
                                 Pour une meilleure prise en main, la fonction renvoie un objet <span><code class="language-js">xLide</code></span> qui nous permet de manipuler le slider et de le configurer a notre guise.
                                 C'est la principale raison pour laquelle nous affectons sa valeur de retour a notre variable <em>slide</em> <span><code class="language-js">const slide = xlide(..)</code></span>
@@ -352,25 +352,27 @@
                                     Nous aurions tres bien pu appeler la fonction sans argument. Dans ce cas la selection et la configuration se font respectivement avec les methodes <span><code class="language-js">appendTo</code></span> , <span><code class="language-js">addImages</code></span> et <span><code class="language-js">addOption</code></span> de notre objet xLide
                                     <div class='codebox'>
                                         <pre>
-                                            <code class="language-javascript">
-    const slide = xlide()
+    <code class="language-javascript">const slide = xlide()
     slide.addImages(['slide1.png','slide2.png'])
     slide.addOption('autoplay')                                                
-    slide.appendTo(document.querySelector('#my-xlide'))
-    
-                                            </code>
+    slide.appendTo(document.querySelector('#my-xlide'))</code>
                                         </pre>
                                     </div>
-                                    Petit bonus pour la route :
+                                </p>
+                                <p>
+                                    Vous pouvez meme creer un slider en une ligne
                                     <div class="codebox">
-                                        <pre><code class="language-js">
-    //bonus
-    const slide = xlide('#my-xlide').addImages(['slide1.png','slide2.png']).addOption('autoplay')
-                                        </code></pre>
+                                        <pre>
+    <code class="language-js">//bonus
+    const slide = xlide('#my-xlide').addImages(['slide1.png','slide2.png']).addOption('autoplay')</code>
+                                        </pre>
                                     </div> 
                                 </p>
-
+    
                             </p>
+                        </div>
+                        <div class="wrap">
+                            Pour plus d'informations sur les options proposees par xlide, referez vous au chapitre sur les options.
                         </div>
                     </section>
                 </section>
