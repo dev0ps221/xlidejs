@@ -352,12 +352,10 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                                 <p>
                                     Vous auriez tres bien pu appeler la fonction sans argument. Dans ce cas la selection et la configuration se font respectivement avec les methodes <span><code class="language-js">appendTo</code></span> , <span><code class="language-js">addImages</code></span> et <span><code class="language-js">addOption</code></span> de votre objet xLide
                                     <div class='codebox'>
-                                        <pre>
     <code class="language-javascript">const slide = xlide()
     slide.addImages(['slide1.png','slide2.png'])
     slide.addOption('autoplay')                                                
     slide.appendTo(document.querySelector('#my-xlide'))</code>
-                                        </pre>
                                     </div>
                                 </p>
                                 <p>
@@ -441,18 +439,23 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                                 </code></div>
                             </p>
                             <p>
-                                <em>
-                                    //Noter que `value` a pour valeur par defaut true, qu'importe l'option specifie, le code ci-dessous
-                                    <div class="codebox"><code class="language-js">
-                                        slide.addOption('previews',true)
-                                    </code></div>
-                                    //peut etre ecrit ainsi
+                                Notez que `value` a pour valeur par defaut true, qu'importe l'option specifie, voyez le code ci-dessous
+                                <div class="codebox"><code class="language-js">
+                                    slide.addOption('previews',true)
+                                </code></div>
+                            </p>
+                            <p>
+                                Il peut etre ecrit ainsi
                                     <div class="codebox"><code class="language-js">
                                         slide.addOption('previews')
                                     </code></div>
                                 </em>
                             </p>
-                            Je peux specifier plusieurs options en meme temps
+                        </div>
+                        <div class="wrap">
+                            <h3>
+                                Je peux specifier plusieurs options en meme temps
+                            </h3>
                         </div>
                     </div>
                 </section>
