@@ -390,37 +390,59 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                                 Voici une liste des options actuellement disponible a partir de la version actuelle de xlidejs
                                 <ul>
                                     <li>
-                                        interval : (int) intervalle entre deux transitions (en secondes)
+                                        <h2>
+                                            interval :
+                                        </h2> (int) intervalle entre deux transitions (en secondes)
                                     </li>
                                     <li>
-                                        autoplay : (bool) le slider s'anime automatiquement ou non 
+                                        <h2>
+                                            autoplay :
+                                        </h2> (bool) le slider s'anime automatiquement ou non 
                                     </li>
                                     <li>
-                                        controls : (bool) des controls à notre slide pour changer d'image 
+                                        <h2>
+                                            controls :
+                                        </h2> (bool) des controls à notre slide pour changer d'image 
                                     </li>
                                     <li>
-                                        previews : (bool) des miniatures de chaque images du slide, similaire au controls mais avec des images 
+                                        <h2>
+                                            previews :
+                                        </h2> (bool) des miniatures de chaque images du slide, similaire au controls mais avec des images 
                                     </li>
                                     <li>
-                                        vertical : (bool) le slider défile , verticalement du haut vers le bas 
+                                        <h2>
+                                            vertical :
+                                        </h2> (bool) le slider défile , verticalement du haut vers le bas 
                                     </li>
                                     <li>
-                                        horizontal : (bool) le slider défile , horizontalement de la gauche vers la droite 
+                                        <h2>
+                                            horizontal :
+                                        </h2> (bool) le slider défile , horizontalement de la gauche vers la droite 
                                     </li>
                                     <li>
-                                        rotate : (bool) le slider défile en rotation 
+                                        <h2>
+                                            rotate :
+                                        </h2> (bool) le slider défile en rotation 
                                     </li>
                                     <li>
-                                        rvertical : (bool) le slider défile , verticalement du bas vers le haut 
+                                        <h2>
+                                            rvertical :
+                                        </h2> (bool) le slider défile , verticalement du bas vers le haut 
                                     </li>
                                     <li>
-                                        rhorizontal : (bool) le slider défile horizontalement, de la droite vers la gauche 
+                                        <h2>
+                                            rhorizontal :
+                                        </h2> (bool) le slider défile horizontalement, de la droite vers la gauche 
                                     </li>
                                     <li>
-                                        rrotate : (bool) le slider défile en rotation inverse 
+                                        <h2>
+                                            rrotate :
+                                        </h2> (bool) le slider défile en rotation inverse 
                                     </li>
                                     <li>
-                                        images : (Arr[str]) les images du slider (preferez utiliser la methode .addImages de l'objet xLide)
+                                        <h2>
+                                            images :
+                                        </h2> (Arr[str]) les images du slider (preferez utiliser la methode .addImages de l'objet xLide)
                                     </li>
                                 </ul>
                             </p>
@@ -436,21 +458,15 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                             <p>
                                 Par exemple si je veux changer la duree entre deux transitions:
 
-                                <div class="codebox"><pre><code class="language-js">
-                                    slide.addOption('interval',3)
-                                </code></pre></div>
+                                <div class="codebox"><pre><code class="language-js">slide.addOption('interval',3)</code></pre></div>
                             </p>
                             <p>
                                 Notez que `value` a pour valeur par defaut true, qu'importe l'option specifie, voyez le code ci-dessous
-                                <div class="codebox"><pre><code class="language-js">
-                                    slide.addOption('previews',true)
-                                </code></pre></div>
+                                <div class="codebox"><pre><code class="language-js">slide.addOption('previews',true)</code></pre></div>
                             </p>
                             <p>
                                 Il peut etre ecrit ainsi
-                                    <div class="codebox"><pre><code class="language-js">
-                                        slide.addOption('previews')
-                                    </code></pre></div>
+                                    <div class="codebox"><pre><code class="language-js">slide.addOption('previews')</code></pre></div>
                                 </em>
                             </p>
                         </div>
