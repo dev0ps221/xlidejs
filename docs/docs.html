@@ -318,7 +318,7 @@
                                     <pre>
                                         <code class="language-javascript">
 
-    const imgs = ['slidepics/slide1.png','slidepics/slide1.png'] //les urls des images
+    const imgs = ['slide1.png','slide2.png'] //les urls des images
     const selector = '#my-xlide'
     const options = {   images:imgs,    autoplay:1  }
     const slide = xlide(selector,options)
@@ -333,7 +333,7 @@
                                     <pre>
                                         <code class="language-javascript">
 
-    const imgs = ['slidepics/slide1.png','slidepics/slide1.png'] //les urls des images
+    const imgs = ['slide1.png','slide2.png'] //les urls des images
     const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })
 
                                         </code>
@@ -353,16 +353,21 @@
                                     <div class='codebox'>
                                         <pre>
                                             <code class="language-javascript">
-    
-    
     const slide = xlide()
-    slide.addImages(['slidepics/slide1.png','slidepics/slide1.png'])
-    slide.addOptions({   images:imgs,    autoplay:1  })                                                
+    slide.addImages(['slide1.png','slide2.png'])
+    slide.addOption('autoplay')                                                
     slide.appendTo(document.querySelector('#my-xlide'))
     
                                             </code>
                                         </pre>
                                     </div>
+                                    Petit bonus pour la route :
+                                    <div class="codebox">
+                                        <pre><code class="language-js">
+    //bonus
+    const slide = xlide('#my-xlide').addImages(['slide1.png','slide2.png']).addOption('autoplay')
+                                        </code></pre>
+                                    </div> 
                                 </p>
 
                             </p>
