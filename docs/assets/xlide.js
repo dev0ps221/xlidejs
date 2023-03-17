@@ -205,6 +205,7 @@ class xLide{
     addOption(option,value=true){
         this.options[option] = value
         this.processOption(option)
+        return this
     }
     addOptions(options={}){
         Object.keys(options).forEach(
@@ -214,6 +215,7 @@ class xLide{
 
             }
         )
+        return this
     }
     xlide(){
         this.slider.innerHTML = ''
@@ -282,6 +284,7 @@ class xLide{
             this.play_interval = this.options['interval']
             this.play()
         }
+        return this
 
     }
     
