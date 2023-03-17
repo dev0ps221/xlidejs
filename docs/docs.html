@@ -425,6 +425,33 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                                 </ul>
                             </p>
                         </div>
+                    <div class="docsection">
+                        <h2>
+                            Specifier une option
+                        </h2>
+                        <div class="wrap">
+                            <p>
+                                Pour ajouter une option a votre slide vous utiliserez la methode <span><code class="language-js">addOption</code></span> qui prend `option` (le nom de l'option) et `value` la valeur voulue comme parametres : <span><code class="language-js">slide.addOption(option,value)</code></span>
+                            </p>
+                            <p>
+                                Par exemple si je veux changer la duree entre deux transitions:
+
+                                <div class="codebox"><code class="language-js">
+                                    slide.addOption('interval',3)
+                                </code></div>
+                                <em>
+                                    //Noter que `value` a pour valeur par defaut true, qu'importe l'option specifie, le code ci-dessous
+                                    <div class="codebox"><code class="language-js">
+                                        slide.addOption('previews',true)
+                                    </code></div>
+                                    //peut etre ecrit ainsi
+                                    <div class="codebox"><code class="language-js">
+                                        slide.addOption('previews')
+                                    </code></div>
+                                </em>
+                            </p>
+                            Je peux specifier plusieurs options en meme temps
+                        </div>
                     </div>
                 </section>
                 <section class="docchapter" id="advanced">
