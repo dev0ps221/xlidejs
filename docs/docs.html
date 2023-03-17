@@ -243,7 +243,7 @@
                                 Inclure le fichier css
                             </h3>
                             <p>
-                                Maintenant nous devez lier le fichier xlide.css au projet ainsi:
+                                Maintenant vous devez lier le fichier xlide.css au projet ainsi:
                                 <div class='codebox'>
                                     <pre>
                                         <code class="language-html">
@@ -286,14 +286,14 @@
                                 Creeons le slide : Le code javascript
                             </h3>
                             <p>
-                                Notre action suivante repose sur 2 concepts: la selection et la configuration:
+                                votre action suivante repose sur 2 concepts: la selection et la configuration:
                                 <ul>
                                     <li>
                                         <h5>
                                             la selection:
                                         </h5>
                                         <p>
-                                            est juste la designation de l'element qui va contenir notre slider.
+                                            la designation de l'element qui va contenir votre slider.
                                         </p>
                                     </li>
                                     <li>
@@ -301,11 +301,13 @@
                                             la selection:
                                         </h5>
                                         <p>
-                                            est juste la designation de l'element qui va contenir notre slider.
+                                            la configuration ou parametrage de votre slider.
                                         </p>
                                     </li>
                                 </ul>
-                                Pour ce faire, la librairie nous fournit fonction <span> <code class="language-js"> xlide </code> </span>.<br/>
+                                Pour ce faire, la librairie vous fournit fonction <span> <code class="language-js"> xlide </code> </span>.
+                            </p>
+                            <p>
                                 Cette fonction prend 2 arguments : 
                                 <ul>
                                     <li>
@@ -345,15 +347,15 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                         </h2>
                         <div class="wrap">
                             <p>
-                                Pour une meilleure prise en main, la fonction renvoie un objet <span><code class="language-js">xLide</code></span> qui nous permet de manipuler le slider et de le configurer a notre guise.
-                                C'est la principale raison pour laquelle nous affectons sa valeur de retour a notre variable <em>slide</em> <span><code class="language-js">const slide = xlide(..)</code></span>
+                                Pour une meilleure prise en main, la fonction renvoie un objet <span><code class="language-js">xLide</code></span> qui vous permet de manipuler le slider et de le configurer a votre guise.
+                                C'est la principale raison pour laquelle vous affectez sa valeur de retour a votre variable <em>slide</em> <span><code class="language-js">const slide = xlide(..)</code></span>
                             </p>
                             <p>
                                 <h4>
                                     Les arguments de la fonction <span><code class="language-js">xlide</code></span> sont facultatifs.
                                 </h4>
                                 <p>
-                                    Nous aurions tres bien pu appeler la fonction sans argument. Dans ce cas la selection et la configuration se font respectivement avec les methodes <span><code class="language-js">appendTo</code></span> , <span><code class="language-js">addImages</code></span> et <span><code class="language-js">addOption</code></span> de notre objet xLide
+                                    vous auriez tres bien pu appeler la fonction sans argument. Dans ce cas la selection et la configuration se font respectivement avec les methodes <span><code class="language-js">appendTo</code></span> , <span><code class="language-js">addImages</code></span> et <span><code class="language-js">addOption</code></span> de votre objet xLide
                                     <div class='codebox'>
                                         <pre>
     <code class="language-javascript">const slide = xlide()
