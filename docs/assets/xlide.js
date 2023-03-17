@@ -59,6 +59,7 @@ class xLide{
                 }
             )
         }
+        return this
     }
     hasCtrlBar(){
         return this.checkOption('controls') || this.checkOption('previews')
@@ -125,6 +126,7 @@ class xLide{
                 this.xlide()
             }
         }
+        return this
     }
     delImages(images){
         images.forEach(
@@ -133,6 +135,7 @@ class xLide{
                 this.xlide()
             }
         )
+        return this
     }
     addImage(image,refresh=1){
         if(!this.checkOption('images')) this.options['images'] = []
@@ -140,6 +143,7 @@ class xLide{
         if(refresh){
             this.xlide()
         }
+        return this
     }
     addImages(images){
         images.forEach(
@@ -150,6 +154,7 @@ class xLide{
         if(images.length){
             this .xlide()
         }
+        return this
     }
     processOption(option){
         if(this.checkOption(option)){
@@ -187,12 +192,15 @@ class xLide{
             }
             this.xlide()
         }
+        return this
     }
     setOption(option,value){
         this.addOption(option,value)
+        return this
     }
     setOptions(options){
         this.setOptions(options)
+        return this
     }
     addOption(option,value=true){
         this.options[option] = value
