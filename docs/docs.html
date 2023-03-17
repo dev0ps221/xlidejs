@@ -132,6 +132,10 @@
             top: 0;
             padding: 0;
         }
+        #docs .docchapter{
+            min-height: 15vh;
+            margin-bottom:calc(var(--section-inline-pad)/2);
+        }
         #docs .docsection{
             position: relative;
             isolation: isolate;
@@ -178,7 +182,7 @@
                 </ul>
             </aside>
             <section>
-                <section class="docsections" id="commencer">
+                <section class="docchapter" id="commencer">
                     <h2>
                         Commencer
                     </h2>
@@ -376,12 +380,12 @@ const slide = xlide('#my-xlide',{   images:imgs,    autoplay:1  })</code>
                         </div>
                     </section>
                 </section>
-                <section class="docsections" id="options">
+                <section class="docchapter" id="options">
                     <h2>
                         Options
                     </h2>
                 </section>
-                <section class="docsections" id="advanced">
+                <section class="docchapter" id="advanced">
                     <h2>
                         Avance
                     </h2>
