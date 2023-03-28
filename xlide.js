@@ -312,9 +312,9 @@ class xLide{
         //moves to the previous slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
         if(slidenumber > 0){
-            this.slideTo(slidenumber-this.checkOption('slidesPerView')?this.options['slidesPerView']:1)
+            this.slideTo(slidenumber-this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1)
         }else{
-            this.slideTo(this.items.length-(this.checkOption('slidesPerView')?this.options['slidesPerView']:1))
+            this.slideTo(this.items.length-(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1))
         }
         return this
     }
@@ -322,8 +322,12 @@ class xLide{
     nextSlide(){
         //moves to the next slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
-        if(slidenumber+(this.checkOption('slidesPerView')?this.options['slidesPerView']:1) < this.items.length){
-            this.slideTo(slidenumber+(this.checkOption('slidesPerView')?this.options['slidesPerView']:1))
+        if(slidenumber+(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1) < this.items.length){
+            if(((this.items.length-(slidenumber+(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1)))+1) > ((this.checkOption('slidesPerView')?this.options['slidesPerView']:1))){
+                this.slideTo(slidenumber+(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1))
+            }else{
+                this.slideTo(0)
+            }
         }else{
             this.slideTo(0)
         }
@@ -541,6 +545,7 @@ class xLide{
         this.wrapper = document.createElement('div')
         this.target.classList.add('xlide')
         this.wrapper.classList.add('wrapper')
+        this.options['slidesPerMove'] = 1
         this.xlide()
         return this
     }
