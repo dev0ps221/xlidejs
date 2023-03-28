@@ -545,8 +545,11 @@ class xLide{
         this.wrapper = document.createElement('div')
         this.target.classList.add('xlide')
         this.wrapper.classList.add('wrapper')
-        this.options['slidesPerMove'] = 1
+        this.options['slidesPerMove'] = this.checkOption('slidesPerMove') ? this.options['slidesPerMove'] : 1
         this.xlide()
+        while(parseInt(this.items.length/this.options['slidesPerMove']) <= 1){
+            this.options['slidesPerMove']--;
+        }
         return this
     }
 }
