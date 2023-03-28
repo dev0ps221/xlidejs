@@ -29,7 +29,7 @@ class xLide{
                         if(this.matchHtmlElem(img)){
                             item.appendChild(img)
                         }else{
-                            if(img.hasOwnProperty['img']){
+                            if(img.hasOwnProperty('img')){
                                 const slideimg = document.createElement('img')
                                 slideimg.src = img['img']+"?t="+new Date().getTime()
                                 item.appendChild(slideimg)
@@ -59,6 +59,7 @@ class xLide{
                 }
             )
         }
+        this.setSlideVar('--slidesPerView', this.checkOption('slidesPerView')?this.options['slidesPerView']:1)
         return this
     }
     hasCtrlBar(){
@@ -296,7 +297,14 @@ class xLide{
         this.justSlide()
         this.slidesOut()
         this.slideIn(position)
-        
+        let actuallyIn = 1
+        let slidesIn = (this.checkOption('slidesPerView')?this.options['slidesPerView']:1) - actuallyIn
+        while (slidesIn > 0){
+            this.slideIn(position+actuallyIn)
+            this.enablepreview(position+actuallyIn)
+            actuallyIn++
+            slidesIn = (this.checkOption('slidesPerView')?this.options['slidesPerView']:1) - actuallyIn
+        }
         return this
     }
 
@@ -304,9 +312,9 @@ class xLide{
         //moves to the previous slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
         if(slidenumber > 0){
-            this.slideTo(slidenumber-1)
+            this.slideTo(slidenumber-this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1)
         }else{
-            this.slideTo(this.items.length-1)
+            this.slideTo(this.items.length-(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1))
         }
         return this
     }
@@ -314,8 +322,12 @@ class xLide{
     nextSlide(){
         //moves to the next slide
         const slidenumber = parseInt(getComputedStyle(this.slider).getPropertyValue('--slide-position'))
-        if(slidenumber+1 < this.items.length){
-            this.slideTo(slidenumber+1)
+        if(slidenumber+(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1) < this.items.length){
+            if(((this.items.length-(slidenumber+(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1)))+1) > ((this.checkOption('slidesPerView')?this.options['slidesPerView']:1))){
+                this.slideTo(slidenumber+(this.checkOption('slidesPerMove')?this.options['slidesPerMove']:1))
+            }else{
+                this.slideTo(0)
+            }
         }else{
             this.slideTo(0)
         }
@@ -533,7 +545,11 @@ class xLide{
         this.wrapper = document.createElement('div')
         this.target.classList.add('xlide')
         this.wrapper.classList.add('wrapper')
+        this.options['slidesPerMove'] = this.checkOption('slidesPerMove') ? this.options['slidesPerMove'] : 1
         this.xlide()
+        while(parseInt(this.items.length/this.options['slidesPerMove']) <= 1){
+            this.options['slidesPerMove']--;
+        }
         return this
     }
 }

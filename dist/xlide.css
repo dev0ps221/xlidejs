@@ -46,7 +46,7 @@
     isolation: isolate;
     display: grid;
     background:#777;
-    min-width: 100%;
+    min-width: calc(100% / var(--slidesPerView));
     min-height: calc(var(--slide-height));
     transform:translateX(
         calc(
@@ -112,8 +112,6 @@
     text-shadow: 0 0 5px #2228;
 }
 .xlide .controlbar{
-    position: relative;
-    isolation: isolate;
     display:flex;
     width:100%;
     justify-content:space-between;
