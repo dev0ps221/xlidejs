@@ -82,5 +82,14 @@ if(liste_exemples){
     }
     let slide_exemple7 = xlide('.exemple7',optionsExemple7)
 
+    const optionsExemple8 = {
+        images:images,
+        interval:4,
+        autoplay:1,
+        controls:1,
+        slidesPerView:3,
+    }
+    let slide_exemple8 = xlide('.exemple8',optionsExemple8)
+
 
 }
