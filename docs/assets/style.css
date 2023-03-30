@@ -59,6 +59,7 @@ header #heading{
 header #heading > img{
     position:absolute;
     z-index: -1;
+    height: var(--header-height);
 }
 header #heading > *{
     width: 100%;
