@@ -56,6 +56,10 @@ header #heading{
     justify-items: center;
     isolation: isolate;
 }
+
+header > img{
+    height: var(--header-height) !important;
+}
 header #heading > img{
     position:absolute;
     z-index: -1;
